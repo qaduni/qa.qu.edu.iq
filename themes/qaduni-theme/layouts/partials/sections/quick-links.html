@@ -1,0 +1,44 @@
+{{ $sustainability := .Site.Params.externalServices.sustainability }}
+{{ $journal := .Site.Params.externalServices.electronicJournal }}
+{{ $nadwati := .Site.Params.externalServices.nadwati }}
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>{{ i18n "quick_links" }}</h2>
+            <p>{{ i18n "quick_links_subtitle" }}</p>
+        </div>
+
+        <div class="quick-links">
+            <a href="{{ "/performance-evaluation/forms-2024-2025/" | relLangURL }}" class="quick-link">
+                <div class="quick-link-icon">
+                    <svg width="24" height="24"><use href="#icon-document"></use></svg>
+                </div>
+                <span class="quick-link-text">{{ i18n "ql_evaluation_forms" }}</span>
+            </a>
+            <a href="{{ "/performance-evaluation/manual/" | relLangURL }}" class="quick-link">
+                <div class="quick-link-icon">
+                    <svg width="24" height="24"><use href="#icon-book"></use></svg>
+                </div>
+                <span class="quick-link-text">{{ i18n "ql_guidance_manual" }}</span>
+            </a>
+            <a href="{{ "/performance-evaluation/surveys/" | relLangURL }}" class="quick-link">
+                <div class="quick-link-icon">
+                    <svg width="24" height="24"><use href="#icon-users"></use></svg>
+                </div>
+                <span class="quick-link-text">{{ i18n "ql_surveys" }}</span>
+            </a>
+            <a href="{{ "/lab-accreditation/safety/" | relLangURL }}" class="quick-link">
+                <div class="quick-link-icon">
+                    <svg width="24" height="24"><use href="#icon-award"></use></svg>
+                </div>
+                <span class="quick-link-text">{{ i18n "ql_lab_safety" }}</span>
+            </a>
+            <a href="{{ "/standards/" | relLangURL }}" class="quick-link">
+                <div class="quick-link-icon">
+                    <svg width="24" height="24"><use href="#icon-document"></use></svg>
+                </div>
+                <span class="quick-link-text">{{ i18n "ql_standards" }}</span>
+            </a>
+        </div>
+    </div>
+</section>

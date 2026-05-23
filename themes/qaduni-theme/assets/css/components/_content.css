@@ -1,0 +1,35 @@
+/* Content Styles */
+#main-content {
+    min-height: calc(100vh - 200px);
+}
+
+.content-wrapper {
+    padding: var(--spacing-3xl) 0;
+}
+
+.article-content {
+    max-width: 80ch;
+}
+
+.article-content h2 {
+    margin-top: var(--spacing-2xl);
+}
+
+.article-content h3 {
+    margin-top: var(--spacing-xl);
+}
+
+.article-content ul,
+.article-content ol {
+    margin-bottom: var(--spacing-lg);
+    padding-inline-start: var(--spacing-xl);
+}
+
+.article-content li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-content img {
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-xl) 0;
+}

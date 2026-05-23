@@ -1,0 +1,11 @@
+# Pagefind Configuration
+# Only index news and announcements content
+
+glob: "**/media/{news,announcements}/**/*.html"
+exclude_selectors:
+  - "nav"
+  - "header"
+  - "footer"
+  - ".pagination"
+  - ".sr-only"
+  - "[aria-hidden=true]"

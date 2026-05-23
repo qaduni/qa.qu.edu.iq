@@ -1,0 +1,82 @@
+baseURL = 'https://qg.qu.edu.iq/'
+locale = 'ar'
+defaultContentLanguage = 'ar'
+title = "قسم ضمان الجودة والأداء الجامعي - جامعة القادسية"
+buildFuture = true
+theme = "qaduni-theme"
+
+#[module]
+#  [[module.mounts]]
+#    source = "static"
+#    target = "static"
+
+[pagination]
+  pagerSize = 10
+
+[languages]
+  [languages.ar]
+    label = "العربية"
+    weight = 1
+    direction = "rtl"
+    title = "قسم ضمان الجودة والأداء الجامعي"
+    locale = "ar"
+
+    [languages.ar.params]
+      description = "قسم ضمان الجودة والأداء الجامعي في جامعة القادسية - يعنى بتطبيق معايير الجودة والاعتماد المؤسسي والبرامجي وتقويم الأداء"
+      shortTitle = "قسم ضمان الجودة"
+      parentName = "جامعة القادسية"
+      parentURL = "https://qu.edu.iq"
+
+  [languages.en]
+    label = "English"
+    weight = 2
+    direction = "ltr"
+    title = "QA & University Performance Department"
+    locale = "en"
+
+    [languages.en.params]
+      description = "Quality Assurance and University Performance Department at Al-Qadisiyah University — applying quality standards, accreditation, and performance evaluation"
+      shortTitle = "Quality Assurance Department"
+      parentName = "Al-Qadisiyah University"
+      parentURL = "https://qu.edu.iq"
+
+[params]
+  campusMapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6502.660195112489!2d44.883365968265096!3d32.00224502089407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1558afd2a592f539%3A0x61917012d800ef85!2z2KzYp9mF2LnYqSDYp9mE2YLYp9iv2LPZitip!5e0!3m2!1sar!2siq!4v1768745727385!5m2!1sar!2siq"
+
+  [params.contact]
+    email = "qu.assurance@qu.edu.iq"
+    phone = ""
+    address_ar = "جامعة القادسية، الديوانية، محافظة القادسية، العراق"
+    address_en = "Al-Qadisiyah University, Al-Diwaniyah, Al-Qadisiyah Province, Iraq"
+
+  [params.social]
+    facebook = "https://facebook.com/qu.edu.iq"
+    twitter = "https://twitter.com/qu_edu_iq"
+    youtube = "https://youtube.com/qu_edu_iq"
+    instagram = "https://instagram.com/qu_edu_iq"
+
+  [params.externalServices]
+    universityMain = "https://qu.edu.iq"
+    sustainability = "https://sust.qu.edu.iq"
+    electronicJournal = "https://jor.rdd.edu.iq"
+    nadwati = "https://nadwati.rdd.edu.iq"
+    repository = "https://dspace.qu.edu.iq"
+    chatbot = "https://chat.qu.edu.iq"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Strapi authors are trusted, but keep this 'false' so a compromised CMS
+      # account can't inject raw <script>/<iframe>/on-event handlers via
+      # markdown bodies.
+      unsafe = false
+
+[outputs]
+  home = ["HTML", "RSS", "sitemap", "WebAppManifest"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

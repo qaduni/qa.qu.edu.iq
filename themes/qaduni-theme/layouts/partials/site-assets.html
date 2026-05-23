@@ -1,0 +1,25 @@
+{{- /*
+  site-assets.html — Resolve theme image assets (logo, hero) through Hugo Pipes
+  and return a dict of permalinks. The files live in assets/images/ and only
+  appear in public/ once .RelPermalink / .Permalink is read here, so this
+  partial is the single source of truth for those URLs.
+
+  Use via partialCached so each resource is published once per build:
+
+      {{ $assets := partialCached "site-assets.html" . }}
+      <img src="{{ $assets.logoPNG }}">
+
+  Fail-loud: if a file is missing under assets/images/, accessing .RelPermalink
+  on a nil resource will error at build time. That's preferable to silently
+  emitting <img src=""> in shipped HTML.
+*/ -}}
+{{- $logoPNG  := resources.Get "images/logo.png"  -}}
+{{- $logoWebP := resources.Get "images/logo.webp" -}}
+{{- $hero     := resources.Get "images/hero.webp" -}}
+{{- return dict
+    "logoPNG"     $logoPNG.RelPermalink
+    "logoPNGAbs"  $logoPNG.Permalink
+    "logoWebP"    $logoWebP.RelPermalink
+    "logoWebPAbs" $logoWebP.Permalink
+    "hero"        $hero.RelPermalink
+-}}

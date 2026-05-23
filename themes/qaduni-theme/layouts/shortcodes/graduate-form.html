@@ -1,0 +1,92 @@
+{{- /* Refuse to render the form when graduateFormEndpoint isn't configured
+       in hugo.toml — a POST to "#" reloads the page and drops all fields
+       silently. Show a mailto fallback instead. See HI-04 in REVIEW.md. */ -}}
+{{- $action := .Site.Params.graduateFormEndpoint -}}
+{{- $email := .Site.Params.contact.email -}}
+{{- if not $action -}}
+<div class="form-disabled-note" role="status">
+  <p>{{ i18n "graduate_form_unavailable" }}
+  {{ with $email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}</p>
+</div>
+{{- else -}}
+<form class="graduate-form" action="{{ $action }}" method="POST">
+  <h3>{{ i18n "form_section_personal" }}</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fullName">{{ i18n "form_name" }} *</label>
+      <input type="text" id="fullName" name="fullName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">{{ i18n "form_email" }} *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="phone">{{ i18n "form_phone" }} *</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="graduationYear">{{ i18n "form_graduation_year" }} *</label>
+      <select id="graduationYear" name="graduationYear" required>
+        <option value="">{{ i18n "form_year_choose" }}</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="older">{{ i18n "form_year_older" }}</option>
+      </select>
+    </div>
+  </div>
+
+  <h3>{{ i18n "form_section_academic" }}</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="college">{{ i18n "form_college" }} *</label>
+      <select id="college" name="college" required>
+        <option value="">{{ i18n "form_college_choose" }}</option>
+        <option value="medicine">{{ i18n "form_college_medicine" }}</option>
+        <option value="engineering">{{ i18n "form_college_engineering" }}</option>
+        <option value="science">{{ i18n "form_college_science" }}</option>
+        <option value="cs">{{ i18n "form_college_cs" }}</option>
+        <option value="law">{{ i18n "form_college_law" }}</option>
+        <option value="education">{{ i18n "form_college_education" }}</option>
+        <option value="other">{{ i18n "form_college_other" }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="department">{{ i18n "form_department" }} *</label>
+      <input type="text" id="department" name="department" required>
+    </div>
+  </div>
+
+  <h3>{{ i18n "form_section_employment" }}</h3>
+  <div class="form-group">
+    <label for="employmentStatus">{{ i18n "form_employment_status" }} *</label>
+    <select id="employmentStatus" name="employmentStatus" required>
+      <option value="">{{ i18n "form_status_choose" }}</option>
+      <option value="employed">{{ i18n "form_status_employed" }}</option>
+      <option value="self-employed">{{ i18n "form_status_self_employed" }}</option>
+      <option value="unemployed">{{ i18n "form_status_unemployed" }}</option>
+      <option value="student">{{ i18n "form_status_student" }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="employer">{{ i18n "form_employer" }}</label>
+    <input type="text" id="employer" name="employer">
+  </div>
+  <div class="form-group">
+    <label for="jobTitle">{{ i18n "form_job_title" }}</label>
+    <input type="text" id="jobTitle" name="jobTitle">
+  </div>
+
+  <h3>{{ i18n "form_section_feedback" }}</h3>
+  <div class="form-group">
+    <label for="feedback">{{ i18n "form_feedback_label" }}</label>
+    <textarea id="feedback" name="feedback" rows="4"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg">{{ i18n "form_submit_survey" }}</button>
+</form>
+{{- end -}}

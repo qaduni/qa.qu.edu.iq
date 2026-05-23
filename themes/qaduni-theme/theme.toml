@@ -1,0 +1,18 @@
+name = "qu-base"
+license = "MIT"
+licenselink = "https://github.com/qu-edu-iq/qu-base/blob/master/LICENSE"
+description = "Base theme for Al-Qadisiyah University websites"
+homepage = "https://qu.edu.iq"
+# Bumped from 0.110.0 to 0.124.0 to cover everything the templates use:
+# hugo.Data (0.117), per-language `locale` key for ICU formatting (0.124),
+# and the translation-by-filename multiple_files convention paired with
+# Sveltia. See IN-01 in REVIEW.md.
+min_version = "0.124.0"
+
+[author]
+  name = "Al-Qadisiyah University"
+  homepage = "https://qu.edu.iq"
+
+[params]
+  rtl_support = true
+  multilingual = true

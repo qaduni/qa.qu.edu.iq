@@ -1,0 +1,155 @@
+# =============================================================================
+# Hero
+# =============================================================================
+welcome_message: "QA & University Performance Department"
+department_description: "We work to embed a culture of quality at Al-Qadisiyah University, apply local, regional and international standards across teaching and research, and manage institutional and programmatic accreditation as well as performance evaluation."
+explore_about: "About the Department"
+learn_more: "Learn More"
+parent_university: "Back to the university site"
+internationally_accredited: "Quality Assurance & Accreditation"
+
+# =============================================================================
+# Homepage Sections
+# =============================================================================
+quick_links: "Quick Links"
+quick_links_subtitle: "Quick access to the most requested services and documents"
+ql_evaluation_forms: "Evaluation forms"
+ql_guidance_manual: "Guidance manual"
+ql_surveys: "Surveys"
+ql_lab_safety: "Laboratory safety"
+ql_standards: "Guides & standards"
+
+# News
+latest_news: "Latest News"
+news_subtitle: "Stay up to date with the department's activities, events and achievements"
+coming_soon: "Coming Soon"
+stay_tuned: "Stay tuned for latest news and events"
+all_news: "All News"
+announcements: "Announcements"
+announcements_subtitle: "Latest official announcements and circulars"
+important: "Important"
+no_announcements: "No announcements"
+stay_tuned_announcements: "Stay tuned for upcoming announcements"
+all_announcements: "All Announcements"
+
+# Services section
+services_title: "Departmental Services"
+services_subtitle: "Services the Quality Assurance Department provides to the university's colleges and centres"
+service_evaluation: "Performance Evaluation"
+service_evaluation_desc: "Annual forms for evaluating colleges, centres and administrative departments"
+service_accreditation: "Accreditation"
+service_accreditation_desc: "Supporting colleges in preparing national and international accreditation files"
+service_rankings: "Rankings"
+service_rankings_desc: "Tracking the university's position in international and Arab rankings"
+service_labs: "Laboratory Accreditation"
+service_labs_desc: "Pursuing ISO/IEC 17025 laboratory accreditation and disseminating safety standards"
+view_details: "Details"
+
+# Contact
+have_question: "A question about quality or accreditation?"
+contact_subtitle: "The department team is ready to answer your questions and provide the support you need"
+contact_us: "Contact"
+today_visitors: "Today's Visitors"
+total_visitors: "Total Visitors"
+online_now: "Online Now"
+
+# =============================================================================
+# Navigation — short labels (the long ones push the language switcher off-screen)
+# =============================================================================
+home: "Home"
+about: "About"
+department_structure: "Department Structure"
+department_vision: "Vision"
+department_tasks: "Tasks"
+
+classifications: "Rankings"
+international_rankings: "International"
+arab_rankings: "Arab"
+iru_ranking: "Iraqi (IRU)"
+
+accreditations: "Accreditation"
+institutional_accreditation: "Institutional"
+programmatic_accreditation: "Programmatic"
+iso_accreditation: "ISO"
+memberships: "Memberships"
+
+sustainability_site: "Sustainability"
+
+performance_evaluation: "Evaluation"
+forms_2024_2025: "Forms 2024-2025"
+forms_2023_2024: "Forms 2023-2024"
+guidance_manual: "Guidance Manual"
+surveys: "Surveys"
+
+lab_accreditation: "Labs"
+lab_inventory: "Inventory"
+lab_documents: "Documents"
+lab_reality: "Lab Landscape"
+lab_safety: "Safety"
+
+news_announcements: "News"
+
+# =============================================================================
+# Footer
+# =============================================================================
+contact_info: "Contact Info"
+all_rights_reserved: "All rights reserved"
+sitemap: "Sitemap"
+accessibility: "Accessibility"
+security: "Security"
+official_domain: "Official Domain"
+official_email: "Official Email"
+useful_links: "Useful Links"
+related_services: "Related Links"
+privacy_policy: "Privacy Policy"
+
+# =============================================================================
+# Forms (contact + graduate-survey shortcodes)
+# =============================================================================
+form_name: "Full Name"
+form_email: "Email Address"
+form_phone: "Phone Number"
+form_subject: "Subject"
+form_subject_choose: "Select Subject"
+form_subject_admission: "Question about accreditation"
+form_subject_academic: "Question about performance evaluation"
+form_subject_students: "Question about rankings"
+form_subject_technical: "Technical Support"
+form_subject_other: "Other"
+form_message: "Message"
+form_submit_contact: "Send Message"
+form_section_personal: "Personal Information"
+form_section_academic: "Academic Information"
+form_section_employment: "Current Employment Status"
+form_section_feedback: "Feedback"
+form_graduation_year: "Graduation Year"
+form_year_choose: "Select Year"
+form_year_older: "Before 2021"
+form_college: "College"
+form_college_choose: "Select College"
+form_college_medicine: "Medicine"
+form_college_engineering: "Engineering"
+form_college_science: "Science"
+form_college_cs: "Computer Science"
+form_college_law: "Law"
+form_college_education: "Education"
+form_college_other: "Other"
+form_department: "Department"
+form_employment_status: "Employment Status"
+form_status_choose: "Select Status"
+form_status_employed: "Employed"
+form_status_self_employed: "Self-Employed"
+form_status_unemployed: "Job Seeking"
+form_status_student: "Postgraduate Student"
+form_employer: "Employer (if applicable)"
+form_job_title: "Job Title"
+form_feedback_label: "Your feedback on the academic program"
+form_submit_survey: "Submit Survey"
+
+contact_form_unavailable: "The contact form is not currently enabled. Please email the department directly at:"
+graduate_form_unavailable: "The graduate survey is not currently enabled. To participate, please email us at:"
+
+# =============================================================================
+# Map shortcode
+# =============================================================================
+map_title: "Al-Qadisiyah University location map"

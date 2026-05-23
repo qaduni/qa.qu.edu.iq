@@ -1,0 +1,155 @@
+# =============================================================================
+# Hero
+# =============================================================================
+welcome_message: "قسم ضمان الجودة والأداء الجامعي"
+department_description: "نسعى إلى ترسيخ ثقافة الجودة في جامعة القادسية، وتطبيق المعايير المحلية والإقليمية والدولية في التعليم والبحث العلمي، ومتابعة الاعتماد المؤسسي والبرامجي وتقويم الأداء."
+explore_about: "تعرف على القسم"
+learn_more: "اقرأ المزيد"
+parent_university: "العودة إلى موقع الجامعة"
+internationally_accredited: "ضمان الجودة والاعتماد"
+
+# =============================================================================
+# Homepage Sections
+# =============================================================================
+quick_links: "روابط سريعة"
+quick_links_subtitle: "الوصول السريع لأكثر الخدمات والوثائق طلباً"
+ql_evaluation_forms: "استمارات تقويم الأداء"
+ql_guidance_manual: "الدليل الإرشادي"
+ql_surveys: "الاستبانات"
+ql_lab_safety: "السلامة المختبرية"
+ql_standards: "أدلة ومعايير"
+
+# News
+latest_news: "آخر الأخبار"
+news_subtitle: "تابع آخر الأنشطة والفعاليات والإنجازات في القسم"
+coming_soon: "قريباً"
+stay_tuned: "ترقبوا آخر الأخبار والفعاليات"
+all_news: "جميع الأخبار"
+announcements: "الإعلانات"
+announcements_subtitle: "آخر الإعلانات والتعميمات الرسمية"
+important: "مهم"
+no_announcements: "لا توجد إعلانات"
+stay_tuned_announcements: "ترقبوا الإعلانات القادمة"
+all_announcements: "جميع الإعلانات"
+
+# Services section
+services_title: "خدمات القسم"
+services_subtitle: "خدمات يقدمها قسم ضمان الجودة لكليات الجامعة ومراكزها"
+service_evaluation: "تقويم الأداء"
+service_evaluation_desc: "استمارات سنوية لتقويم أداء الكليات والمراكز والأقسام الإدارية"
+service_accreditation: "الاعتماد"
+service_accreditation_desc: "دعم الكليات في إعداد ملفات الاعتماد الوطني والدولي"
+service_rankings: "التصنيفات"
+service_rankings_desc: "متابعة موقع الجامعة في التصنيفات العالمية والعربية"
+service_labs: "اعتماد المختبرات"
+service_labs_desc: "متابعة اعتماد المختبرات وفق ISO/IEC 17025 ونشر معايير السلامة"
+view_details: "التفاصيل"
+
+# Contact
+have_question: "لديكم استفسار حول الجودة والاعتماد؟"
+contact_subtitle: "فريق القسم جاهز للإجابة على استفساراتكم وتقديم الدعم اللازم"
+contact_us: "تواصلوا معنا"
+today_visitors: "زوار اليوم"
+total_visitors: "إجمالي الزوار"
+online_now: "متصل الآن"
+
+# =============================================================================
+# Navigation
+# =============================================================================
+home: "الرئيسية"
+about: "عن القسم"
+department_structure: "هيكلية القسم"
+department_vision: "رؤية القسم"
+department_tasks: "مهام القسم"
+
+classifications: "التصنيفات"
+international_rankings: "التصنيفات العالمية"
+arab_rankings: "التصنيفات العربية"
+iru_ranking: "التصنيف العراقي IRU"
+
+accreditations: "الاعتمادات"
+institutional_accreditation: "الاعتماد المؤسسي"
+programmatic_accreditation: "الاعتماد البرامجي"
+iso_accreditation: "اعتمادات ISO"
+memberships: "العضويات"
+
+sustainability_site: "موقع الاستدامة"
+
+performance_evaluation: "تقويم الأداء"
+forms_2024_2025: "استمارات 2024-2025"
+forms_2023_2024: "استمارات 2023-2024"
+guidance_manual: "الدليل الإرشادي"
+surveys: "الاستبانات"
+
+lab_accreditation: "اعتماد المختبرات"
+lab_inventory: "جرد المختبرات"
+lab_documents: "وثائق ومستندات"
+lab_reality: "واقع المختبرات"
+lab_safety: "السلامة المختبرية"
+
+news_announcements: "الأخبار"
+
+# =============================================================================
+# Footer
+# =============================================================================
+contact_info: "معلومات الاتصال"
+all_rights_reserved: "جميع الحقوق محفوظة"
+sitemap: "خريطة الموقع"
+accessibility: "إمكانية الوصول"
+security: "الأمان"
+official_domain: "النطاق الرسمي"
+official_email: "البريد الرسمي"
+useful_links: "روابط مفيدة"
+related_services: "روابط ذات صلة"
+privacy_policy: "سياسة الخصوصية"
+
+# =============================================================================
+# Forms (contact + graduate-survey shortcodes)
+# =============================================================================
+form_name: "الاسم الكامل"
+form_email: "البريد الإلكتروني"
+form_phone: "رقم الهاتف"
+form_subject: "الموضوع"
+form_subject_choose: "اختر الموضوع"
+form_subject_admission: "استفسار عن الاعتماد"
+form_subject_academic: "استفسار عن تقويم الأداء"
+form_subject_students: "استفسار عن التصنيفات"
+form_subject_technical: "الدعم الفني"
+form_subject_other: "أخرى"
+form_message: "الرسالة"
+form_submit_contact: "إرسال الرسالة"
+form_section_personal: "البيانات الشخصية"
+form_section_academic: "البيانات الأكاديمية"
+form_section_employment: "الوضع المهني الحالي"
+form_section_feedback: "ملاحظات"
+form_graduation_year: "سنة التخرج"
+form_year_choose: "اختر السنة"
+form_year_older: "قبل 2021"
+form_college: "الكلية"
+form_college_choose: "اختر الكلية"
+form_college_medicine: "الطب"
+form_college_engineering: "الهندسة"
+form_college_science: "العلوم"
+form_college_cs: "علوم الحاسوب"
+form_college_law: "القانون"
+form_college_education: "التربية"
+form_college_other: "أخرى"
+form_department: "القسم"
+form_employment_status: "حالة التوظيف"
+form_status_choose: "اختر الحالة"
+form_status_employed: "موظف"
+form_status_self_employed: "عمل حر"
+form_status_unemployed: "باحث عن عمل"
+form_status_student: "طالب دراسات عليا"
+form_employer: "جهة العمل (إن وجدت)"
+form_job_title: "المسمى الوظيفي"
+form_feedback_label: "ملاحظاتكم حول البرنامج الأكاديمي"
+form_submit_survey: "إرسال الاستبيان"
+
+contact_form_unavailable: "نموذج الاتصال غير مفعّل حالياً. يرجى التواصل مع القسم مباشرة عبر البريد الإلكتروني:"
+graduate_form_unavailable: "استبيان الخريجين غير مفعّل حالياً. للمشاركة، يرجى التواصل عبر البريد الإلكتروني:"
+
+# =============================================================================
+# Map shortcode
+# =============================================================================
+map_title: "خريطة موقع جامعة القادسية"

@@ -1,0 +1,12 @@
+{
+  "name": "qu-edu-iq",
+  "version": "1.0.0",
+  "description": "Al-Qadisiyah University Hugo Websites",
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo --gc --minify && pagefind --site public"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
+  }
+}

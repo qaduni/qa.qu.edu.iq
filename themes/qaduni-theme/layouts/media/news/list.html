@@ -1,0 +1,331 @@
+{{ define "main" }}
+{{ $isAr := eq .Language.Lang "ar" }}
+{{/* data-pagefind-ignore="all" prevents the list page (and its /page/N/ paginated
+     variants) from showing up in Pagefind results — single articles are the only
+     records we want indexed. */}}
+<div data-pagefind-ignore="all">
+<section class="page-header">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="{{ .Site.Home.RelPermalink }}">{{ if $isAr }}الرئيسية{{ else }}Home{{ end }}</a></li>
+                {{/* Skip the Parent row when it IS the home page — otherwise
+                     a top-level section renders "Home > Home > X". See
+                     HI-03 in REVIEW.md. */}}
+                {{ if and .Parent (not .Parent.IsHome) }}
+                <li><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a></li>
+                {{ end }}
+                <li>{{ .Title }}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="news-page" style="padding-bottom: 1rem;">
+    {{/* Pagefind Component UI (v1.5+). Filter keys match the data-pagefind-filter
+         values set in layouts/_default/single.html — Arabic on the AR site,
+         English on the EN site. The UI's visible strings auto-translate from
+         <html lang>. */}}
+    {{ $pfTypeKey := cond $isAr "النوع" "Type" }}
+    {{ $pfCategoryKey := cond $isAr "التصنيف" "Category" }}
+    {{ $pfPlaceholder := cond $isAr "البحث في الأخبار والإعلانات..." "Search news and announcements..." }}
+    <div class="container">
+        <div id="search-container" class="search-box-full">
+            <pagefind-config></pagefind-config>
+            <pagefind-input placeholder="{{ $pfPlaceholder }}"></pagefind-input>
+            <pagefind-filter-dropdown filter="{{ $pfTypeKey }}" label="{{ $pfTypeKey }}"></pagefind-filter-dropdown>
+            <pagefind-filter-dropdown filter="{{ $pfCategoryKey }}" label="{{ $pfCategoryKey }}"></pagefind-filter-dropdown>
+            <pagefind-results></pagefind-results>
+        </div>
+    </div>
+    
+    <div class="container">
+        {{/* Combine news and announcements */}}
+        {{ $newsPages := .Pages }}
+        {{ $announcementsPages := slice }}
+        {{ $announcementsSection := site.GetPage "/media/announcements" }}
+        
+        {{ with $announcementsSection }}
+             {{ $announcementsPages = .Pages }}
+        {{ end }}
+        
+        {{/* Union and Sort */}}
+        {{ $allPages := $newsPages | append $announcementsPages }}
+        {{ $sortedPages := sort $allPages "Date" "desc" }}
+        
+        {{/* Native Pagination */}}
+        {{ $paginator := .Paginate $sortedPages }}
+        
+        {{/* Category Localization Map for Display */}}
+        {{ $categoryLocMap := dict 
+            "Administrative" "إداري" 
+            "administrative" "إداري"
+            "Academic" "أكاديمي" 
+            "academic" "أكاديمي"
+            "Students" "طلبة" 
+            "students" "طلبة"
+            "General" "عام" 
+            "general" "عام"
+        }}
+
+        <div class="news-list" id="news-list">
+            {{ range $index, $page := $paginator.Pages }}
+            
+            {{/* Determine Type and Category */}}
+            {{ $type := "news" }}
+            {{ $category := "general" }}
+            
+            {{ with $page.Params.type }}
+                {{ $lowerType := . | lower }}
+                {{ if ne $lowerType "news" }}
+                    {{ $category = $lowerType }}
+                {{ end }}
+            {{ end }}
+            
+            {{/* Check if it's an announcement */}}
+            {{ if (eq .Parent $announcementsSection) }}
+                {{ $type = "announcement" }}
+            {{ end }}
+
+            {{/* No data-pagefind-meta/filter attributes here — the outer
+                 data-pagefind-ignore="all" wrapper makes them inert, and the
+                 indexed per-article metadata is set inside single.html. */}}
+            <article class="news-list-item {{ if $page.Params.important }}priority-high{{ end }}"
+                     data-type="{{ $type }}"
+                     data-category="{{ $category }}"
+                     data-title="{{ $page.Title | lower }}"
+                     data-description="{{ $page.Description | lower }}">
+                <div class="news-list-item-date">
+                    <span class="day">{{ $page.Date.Format "02" }}</span>
+                    <span class="month">{{ if $isAr }}{{ $page.Date.Format "01" }}/{{ $page.Date.Format "2006" }}{{ else }}{{ $page.Date.Format "Jan 2006" }}{{ end }}</span>
+                </div>
+                <div class="news-list-item-content">
+                    {{ if eq $type "news" }}
+                    <span class="news-type-badge type-news">{{ if $isAr }}خبر{{ else }}News{{ end }}</span>
+                    {{ else }}
+                    <span class="news-type-badge type-announcement">{{ if $isAr }}إعلان{{ else }}Announcement{{ end }}</span>
+                    {{ with $page.Params.type }}
+                        {{ $displayType := . }}
+                        {{ if $isAr }}
+                            {{ with index $categoryLocMap . }}
+                                {{ $displayType = . }}
+                            {{ end }}
+                        {{ end }}
+                    <span class="category-badge">{{ $displayType }}</span>
+                    {{ end }}
+                    {{ if $page.Params.important }}
+                    <span class="priority-badge">{{ if $isAr }}مهم{{ else }}Important{{ end }}</span>
+                    {{ end }}
+                    {{ end }}
+                    <h2><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+                    <p>{{ with $page.Description }}{{ . }}{{ else }}{{ $page.Summary | truncate 200 }}{{ end }}</p>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        
+        {{/* Pagination UI */}}
+        {{ if gt $paginator.TotalPages 1 }}
+        <nav class="pagination" aria-label="{{ if $isAr }}التنقل بين الصفحات{{ else }}Page navigation{{ end }}">
+            <ul class="pagination-list">
+                {{/* First Page Button */}}
+                {{ if ne $paginator.PageNumber 1 }}
+                <li>
+                    <a href="{{ $paginator.First.URL }}" class="pagination-link pagination-first">
+                        <svg width="16" height="16"><use href="#icon-chevrons-right"></use></svg>
+                    </a>
+                </li>
+                {{ else }}
+                <li>
+                    <span class="pagination-link pagination-first disabled">
+                        <svg width="16" height="16"><use href="#icon-chevrons-right"></use></svg>
+                    </span>
+                </li>
+                {{ end }}
+
+                {{/* Previous button */}}
+                {{ if $paginator.HasPrev }}
+                <li>
+                    <a href="{{ $paginator.Prev.URL }}" class="pagination-link pagination-prev">
+                        <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                    </a>
+                </li>
+                {{ else }}
+                <li>
+                    <span class="pagination-link pagination-prev disabled">
+                        <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                    </span>
+                </li>
+                {{ end }}
+                
+                {{/* Page numbers — windowed pagination. Shows the current
+                     page plus `$adjacent_links` neighbours on each side; for
+                     small page counts (TotalPages ≤ $max_links = 5) shows
+                     every page. The `show` predicate is computed inside the
+                     range using an `if/else if/else` chain — see LO-05 in
+                     REVIEW.md for the prior $.Scratch-based version. */}}
+                {{ $currentPage := $paginator.PageNumber }}
+                {{ $adjacent_links := 2 }}
+                {{ $max_links := (add (mul $adjacent_links 2) 1) }}
+                {{ $lower_limit := (add $adjacent_links 1) }}
+                {{ $upper_limit := (sub $paginator.TotalPages $adjacent_links) }}
+
+                {{ range $paginator.Pagers }}
+                    {{/* `show` is recomputed per pager. Hugo's template
+                         scope lets us shadow the variable in each branch
+                         without leaking across iterations. */}}
+                    {{ $show := false }}
+                    {{ if le $paginator.TotalPages $max_links }}
+                        {{ $show = true }}
+                    {{ else if le $currentPage $lower_limit }}
+                        {{ $show = (le .PageNumber $max_links) }}
+                    {{ else if ge $currentPage $upper_limit }}
+                        {{ $show = (gt .PageNumber (sub $paginator.TotalPages $max_links)) }}
+                    {{ else }}
+                        {{ $show = (and (ge .PageNumber (sub $currentPage $adjacent_links)) (le .PageNumber (add $currentPage $adjacent_links))) }}
+                    {{ end }}
+
+                    {{ if $show }}
+                        {{ if eq .PageNumber $currentPage }}
+                        <li>
+                            <span class="pagination-link current" aria-current="page">{{ .PageNumber }}</span>
+                        </li>
+                        {{ else }}
+                        <li>
+                            <a href="{{ .URL }}" class="pagination-link">{{ .PageNumber }}</a>
+                        </li>
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                
+                {{/* Next button */}}
+                {{ if $paginator.HasNext }}
+                <li>
+                    <a href="{{ $paginator.Next.URL }}" class="pagination-link pagination-next">
+                        <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                    </a>
+                </li>
+                {{ else }}
+                <li>
+                    <span class="pagination-link pagination-next disabled">
+                        <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                    </span>
+                </li>
+                {{ end }}
+
+                {{/* Last Page Button */}}
+                {{ if ne $paginator.PageNumber $paginator.TotalPages }}
+                <li>
+                    <a href="{{ $paginator.Last.URL }}" class="pagination-link pagination-last">
+                        <svg width="16" height="16"><use href="#icon-chevrons-right"></use></svg>
+                    </a>
+                </li>
+                {{ else }}
+                <li>
+                    <span class="pagination-link pagination-last disabled">
+                        <svg width="16" height="16"><use href="#icon-chevrons-right"></use></svg>
+                    </span>
+                </li>
+                {{ end }}
+            </ul>
+            
+            <div class="pagination-info">
+                {{ if $isAr }}
+                صفحة {{ $paginator.PageNumber }} من {{ $paginator.TotalPages }}
+                {{ else }}
+                Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}
+                {{ end }}
+            </div>
+        </nav>
+        {{ end }}
+    </div>
+</section>
+</div>{{/* /data-pagefind-ignore wrapper */}}
+
+<!-- Pagefind Component UI (v1.5+). RTL/translations are handled automatically
+     from <html dir> and <html lang>; no per-UI JS init is needed. -->
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+
+<style>
+/* Search Box Styles */
+#search-container {
+    padding: 2rem 0;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.pagination-list {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: var(--color-background-alt);
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid var(--color-border);
+}
+
+.pagination-link:hover:not(.disabled):not(.current) {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.pagination-link.current {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.pagination-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-prev svg,
+.pagination-first svg {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] .pagination-prev svg,
+[dir="rtl"] .pagination-first svg {
+    transform: rotate(0deg);
+}
+
+[dir="rtl"] .pagination-next svg,
+[dir="rtl"] .pagination-last svg {
+    transform: rotate(180deg);
+}
+
+.pagination-info {
+    padding: 1rem 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+</style>
+{{ end }}

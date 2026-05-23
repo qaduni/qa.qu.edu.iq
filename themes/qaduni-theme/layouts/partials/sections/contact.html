@@ -1,0 +1,23 @@
+{{ $isAr := eq .Language.Lang "ar" }}
+<section class="section section-dark">
+    <div class="container text-center">
+        <h2 style="color: white;">{{ i18n "have_question" }}</h2>
+        <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin-inline: auto;">{{ i18n "contact_subtitle" }}</p>
+        <div class="hero-buttons" style="justify-content: center; margin-top: var(--spacing-xl);">
+            <a href="{{ "/media/contact/" | relLangURL }}" class="btn btn-accent btn-lg">
+                <svg width="20" height="20">
+                    <use href="#icon-email"></use>
+                </svg>
+                {{ i18n "contact_us" }}
+            </a>
+            {{ with .Site.Params.contact.phone }}
+            <a href="tel:{{ . }}" class="btn btn-secondary btn-lg">
+                <svg width="20" height="20">
+                    <use href="#icon-phone"></use>
+                </svg>
+                <span style="direction: ltr;">{{ . }}</span>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,103 @@
+{{ define "main" }}
+{{ $isAr := eq .Language.Lang "ar" }}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title">{{ .Title }}</h1>
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="{{ .Site.Home.RelPermalink }}">{{ if $isAr }}الرئيسية{{ else }}Home{{ end }}</a></li>
+                {{ with .CurrentSection }}
+                {{ if ne .Title $.Title }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+                {{ end }}
+                <li>{{ .Title }}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<div class="content-wrapper">
+    <div class="container">
+        {{/* Determine Type and Category */}}
+        {{/* Default to News if not in announcements folder.
+             Match on the parent section's RelPermalink rather than a
+             substring search of .File.Dir — the latter would misfire on
+             a page at e.g. content/about/announcements-policies/foo.md.
+             See LO-07 in REVIEW.md. */}}
+        {{ $type := "News" }}
+        {{ $category := "" }}
+
+        {{ with .CurrentSection }}
+            {{ if hasPrefix .RelPermalink "/media/announcements" }}
+                {{ $type = "Announcement" }}
+            {{ else if hasPrefix .RelPermalink "/en/media/announcements" }}
+                {{ $type = "Announcement" }}
+            {{ end }}
+        {{ end }}
+
+        {{ with .Params.type }}
+           {{ $lowerType := . | lower }}
+           {{/* Exclude 'news' from becoming a category */}}
+           {{ if ne $lowerType "news" }}
+               {{ $category = $lowerType }}
+           {{ end }}
+        {{ end }}
+
+        {{/* Localization Logic */}}
+        {{ $pfTypeKey := "Type" }}
+        {{ $pfCategoryKey := "Category" }}
+        {{ $pfTypeValue := $type }}
+        {{ $pfCategoryValue := $category }}
+
+        {{/* Category Localization Map (English -> Arabic) */}}
+        {{ $categoryLocMap := dict 
+            "Administrative" "إداري" 
+            "administrative" "إداري"
+            "Academic" "أكاديمي" 
+            "academic" "أكاديمي"
+            "Students" "طلبة" 
+            "students" "طلبة"
+            "General" "عام" 
+            "general" "عام"
+        }}
+
+        {{ if $isAr }}
+            {{ $pfTypeKey = "النوع" }}
+            {{ $pfCategoryKey = "التصنيف" }}
+            
+            {{ if eq $type "News" }}
+               {{ $pfTypeValue = "خبر" }}
+            {{ else }}
+               {{ $pfTypeValue = "إعلان" }}
+            {{ end }}
+            
+            {{/* If category matches a key in our map, translate it */}}
+            {{ with index $categoryLocMap $category }}
+                {{ $pfCategoryValue = . }}
+            {{ end }}
+        {{ else }}
+               {{ $catMapEn := dict 
+                    "administrative" "Administrative"
+                    "academic" "Academic"
+                    "students" "Students" 
+                    "general" "General" 
+                }}
+                {{ with index $catMapEn $category }}
+                    {{ $pfCategoryValue = . }}
+                {{ end }}
+        {{ end }}
+
+        <article class="article-content" data-pagefind-body>
+            {{/* Define filters using hidden elements to avoid duplicate attributes on the article tag */}}
+            <span hidden data-pagefind-filter="{{ $pfTypeKey }}:{{ $pfTypeValue }}"></span>
+            {{ if $pfCategoryValue }}
+            <span hidden data-pagefind-filter="{{ $pfCategoryKey }}:{{ $pfCategoryValue }}"></span>
+            {{ end }}
+            
+            {{ .Content }}
+        </article>
+    </div>
+</div>
+{{ end }}

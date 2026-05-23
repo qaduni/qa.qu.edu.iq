@@ -1,0 +1,59 @@
+{{ $isAr := eq .Language.Lang "ar" }}
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>{{ i18n "services_title" }}</h2>
+            <p>{{ i18n "services_subtitle" }}</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="28" height="28"><use href="#icon-document"></use></svg>
+                </div>
+                <h3>{{ i18n "service_evaluation" }}</h3>
+                <p>{{ i18n "service_evaluation_desc" }}</p>
+                <a href="{{ "/performance-evaluation/" | relLangURL }}" class="card-link">
+                    {{ i18n "view_details" }}
+                    <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="28" height="28"><use href="#icon-award"></use></svg>
+                </div>
+                <h3>{{ i18n "service_accreditation" }}</h3>
+                <p>{{ i18n "service_accreditation_desc" }}</p>
+                <a href="{{ "/accreditations/" | relLangURL }}" class="card-link">
+                    {{ i18n "view_details" }}
+                    <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="28" height="28"><use href="#icon-globe"></use></svg>
+                </div>
+                <h3>{{ i18n "service_rankings" }}</h3>
+                <p>{{ i18n "service_rankings_desc" }}</p>
+                <a href="{{ "/classifications/" | relLangURL }}" class="card-link">
+                    {{ i18n "view_details" }}
+                    <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="28" height="28"><use href="#icon-research"></use></svg>
+                </div>
+                <h3>{{ i18n "service_labs" }}</h3>
+                <p>{{ i18n "service_labs_desc" }}</p>
+                <a href="{{ "/lab-accreditation/" | relLangURL }}" class="card-link">
+                    {{ i18n "view_details" }}
+                    <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

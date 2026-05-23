@@ -1,0 +1,75 @@
+/* Self-hosted Fonts - Cairo (Arabic) and Inter (Latin) */
+
+/* Cairo - Arabic */
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Cairo'), url('/fonts/cairo-regular.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE80-FEFF, U+200C-200E;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Cairo Medium'), local('Cairo-Medium'), url('/fonts/cairo-medium.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE80-FEFF, U+200C-200E;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Cairo SemiBold'), local('Cairo-SemiBold'), url('/fonts/cairo-semibold.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE80-FEFF, U+200C-200E;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Cairo Bold'), local('Cairo-Bold'), url('/fonts/cairo-bold.woff2') format('woff2');
+    unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE80-FEFF, U+200C-200E;
+}
+
+/* Inter - Latin */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter'), url('/fonts/inter-regular.woff2') format('woff2');
+    unicode-range: U+0020-007E, U+00A0-00FF;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Inter Medium'), local('Inter-Medium'), url('/fonts/inter-medium.woff2') format('woff2');
+    unicode-range: U+0020-007E, U+00A0-00FF;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Inter SemiBold'), local('Inter-SemiBold'), url('/fonts/inter-semibold.woff2') format('woff2');
+    unicode-range: U+0020-007E, U+00A0-00FF;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inter Bold'), local('Inter-Bold'), url('/fonts/inter-bold.woff2') format('woff2');
+    unicode-range: U+0020-007E, U+00A0-00FF;
+}

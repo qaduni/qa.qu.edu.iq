@@ -1,0 +1,32 @@
+{{ $assets := partialCached "site-assets.html" . }}
+<section class="hero"
+    style="background-image: linear-gradient(rgba(15, 76, 129, 0.85), rgba(10, 52, 89, 0.9)), url('{{ $assets.hero }}'); background-size: cover; background-position: center;">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16">
+                    <use href="#icon-award"></use>
+                </svg>
+                {{ i18n "internationally_accredited" }}
+            </div>
+            <h1>{{ i18n "welcome_message" }}</h1>
+            <p class="hero-description">
+                {{ i18n "department_description" }}
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ "/about/structure/" | relLangURL }}" class="btn btn-accent btn-lg">
+                    <svg width="20" height="20">
+                        <use href="#icon-building"></use>
+                    </svg>
+                    {{ i18n "explore_about" }}
+                </a>
+                <a href="{{ "/about/vision-mission/" | relLangURL }}" class="btn btn-secondary btn-lg">
+                    {{ i18n "learn_more" }}
+                    <svg width="16" height="16">
+                        <use href="#icon-arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
