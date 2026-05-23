@@ -1,0 +1,335 @@
+# =============================================================================
+# Arabic menus — qg.qu.edu.iq
+#
+# Hugo loads this automatically as `[languages.ar.menus]` because of the
+# `menus.<LANG>.toml` filename convention.
+#
+# Per-item params:
+#   weight       — sort order (lower = earlier)
+#   identifier   — referenced by child items via `parent =`
+#   pageRef      — preferred when linking to a page in this site
+#   url          — for external links or special paths
+#   parent       — identifier of the parent menu item (nested dropdown)
+#   pre          — appended to the rendered link's `data-icon` via the template
+#   params.icon  — icon name (matches an <symbol id="icon-…"> in icons.html)
+#   params.external = true — opens in new tab
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Main navigation (top header)
+# -----------------------------------------------------------------------------
+[[main]]
+  name       = "الرئيسية"
+  weight     = 10
+  url        = "/"
+
+[[main]]
+  name       = "عن القسم"
+  identifier = "about"
+  weight     = 20
+
+[[main]]
+  name   = "هيكلية القسم"
+  parent = "about"
+  weight = 21
+  url    = "/about/structure/"
+[[main]]
+  name   = "رؤية القسم"
+  parent = "about"
+  weight = 22
+  url    = "/about/vision-mission/"
+[[main]]
+  name   = "مهام القسم"
+  parent = "about"
+  weight = 23
+  url    = "/about/tasks/"
+
+[[main]]
+  name       = "التصنيفات"
+  identifier = "classifications"
+  weight     = 30
+
+[[main]]
+  name   = "التصنيفات العالمية"
+  parent = "classifications"
+  weight = 31
+  url    = "/classifications/international/"
+[[main]]
+  name   = "التصنيفات العربية"
+  parent = "classifications"
+  weight = 32
+  url    = "/classifications/arabic/"
+[[main]]
+  name   = "التصنيف العراقي IRU"
+  parent = "classifications"
+  weight = 33
+  url    = "/classifications/iru/"
+
+[[main]]
+  name       = "الاعتمادات"
+  identifier = "accreditations"
+  weight     = 40
+
+[[main]]
+  name   = "الاعتماد المؤسسي"
+  parent = "accreditations"
+  weight = 41
+  url    = "/accreditations/institutional/"
+[[main]]
+  name   = "الاعتماد البرامجي"
+  parent = "accreditations"
+  weight = 42
+  url    = "/accreditations/programmatic/"
+[[main]]
+  name   = "اعتمادات ISO"
+  parent = "accreditations"
+  weight = 43
+  url    = "/accreditations/iso/"
+[[main]]
+  name   = "العضويات"
+  parent = "accreditations"
+  weight = 44
+  url    = "/accreditations/memberships/"
+
+[[main]]
+  name   = "موقع الاستدامة"
+  weight = 50
+  url    = "https://sust.qu.edu.iq"
+  [main.params]
+    external = true
+
+[[main]]
+  name       = "تقويم الأداء"
+  identifier = "performance_evaluation"
+  weight     = 60
+
+[[main]]
+  name   = "استمارات 2024-2025"
+  parent = "performance_evaluation"
+  weight = 61
+  url    = "/performance-evaluation/forms-2024-2025/"
+[[main]]
+  name   = "استمارات 2023-2024"
+  parent = "performance_evaluation"
+  weight = 62
+  url    = "/performance-evaluation/forms-2023-2024/"
+[[main]]
+  name   = "الدليل الإرشادي"
+  parent = "performance_evaluation"
+  weight = 63
+  url    = "/performance-evaluation/manual/"
+[[main]]
+  name   = "الاستبانات"
+  parent = "performance_evaluation"
+  weight = 64
+  url    = "/performance-evaluation/surveys/"
+
+[[main]]
+  name       = "اعتماد المختبرات"
+  identifier = "lab_accreditation"
+  weight     = 70
+
+[[main]]
+  name   = "جرد المختبرات"
+  parent = "lab_accreditation"
+  weight = 71
+  url    = "/lab-accreditation/inventory/"
+[[main]]
+  name   = "وثائق ومستندات"
+  parent = "lab_accreditation"
+  weight = 72
+  url    = "/lab-accreditation/documents/"
+[[main]]
+  name   = "واقع المختبرات"
+  parent = "lab_accreditation"
+  weight = 73
+  url    = "/lab-accreditation/reality/"
+[[main]]
+  name   = "السلامة المختبرية"
+  parent = "lab_accreditation"
+  weight = 74
+  url    = "/lab-accreditation/safety/"
+
+[[main]]
+  name       = "الأخبار"
+  identifier = "news_announcements"
+  weight     = 80
+
+[[main]]
+  name   = "الأخبار"
+  parent = "news_announcements"
+  weight = 81
+  url    = "/media/news/"
+[[main]]
+  name   = "تواصلوا معنا"
+  parent = "news_announcements"
+  weight = 82
+  url    = "/media/contact/"
+
+# -----------------------------------------------------------------------------
+# Top bar (left side)
+# -----------------------------------------------------------------------------
+[[top_bar]]
+  name   = "العودة إلى موقع الجامعة"
+  weight = 10
+  url    = "https://qu.edu.iq"
+  [top_bar.params]
+    external = true
+
+[[top_bar]]
+  name   = "موقع الاستدامة"
+  weight = 20
+  url    = "https://sust.qu.edu.iq"
+  [top_bar.params]
+    external = true
+
+# -----------------------------------------------------------------------------
+# Footer — useful links column
+# -----------------------------------------------------------------------------
+[[footer_useful]]
+  name   = "هيكلية القسم"
+  weight = 10
+  url    = "/about/structure/"
+[[footer_useful]]
+  name   = "رؤية القسم"
+  weight = 20
+  url    = "/about/vision-mission/"
+[[footer_useful]]
+  name   = "مهام القسم"
+  weight = 30
+  url    = "/about/tasks/"
+
+# -----------------------------------------------------------------------------
+# Footer — related links column
+# -----------------------------------------------------------------------------
+[[footer_services]]
+  name   = "الاعتمادات"
+  weight = 10
+  url    = "/accreditations/"
+[[footer_services]]
+  name   = "التصنيفات"
+  weight = 20
+  url    = "/classifications/"
+[[footer_services]]
+  name   = "تقويم الأداء"
+  weight = 30
+  url    = "/performance-evaluation/"
+[[footer_services]]
+  name   = "اعتماد المختبرات"
+  weight = 40
+  url    = "/lab-accreditation/"
+[[footer_services]]
+  name   = "موقع الاستدامة"
+  weight = 50
+  url    = "https://sust.qu.edu.iq"
+  [footer_services.params]
+    external = true
+[[footer_services]]
+  name   = "العودة إلى موقع الجامعة"
+  weight = 60
+  url    = "https://qu.edu.iq"
+  [footer_services.params]
+    external = true
+
+# -----------------------------------------------------------------------------
+# Footer — bottom row (privacy / a11y / sitemap)
+# -----------------------------------------------------------------------------
+[[footer_bottom]]
+  name   = "خريطة الموقع"
+  weight = 10
+  url    = "/sitemap.xml"
+[[footer_bottom]]
+  name   = "إمكانية الوصول"
+  weight = 20
+  url    = "/about/accessibility/"
+[[footer_bottom]]
+  name   = "سياسة الخصوصية"
+  weight = 30
+  url    = "/about/policies/privacy-policy/"
+[[footer_bottom]]
+  name   = "الأمان"
+  weight = 40
+  url    = "/about/policies/security-policy/"
+
+# -----------------------------------------------------------------------------
+# Homepage — Quick Links section
+# -----------------------------------------------------------------------------
+[[quick_links]]
+  name   = "استمارات تقويم الأداء"
+  weight = 10
+  url    = "/performance-evaluation/forms-2024-2025/"
+  [quick_links.params]
+    icon = "document"
+[[quick_links]]
+  name   = "الدليل الإرشادي"
+  weight = 20
+  url    = "/performance-evaluation/manual/"
+  [quick_links.params]
+    icon = "book"
+[[quick_links]]
+  name   = "الاستبانات"
+  weight = 30
+  url    = "/performance-evaluation/surveys/"
+  [quick_links.params]
+    icon = "users"
+[[quick_links]]
+  name   = "السلامة المختبرية"
+  weight = 40
+  url    = "/lab-accreditation/safety/"
+  [quick_links.params]
+    icon = "award"
+[[quick_links]]
+  name   = "أدلة ومعايير"
+  weight = 50
+  url    = "/standards/"
+  [quick_links.params]
+    icon = "document"
+
+# -----------------------------------------------------------------------------
+# Homepage — Services cards section (4 large feature cards)
+# -----------------------------------------------------------------------------
+[[homepage_services]]
+  name   = "تقويم الأداء"
+  weight = 10
+  url    = "/performance-evaluation/"
+  [homepage_services.params]
+    icon = "document"
+    description = "استمارات سنوية لتقويم أداء الكليات والمراكز والأقسام الإدارية"
+[[homepage_services]]
+  name   = "الاعتماد"
+  weight = 20
+  url    = "/accreditations/"
+  [homepage_services.params]
+    icon = "award"
+    description = "دعم الكليات في إعداد ملفات الاعتماد الوطني والدولي"
+[[homepage_services]]
+  name   = "التصنيفات"
+  weight = 30
+  url    = "/classifications/"
+  [homepage_services.params]
+    icon = "globe"
+    description = "متابعة موقع الجامعة في التصنيفات العالمية والعربية"
+[[homepage_services]]
+  name   = "اعتماد المختبرات"
+  weight = 40
+  url    = "/lab-accreditation/"
+  [homepage_services.params]
+    icon = "research"
+    description = "متابعة اعتماد المختبرات وفق ISO/IEC 17025 ونشر معايير السلامة"
+
+# -----------------------------------------------------------------------------
+# Hero CTAs (2 buttons)
+# -----------------------------------------------------------------------------
+[[hero_buttons]]
+  name   = "تعرف على القسم"
+  weight = 10
+  url    = "/about/structure/"
+  [hero_buttons.params]
+    icon = "building"
+    style = "accent"
+[[hero_buttons]]
+  name   = "اقرأ المزيد"
+  weight = 20
+  url    = "/about/vision-mission/"
+  [hero_buttons.params]
+    style = "secondary"

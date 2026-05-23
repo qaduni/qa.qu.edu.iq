@@ -9,10 +9,10 @@ Strapi (CMS) and Pagefind (search).
 - **Strapi 5** — headless CMS at `https://cms.qg.qu.edu.iq/admin`; content is
   pulled into Hugo by the `hugo` service on every webhook from Strapi.
   See [`DEPLOYMENT.md`](DEPLOYMENT.md).
-- **Local theme** `qaduni-theme/` (mounted via `themesDir = "."` in `hugo.toml`)
+- **Local theme** `qu.theme/` (mounted via `themesDir = "."` in `hugo.toml`)
 
 For HTML / CSS / JS / partials / shortcodes, see
-[`qaduni-theme/README.md`](qaduni-theme/README.md). This README is for
+[`qu.theme/README.md`](qu.theme/README.md). This README is for
 **site authors and operators** — running the site, adding content,
 deploying.
 
@@ -52,7 +52,7 @@ explicit commands above are equivalent.
 | Path | What lives there |
 | ---- | ---------------- |
 | `content/{ar,en}/` | Markdown content, per language |
-| `qaduni-theme/` | Layouts, CSS, JS, fonts, theme images |
+| `qu.theme/` | Layouts, CSS, JS, fonts, theme images |
 | `assets/images/` | Site images served via Hugo Pipes (logo, hero) |
 | `static/` | Files served as-is at the URL root (`admin/`, `robots.txt`, `sw.js`, `images/news/`, `images/announcements/`) |
 | `data/` | Site data (`colleges.yaml`, `statistics.yml`) |
@@ -147,7 +147,7 @@ npx pagefind --site public
 ```
 
 The on-page UI is the Pagefind 1.5 Component UI, loaded by
-`qaduni-theme/layouts/media/news/list.html`. RTL and translations are
+`qu.theme/layouts/media/news/list.html`. RTL and translations are
 handled automatically from `<html lang>` and `<html dir>`.
 
 If you add fields that should be filterable or searchable, see the

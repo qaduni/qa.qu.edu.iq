@@ -1,0 +1,60 @@
+baseURL = 'https://qa.qu.edu.iq/'
+locale = 'ar'
+defaultContentLanguage = 'ar'
+title = "قسم ضمان الجودة والأداء الجامعي - جامعة القادسية"
+buildFuture = true
+theme = "qu.theme"
+
+[pagination]
+  pagerSize = 10
+
+[languages]
+  [languages.ar]
+    label = "العربية"
+    weight = 1
+    direction = "rtl"
+    title = "قسم ضمان الجودة والأداء الجامعي"
+    locale = "ar"
+
+    [languages.ar.params]
+      description = "قسم ضمان الجودة والأداء الجامعي في جامعة القادسية - يعنى بتطبيق معايير الجودة والاعتماد المؤسسي والبرامجي وتقويم الأداء"
+      shortTitle  = "قسم ضمان الجودة"
+      parentName  = "جامعة القادسية"
+      parentURL   = "https://qu.edu.iq"
+
+      [languages.ar.params.contact]
+        address = "جامعة القادسية، الديوانية، محافظة القادسية، العراق"
+
+  [languages.en]
+    label = "English"
+    weight = 2
+    direction = "ltr"
+    title = "QA & University Performance Department"
+    locale = "en"
+
+    [languages.en.params]
+      description = "Quality Assurance and University Performance Department at Al-Qadisiyah University — applying quality standards, accreditation, and performance evaluation"
+      shortTitle  = "Quality Assurance Department"
+      parentName  = "Al-Qadisiyah University"
+      parentURL   = "https://qu.edu.iq"
+
+      [languages.en.params.contact]
+        address = "Al-Qadisiyah University, Al-Diwaniyah, Al-Qadisiyah Province, Iraq"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Strapi authors are trusted, but keep this 'false' so a compromised CMS
+      # account can't inject raw <script>/<iframe>/on-event handlers via
+      # markdown bodies.
+      unsafe = false
+
+[outputs]
+  home = ["HTML", "RSS", "sitemap", "WebAppManifest"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

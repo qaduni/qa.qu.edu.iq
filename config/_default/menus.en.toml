@@ -1,0 +1,322 @@
+# =============================================================================
+# English menus — qg.qu.edu.iq
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Main navigation
+# -----------------------------------------------------------------------------
+[[main]]
+  name   = "Home"
+  weight = 10
+  url    = "/en/"
+
+[[main]]
+  name       = "About"
+  identifier = "about"
+  weight     = 20
+
+[[main]]
+  name   = "Department Structure"
+  parent = "about"
+  weight = 21
+  url    = "/en/about/structure/"
+[[main]]
+  name   = "Vision"
+  parent = "about"
+  weight = 22
+  url    = "/en/about/vision-mission/"
+[[main]]
+  name   = "Tasks"
+  parent = "about"
+  weight = 23
+  url    = "/en/about/tasks/"
+
+[[main]]
+  name       = "Rankings"
+  identifier = "classifications"
+  weight     = 30
+
+[[main]]
+  name   = "International"
+  parent = "classifications"
+  weight = 31
+  url    = "/en/classifications/international/"
+[[main]]
+  name   = "Arab"
+  parent = "classifications"
+  weight = 32
+  url    = "/en/classifications/arabic/"
+[[main]]
+  name   = "Iraqi (IRU)"
+  parent = "classifications"
+  weight = 33
+  url    = "/en/classifications/iru/"
+
+[[main]]
+  name       = "Accreditation"
+  identifier = "accreditations"
+  weight     = 40
+
+[[main]]
+  name   = "Institutional"
+  parent = "accreditations"
+  weight = 41
+  url    = "/en/accreditations/institutional/"
+[[main]]
+  name   = "Programmatic"
+  parent = "accreditations"
+  weight = 42
+  url    = "/en/accreditations/programmatic/"
+[[main]]
+  name   = "ISO"
+  parent = "accreditations"
+  weight = 43
+  url    = "/en/accreditations/iso/"
+[[main]]
+  name   = "Memberships"
+  parent = "accreditations"
+  weight = 44
+  url    = "/en/accreditations/memberships/"
+
+[[main]]
+  name   = "Sustainability"
+  weight = 50
+  url    = "https://sust.qu.edu.iq"
+  [main.params]
+    external = true
+
+[[main]]
+  name       = "Evaluation"
+  identifier = "performance_evaluation"
+  weight     = 60
+
+[[main]]
+  name   = "Forms 2024-2025"
+  parent = "performance_evaluation"
+  weight = 61
+  url    = "/en/performance-evaluation/forms-2024-2025/"
+[[main]]
+  name   = "Forms 2023-2024"
+  parent = "performance_evaluation"
+  weight = 62
+  url    = "/en/performance-evaluation/forms-2023-2024/"
+[[main]]
+  name   = "Guidance Manual"
+  parent = "performance_evaluation"
+  weight = 63
+  url    = "/en/performance-evaluation/manual/"
+[[main]]
+  name   = "Surveys"
+  parent = "performance_evaluation"
+  weight = 64
+  url    = "/en/performance-evaluation/surveys/"
+
+[[main]]
+  name       = "Labs"
+  identifier = "lab_accreditation"
+  weight     = 70
+
+[[main]]
+  name   = "Inventory"
+  parent = "lab_accreditation"
+  weight = 71
+  url    = "/en/lab-accreditation/inventory/"
+[[main]]
+  name   = "Documents"
+  parent = "lab_accreditation"
+  weight = 72
+  url    = "/en/lab-accreditation/documents/"
+[[main]]
+  name   = "Lab Landscape"
+  parent = "lab_accreditation"
+  weight = 73
+  url    = "/en/lab-accreditation/reality/"
+[[main]]
+  name   = "Safety"
+  parent = "lab_accreditation"
+  weight = 74
+  url    = "/en/lab-accreditation/safety/"
+
+[[main]]
+  name       = "News"
+  identifier = "news_announcements"
+  weight     = 80
+
+[[main]]
+  name   = "News"
+  parent = "news_announcements"
+  weight = 81
+  url    = "/en/media/news/"
+[[main]]
+  name   = "Contact"
+  parent = "news_announcements"
+  weight = 82
+  url    = "/en/media/contact/"
+
+# -----------------------------------------------------------------------------
+# Top bar
+# -----------------------------------------------------------------------------
+[[top_bar]]
+  name   = "Back to the university site"
+  weight = 10
+  url    = "https://qu.edu.iq"
+  [top_bar.params]
+    external = true
+
+[[top_bar]]
+  name   = "Sustainability"
+  weight = 20
+  url    = "https://sust.qu.edu.iq"
+  [top_bar.params]
+    external = true
+
+# -----------------------------------------------------------------------------
+# Footer — useful links column
+# -----------------------------------------------------------------------------
+[[footer_useful]]
+  name   = "Department Structure"
+  weight = 10
+  url    = "/en/about/structure/"
+[[footer_useful]]
+  name   = "Vision"
+  weight = 20
+  url    = "/en/about/vision-mission/"
+[[footer_useful]]
+  name   = "Tasks"
+  weight = 30
+  url    = "/en/about/tasks/"
+
+# -----------------------------------------------------------------------------
+# Footer — related links column
+# -----------------------------------------------------------------------------
+[[footer_services]]
+  name   = "Accreditation"
+  weight = 10
+  url    = "/en/accreditations/"
+[[footer_services]]
+  name   = "Rankings"
+  weight = 20
+  url    = "/en/classifications/"
+[[footer_services]]
+  name   = "Performance Evaluation"
+  weight = 30
+  url    = "/en/performance-evaluation/"
+[[footer_services]]
+  name   = "Lab Accreditation"
+  weight = 40
+  url    = "/en/lab-accreditation/"
+[[footer_services]]
+  name   = "Sustainability"
+  weight = 50
+  url    = "https://sust.qu.edu.iq"
+  [footer_services.params]
+    external = true
+[[footer_services]]
+  name   = "Back to the university site"
+  weight = 60
+  url    = "https://qu.edu.iq"
+  [footer_services.params]
+    external = true
+
+# -----------------------------------------------------------------------------
+# Footer — bottom row
+# -----------------------------------------------------------------------------
+[[footer_bottom]]
+  name   = "Sitemap"
+  weight = 10
+  url    = "/sitemap.xml"
+[[footer_bottom]]
+  name   = "Accessibility"
+  weight = 20
+  url    = "/en/about/accessibility/"
+[[footer_bottom]]
+  name   = "Privacy Policy"
+  weight = 30
+  url    = "/en/about/policies/privacy-policy/"
+[[footer_bottom]]
+  name   = "Security"
+  weight = 40
+  url    = "/en/about/policies/security-policy/"
+
+# -----------------------------------------------------------------------------
+# Homepage — Quick Links
+# -----------------------------------------------------------------------------
+[[quick_links]]
+  name   = "Evaluation forms"
+  weight = 10
+  url    = "/en/performance-evaluation/forms-2024-2025/"
+  [quick_links.params]
+    icon = "document"
+[[quick_links]]
+  name   = "Guidance manual"
+  weight = 20
+  url    = "/en/performance-evaluation/manual/"
+  [quick_links.params]
+    icon = "book"
+[[quick_links]]
+  name   = "Surveys"
+  weight = 30
+  url    = "/en/performance-evaluation/surveys/"
+  [quick_links.params]
+    icon = "users"
+[[quick_links]]
+  name   = "Laboratory safety"
+  weight = 40
+  url    = "/en/lab-accreditation/safety/"
+  [quick_links.params]
+    icon = "award"
+[[quick_links]]
+  name   = "Guides & standards"
+  weight = 50
+  url    = "/en/standards/"
+  [quick_links.params]
+    icon = "document"
+
+# -----------------------------------------------------------------------------
+# Homepage — Services cards
+# -----------------------------------------------------------------------------
+[[homepage_services]]
+  name   = "Performance Evaluation"
+  weight = 10
+  url    = "/en/performance-evaluation/"
+  [homepage_services.params]
+    icon = "document"
+    description = "Annual forms for evaluating colleges, centres and administrative departments"
+[[homepage_services]]
+  name   = "Accreditation"
+  weight = 20
+  url    = "/en/accreditations/"
+  [homepage_services.params]
+    icon = "award"
+    description = "Supporting colleges in preparing national and international accreditation files"
+[[homepage_services]]
+  name   = "Rankings"
+  weight = 30
+  url    = "/en/classifications/"
+  [homepage_services.params]
+    icon = "globe"
+    description = "Tracking the university's position in international and Arab rankings"
+[[homepage_services]]
+  name   = "Laboratory Accreditation"
+  weight = 40
+  url    = "/en/lab-accreditation/"
+  [homepage_services.params]
+    icon = "research"
+    description = "Pursuing ISO/IEC 17025 laboratory accreditation and disseminating safety standards"
+
+# -----------------------------------------------------------------------------
+# Hero CTAs
+# -----------------------------------------------------------------------------
+[[hero_buttons]]
+  name   = "About the Department"
+  weight = 10
+  url    = "/en/about/structure/"
+  [hero_buttons.params]
+    icon = "building"
+    style = "accent"
+[[hero_buttons]]
+  name   = "Learn More"
+  weight = 20
+  url    = "/en/about/vision-mission/"
+  [hero_buttons.params]
+    style = "secondary"

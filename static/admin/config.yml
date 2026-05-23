@@ -1,0 +1,148 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: qaduni/qa.qu.edu.iq
+  branch: main
+
+media_folder: "static/images"
+public_folder: "/images"
+
+i18n:
+  structure: multiple_files
+  locales: [ar, en]
+  default_locale: ar
+
+media_libraries:
+  aws_s3:
+    access_key_id: AKIAIOSFODNN7EXAMPLE
+    bucket: qu-cms-media
+    region: garage
+    prefix: cms-uploads/
+    force_path_style: true
+
+media_library:
+  name: aws_s3
+  config:
+    endpoint: https://cms-uploads.qu.edu.iq
+    bucket: qu-cms-media
+    region: garage
+    prefix: cms-uploads/
+    force_path_style: true
+
+# Site settings
+site_url: https://qa.qu.edu.iq
+display_url: https://qa.qu.edu.iq
+
+collections:
+  - name: "news"
+    label: "News / الأخبار"
+    label_singular: "News Item / خبر"
+    i18n: true
+    folder: "content"
+    path: "media/news/{{year}}/{{month}}/{{day}}/{{slug}}"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - {
+          label: "Title / العنوان",
+          name: "title",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          label: "URL Slug / الرابط",
+          name: "slug",
+          widget: "string",
+          i18n: duplicate,
+          hint: "Lowercase ASCII — used as the URL for both AR and EN.",
+        }
+      - { name: "date", widget: "hidden", default: "{{now}}", i18n: duplicate }
+      - {
+          label: "Description / الوصف",
+          name: "description",
+          widget: "text",
+          required: true,
+          i18n: true,
+        }
+      - {
+          label: "Image / الصورة",
+          name: "image",
+          widget: "image",
+          required: false,
+          media_folder: "/static/images/news",
+          i18n: duplicate,
+        }
+      - {
+          label: "Body / المحتوى",
+          name: "body",
+          widget: "markdown",
+          i18n: true,
+        }
+
+  - name: "announcements"
+    label: "Announcements / الإعلانات"
+    label_singular: "Announcement / إعلان"
+    i18n: true
+    folder: "content"
+    path: "media/announcements/{{year}}/{{month}}/{{day}}/{{slug}}"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - {
+          label: "Title / العنوان",
+          name: "title",
+          widget: "string",
+          i18n: true,
+        }
+      - {
+          label: "URL Slug / الرابط",
+          name: "slug",
+          widget: "string",
+          i18n: duplicate,
+          hint: "Lowercase ASCII — used as the URL for both AR and EN.",
+        }
+      - { name: "date", widget: "hidden", default: "{{now}}", i18n: duplicate }
+      - {
+          label: "Type / النوع",
+          name: "type",
+          widget: "select",
+          i18n: duplicate,
+          options:
+            [
+              { label: "إداري / Administrative", value: "Administrative" },
+              { label: "أكاديمي / Academic", value: "Academic" },
+              { label: "طلبة / Students", value: "Students" },
+              { label: "عام / General", value: "General" },
+            ],
+        }
+      - {
+          label: "Important / مهم",
+          name: "important",
+          widget: "boolean",
+          default: false,
+          i18n: duplicate,
+        }
+      - {
+          label: "Description / الوصف",
+          name: "description",
+          widget: "text",
+          required: true,
+          i18n: true,
+        }
+      - {
+          label: "Image / الصورة",
+          name: "image",
+          widget: "image",
+          required: false,
+          media_folder: "/static/images/announcements",
+          i18n: duplicate,
+        }
+      - {
+          label: "Body / المحتوى",
+          name: "body",
+          widget: "markdown",
+          i18n: true,
+        }
