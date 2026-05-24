@@ -1,5 +1,5 @@
 # =============================================================================
-# Arabic menus — qg.qu.edu.iq
+# Arabic menus — qa.qu.edu.iq
 #
 # Hugo loads this automatically as `[languages.ar.menus]` because of the
 # `menus.<LANG>.toml` filename convention.

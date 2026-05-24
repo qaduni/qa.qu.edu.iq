@@ -1,5 +1,5 @@
 # =============================================================================
-# Site Params — qg.qu.edu.iq (Quality Assurance Department, Al-Qadisiyah Uni)
+# Site Params — qa.qu.edu.iq (Quality Assurance Department, Al-Qadisiyah Uni)
 #
 # These are the SITE-LEVEL overrides. The qu.theme ships neutral defaults
 # for everything below; only override what is specific to this organisation.
@@ -13,7 +13,7 @@ campusMapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6502.660
 
 # Optional "Official Domain / Official Email" notice in the footer.
 # Common pattern for Iraqi government / university sites.
-officialDomain = "qg.qu.edu.iq"
+officialDomain = "qa.qu.edu.iq"
 showOfficialDomainNotice = true
 
 # Endpoints (empty string = feature is hidden / mailto fallback used)
@@ -38,10 +38,6 @@ visitorCounterEndpoint = ""
 [externalServices]
   universityMain    = "https://qu.edu.iq"
   sustainability    = "https://sust.qu.edu.iq"
-  electronicJournal = "https://jor.rdd.edu.iq"
-  nadwati           = "https://nadwati.rdd.edu.iq"
-  repository        = "https://dspace.qu.edu.iq"
-  chatbot           = "https://chat.qu.edu.iq"
 
 # Schema.org JSON-LD identity (used by the theme's baseof.html)
 [schema]
