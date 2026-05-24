@@ -5,8 +5,8 @@ backend:
   repo: qaduni/qa.qu.edu.iq
   branch: main
 
-media_folder: "static/images"
-public_folder: "/images"
+media_folder: "static/assets/images"
+public_folder: "assets/images"
 
 i18n:
   structure: multiple_files
