@@ -5,6 +5,9 @@ backend:
   repo: qaduni/qa.qu.edu.iq
   branch: main
 
+media_folder: "static/images"
+public_folder: "/images"
+
 i18n:
   structure: multiple_files
   locales: [ar, en]
@@ -12,14 +15,13 @@ i18n:
 
 media_libraries:
   aws_s3:
-    access_key_id: GKfef10306d074afee68b18ec7
+    access_key_id: GK57271827720b4796312d2735
     bucket: qa-qu-cms
     region: garage
     prefix: cms-uploads/
     force_path_style: true
-    public_url: http://test-garagewithui-8f9660-178-105-151-54.sslip.io/
+    public_url: https://s3.garage.qu.edu.iq
 
-# Site settings
 site_url: https://qa.qu.edu.iq
 display_url: https://qa.qu.edu.iq
 
@@ -38,6 +40,7 @@ collections:
           label: "Title / العنوان",
           name: "title",
           widget: "string",
+          required: true,
           i18n: true,
         }
       - {
@@ -61,18 +64,6 @@ collections:
           widget: "image",
           required: false,
           i18n: duplicate,
-          media_libraries:
-            default:
-              config:
-                max_file_size: 1024000
-                transformations:
-                  raster_image: # original format
-                    format: webp # new format, only `webp` is supported
-                    quality: 85 # default: 85
-                    width: 2048 # default: original size
-                    height: 2048 # default: original size
-                  svg:
-                    optimize: true
         }
       - {
           label: "Body / المحتوى",
@@ -95,6 +86,7 @@ collections:
           label: "Title / العنوان",
           name: "title",
           widget: "string",
+          required: true,
           i18n: true,
         }
       - {
