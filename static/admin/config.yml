@@ -5,9 +5,6 @@ backend:
   repo: qaduni/qa.qu.edu.iq
   branch: main
 
-media_folder: "static/assets/images"
-public_folder: "assets/images"
-
 i18n:
   structure: multiple_files
   locales: [ar, en]
@@ -15,20 +12,12 @@ i18n:
 
 media_libraries:
   aws_s3:
-    access_key_id: AKIAIOSFODNN7EXAMPLE
-    bucket: qu-cms-media
+    access_key_id: GKfef10306d074afee68b18ec7
+    bucket: qa-qu-cms
     region: garage
     prefix: cms-uploads/
     force_path_style: true
-
-media_library:
-  name: aws_s3
-  config:
-    endpoint: https://cms-uploads.qu.edu.iq
-    bucket: qu-cms-media
-    region: garage
-    prefix: cms-uploads/
-    force_path_style: true
+    public_url: http://test-garagewithui-8f9660-178-105-151-54.sslip.io/
 
 # Site settings
 site_url: https://qa.qu.edu.iq
@@ -39,8 +28,8 @@ collections:
     label: "News / الأخبار"
     label_singular: "News Item / خبر"
     i18n: true
-    folder: "content"
-    path: "media/news/{{year}}/{{month}}/{{day}}/{{slug}}"
+    folder: "content/media/news"
+    path: "{{year}}/{{month}}/{{day}}/{{slug}}"
     create: true
     slug: "{{slug}}"
     sortable_fields: ["date", "title"]
@@ -71,8 +60,19 @@ collections:
           name: "image",
           widget: "image",
           required: false,
-          media_folder: "/static/images/news",
           i18n: duplicate,
+          media_libraries:
+            default:
+              config:
+                max_file_size: 1024000
+                transformations:
+                  raster_image: # original format
+                    format: webp # new format, only `webp` is supported
+                    quality: 85 # default: 85
+                    width: 2048 # default: original size
+                    height: 2048 # default: original size
+                  svg:
+                    optimize: true
         }
       - {
           label: "Body / المحتوى",
@@ -85,8 +85,8 @@ collections:
     label: "Announcements / الإعلانات"
     label_singular: "Announcement / إعلان"
     i18n: true
-    folder: "content"
-    path: "media/announcements/{{year}}/{{month}}/{{day}}/{{slug}}"
+    folder: "content/media/announcements"
+    path: "{{year}}/{{month}}/{{day}}/{{slug}}"
     create: true
     slug: "{{slug}}"
     sortable_fields: ["date", "title"]
@@ -131,14 +131,6 @@ collections:
           widget: "text",
           required: true,
           i18n: true,
-        }
-      - {
-          label: "Image / الصورة",
-          name: "image",
-          widget: "image",
-          required: false,
-          media_folder: "/static/images/announcements",
-          i18n: duplicate,
         }
       - {
           label: "Body / المحتوى",
