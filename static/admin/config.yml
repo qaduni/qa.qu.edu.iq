@@ -5,8 +5,8 @@ backend:
   repo: qaduni/qa.qu.edu.iq
   branch: main
 
-media_folder: "static/images"
-public_folder: "/images"
+media_folder: "static/media"
+public_folder: "/media"
 
 i18n:
   structure: multiple_files
@@ -16,6 +16,8 @@ i18n:
 
 media_libraries:
   all:
+    max_file_size: 5120000
+    slugify_filename: true
     transformations:
       raster_image:
         format: webp     # Converts images (PNG, JPG, etc.) to WebP
@@ -72,9 +74,6 @@ collections:
       - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
       - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
 
-  # ==========================================
-  # About
-  # ==========================================
   - name: "about_pages"
     label: "About / حول"
     folder: "content/about"
@@ -94,10 +93,6 @@ collections:
       - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
-
-  # ==========================================
-  # About Policies
-  # ==========================================
   - name: "about_policies"
     label: "Policies / السياسات"
     folder: "content/about/policies"
@@ -117,10 +112,6 @@ collections:
       - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
-
-  # ==========================================
-  # Accreditations
-  # ==========================================
   - name: "accreditations"
     label: "Accreditations / الاعتمادات"
     folder: "content/accreditations"
@@ -140,10 +131,6 @@ collections:
       - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
-
-  # ==========================================
-  # Classifications
-  # ==========================================
   - name: "classifications"
     label: "Classifications / التصنيفات"
     folder: "content/classifications"
@@ -163,10 +150,6 @@ collections:
       - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
-
-  # ==========================================
-  # Lab Accreditation
-  # ==========================================
   - name: "lab_accreditation"
     label: "Lab Accreditation / اعتماد المختبرات"
     folder: "content/lab-accreditation"
@@ -186,9 +169,6 @@ collections:
       - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
-  # ==========================================
-  # Performance Evaluation
-  # ==========================================
   - name: "performance_evaluation"
     label: "Performance Evaluation / تقييم الأداء"
     folder: "content/performance-evaluation"
