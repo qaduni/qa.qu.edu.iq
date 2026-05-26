@@ -15,11 +15,13 @@ i18n:
 
 media_libraries:
   aws_s3:
-    bucket: qa-qu-cms
-    region: garage
-    prefix: cms-uploads/
+    access_key_id: "GK57271827720b4796312d2735"
+    bucket: "qa-qu-cms"
+    region: "garage"
+    endpoint: "https://s3.garage.qu.edu.iq"
+    prefix: "cms-uploads/"
     force_path_style: true
-    public_url: https://s3.garage.qu.edu.iq/qa-qu-cms
+    public_url: "https://s3.garage.qu.edu.iq/qa-qu-cms"
   
   all:
     transformations:
