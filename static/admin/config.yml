@@ -15,12 +15,21 @@ i18n:
 
 media_libraries:
   aws_s3:
-    access_key_id: GK57271827720b4796312d2735
     bucket: qa-qu-cms
     region: garage
     prefix: cms-uploads/
     force_path_style: true
-    public_url: https://s3.garage.qu.edu.iq
+    public_url: https://s3.garage.qu.edu.iq/qa-qu-cms
+  
+  all:
+    transformations:
+      raster_image:
+        format: webp     # Converts images (PNG, JPG, etc.) to WebP
+        quality: 85      # Optional: set WebP compression quality (default is 85)
+        # width: 2048    # Optional: uncomment to set a max width 
+        # height: 2048   # Optional: uncomment to set a max height
+      svg:
+        optimize: true
 
 site_url: https://qa.qu.edu.iq
 display_url: https://qa.qu.edu.iq
@@ -50,7 +59,7 @@ collections:
           i18n: duplicate,
           hint: "Lowercase ASCII — used as the URL for both AR and EN.",
         }
-      - { name: "date", widget: "hidden", default: "{{now}}", i18n: duplicate }
+      - { name: "date", widget: "datetime", default: "", i18n: duplicate }
       - {
           label: "Description / الوصف",
           name: "description",
