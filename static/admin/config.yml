@@ -14,13 +14,11 @@ i18n:
   default_locale: ar
 
 media_libraries:
-  aws_s3:
+  cloudflare_r2:
     access_key_id: "GK57271827720b4796312d2735"
     bucket: "qa-qu-cms"
-    region: "garage"
-    endpoint: "https://s3.garage.qu.edu.iq"
+    account_id: "s3.garage.qu.edu.iq/?"
     prefix: "cms-uploads/"
-    force_path_style: true
     public_url: "https://s3.garage.qu.edu.iq/qa-qu-cms"
   
   all:
@@ -107,7 +105,7 @@ collections:
           i18n: duplicate,
           hint: "Lowercase ASCII — used as the URL for both AR and EN.",
         }
-      - { name: "date", widget: "hidden", default: "{{now}}", i18n: duplicate }
+      - { name: "date", widget: "datetime", default: "", i18n: duplicate }
       - {
           label: "Type / النوع",
           name: "type",
