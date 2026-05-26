@@ -1,7 +1,6 @@
 ---
 title: "Vision & Mission"
 description: "Vision, mission and objectives of the Quality Assurance and University Performance Department"
-icon: "award"
 ---
 
 ## Vision

@@ -1,7 +1,6 @@
 ---
 title: "ISO International Certifications"
 description: "ISO certifications held by Al-Qadisiyah University"
-icon: "award"
 ---
 
 ## ISO Certifications

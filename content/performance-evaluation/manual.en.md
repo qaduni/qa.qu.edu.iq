@@ -1,7 +1,6 @@
 ---
 title: "Guidance Manual"
 description: "Guidance manual for institutional performance evaluation"
-icon: "book"
 ---
 
 ## Institutional Performance-Evaluation Guidance Manual

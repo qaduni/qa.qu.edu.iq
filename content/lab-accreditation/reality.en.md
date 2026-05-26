@@ -1,7 +1,6 @@
 ---
 title: "Laboratory Landscape"
 description: "Overview of laboratories across Al-Qadisiyah University's colleges"
-icon: "research"
 ---
 
 ## Laboratory Landscape at Al-Qadisiyah University

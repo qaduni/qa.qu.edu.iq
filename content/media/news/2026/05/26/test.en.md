@@ -1,7 +1,6 @@
 ---
+title_en: Test
 title: تجربة
-slug: test
-date: ''
 description: تجربة
 image: ''
 ---

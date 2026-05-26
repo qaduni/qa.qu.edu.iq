@@ -1,7 +1,6 @@
 ---
 title: "Surveys"
 description: "Surveys administered by the Quality Assurance Department"
-icon: "document"
 ---
 
 ## Surveys

@@ -1,7 +1,6 @@
 ---
 title: "Iraqi Ranking of Universities (IRU)"
 description: "Al-Qadisiyah University's position in the Iraqi University Ranking"
-icon: "award"
 ---
 
 ## Iraqi Ranking of Universities (IRU)

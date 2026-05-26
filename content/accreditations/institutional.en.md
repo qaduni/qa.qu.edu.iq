@@ -1,7 +1,6 @@
 ---
 title: "Institutional Accreditation"
 description: "Institutional accreditation files for Al-Qadisiyah University"
-icon: "award"
 ---
 
 ## Institutional Accreditation

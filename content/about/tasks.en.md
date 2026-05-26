@@ -1,7 +1,6 @@
 ---
 title: "Department Tasks"
 description: "The principal tasks and responsibilities of the Quality Assurance and University Performance Department"
-icon: "document"
 ---
 
 ## Principal Tasks

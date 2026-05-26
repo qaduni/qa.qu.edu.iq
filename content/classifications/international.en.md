@@ -1,7 +1,6 @@
 ---
 title: "International Rankings"
 description: "Al-Qadisiyah University's position in major international rankings"
-icon: "globe"
 ---
 
 ## Tracked International Rankings

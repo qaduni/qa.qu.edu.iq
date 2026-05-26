@@ -1,7 +1,6 @@
 ---
 title: "Programmatic Accreditation"
 description: "Accreditation of academic programmes across Al-Qadisiyah University's colleges"
-icon: "document"
 ---
 
 ## Programmatic Accreditation

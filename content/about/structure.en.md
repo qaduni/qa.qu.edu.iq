@@ -1,7 +1,6 @@
 ---
 title: "Department Structure"
 description: "Organizational structure of the Quality Assurance and University Performance Department at Al-Qadisiyah University"
-icon: "chart"
 ---
 
 ## About the Department

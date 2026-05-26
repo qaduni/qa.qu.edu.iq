@@ -1,7 +1,6 @@
 ---
 title: "Arab Rankings"
 description: "Al-Qadisiyah University's position in regional Arab rankings"
-icon: "globe"
 ---
 
 ## Tracked Arab Rankings

@@ -1,7 +1,6 @@
 ---
 title: "Memberships & Subscriptions"
 description: "Al-Qadisiyah University's memberships in international bodies"
-icon: "users"
 ---
 
 ## Memberships and Subscriptions

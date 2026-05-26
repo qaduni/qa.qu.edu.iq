@@ -12,6 +12,7 @@ i18n:
   structure: multiple_files
   locales: [ar, en]
   default_locale: ar
+  omit_default_locale_from_file_path: true
 
 media_libraries:
   all:
@@ -31,104 +32,178 @@ collections:
   - name: "news"
     label: "News / الأخبار"
     label_singular: "News Item / خبر"
+    description: "الاخبار تظهر في الصفحة الرئيسية ومركز الاخبار وتحتوي على غلاف."
     i18n: true
     folder: "content/media/news"
     path: "{{year}}/{{month}}/{{day}}/{{slug}}"
     create: true
-    slug: "{{slug}}"
+    identifier_field: "title_en"
     sortable_fields: ["date", "title"]
     fields:
-      - {
-          label: "Title / العنوان",
-          name: "title",
-          widget: "string",
-          required: true,
-          i18n: true,
-        }
-      - {
-          label: "URL Slug / الرابط",
-          name: "slug",
-          widget: "string",
-          i18n: duplicate,
-          hint: "Lowercase ASCII — used as the URL for both AR and EN.",
-        }
-      - { name: "date", widget: "datetime", default: "", i18n: duplicate }
-      - {
-          label: "Description / الوصف",
-          name: "description",
-          widget: "text",
-          required: true,
-          i18n: true,
-        }
-      - {
-          label: "Image / الصورة",
-          name: "image",
-          widget: "image",
-          required: false,
-          i18n: duplicate,
-        }
-      - {
-          label: "Body / المحتوى",
-          name: "body",
-          widget: "markdown",
-          i18n: true,
-        }
+      - { label: "English Title (Generates URL) / العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate }
+      - { label: "Title / العنوان", name: "title", widget: "string", required: true, i18n: true }
+      - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
+      - { label: "Image / الصورة", name: "image", widget: "image", required: false, i18n: duplicate }
+      - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
 
   - name: "announcements"
     label: "Announcements / الإعلانات"
     label_singular: "Announcement / إعلان"
+    description: "الإعلانات تظهر في الصفحة الرئيسية ومركز الاخبار ولا تحتوي على غلاف."
     i18n: true
     folder: "content/media/announcements"
     path: "{{year}}/{{month}}/{{day}}/{{slug}}"
     create: true
-    slug: "{{slug}}"
+    identifier_field: "title_en"
     sortable_fields: ["date", "title"]
     fields:
-      - {
-          label: "Title / العنوان",
-          name: "title",
-          widget: "string",
-          required: true,
-          i18n: true,
-        }
-      - {
-          label: "URL Slug / الرابط",
-          name: "slug",
-          widget: "string",
-          i18n: duplicate,
-          hint: "Lowercase ASCII — used as the URL for both AR and EN.",
-        }
-      - { name: "date", widget: "datetime", default: "", i18n: duplicate }
-      - {
-          label: "Type / النوع",
-          name: "type",
-          widget: "select",
-          i18n: duplicate,
+      - { label: "English Title (Generates URL) / العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate }
+      - { label: "Title / العنوان", name: "title", widget: "string", required: true, i18n: true }
+      - { label: "Type / النوع", name: "type", widget: "select", i18n: duplicate,
           options:
             [
               { label: "إداري / Administrative", value: "Administrative" },
               { label: "أكاديمي / Academic", value: "Academic" },
               { label: "طلبة / Students", value: "Students" },
               { label: "عام / General", value: "General" },
-            ],
+            ]
         }
-      - {
-          label: "Important / مهم",
-          name: "important",
-          widget: "boolean",
-          default: false,
-          i18n: duplicate,
-        }
-      - {
-          label: "Description / الوصف",
-          name: "description",
-          widget: "text",
-          required: true,
-          i18n: true,
-        }
-      - {
-          label: "Body / المحتوى",
-          name: "body",
-          widget: "markdown",
-          i18n: true,
-        }
+      - { label: "Important / مهم", name: "important", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
+      - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
+
+  # ==========================================
+  # About
+  # ==========================================
+  - name: "about_pages"
+    label: "About / حول"
+    folder: "content/about"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+
+  # ==========================================
+  # About Policies
+  # ==========================================
+  - name: "about_policies"
+    label: "Policies / السياسات"
+    folder: "content/about/policies"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+
+  # ==========================================
+  # Accreditations
+  # ==========================================
+  - name: "accreditations"
+    label: "Accreditations / الاعتمادات"
+    folder: "content/accreditations"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+
+  # ==========================================
+  # Classifications
+  # ==========================================
+  - name: "classifications"
+    label: "Classifications / التصنيفات"
+    folder: "content/classifications"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+
+  # ==========================================
+  # Lab Accreditation
+  # ==========================================
+  - name: "lab_accreditation"
+    label: "Lab Accreditation / اعتماد المختبرات"
+    folder: "content/lab-accreditation"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  # ==========================================
+  # Performance Evaluation
+  # ==========================================
+  - name: "performance_evaluation"
+    label: "Performance Evaluation / تقييم الأداء"
+    folder: "content/performance-evaluation"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }

@@ -1,7 +1,6 @@
 ---
 title: "Laboratory Inventory"
 description: "Comprehensive inventory of Al-Qadisiyah University laboratories"
-icon: "research"
 ---
 
 ## Laboratory Inventory

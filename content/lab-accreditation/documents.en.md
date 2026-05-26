@@ -1,7 +1,6 @@
 ---
 title: "Documents & Records"
 description: "Documents and records related to laboratory accreditation"
-icon: "document"
 ---
 
 ## Documents and Records

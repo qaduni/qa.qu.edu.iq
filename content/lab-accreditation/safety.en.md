@@ -1,7 +1,6 @@
 ---
 title: "Laboratory Safety"
 description: "Safety standards across Al-Qadisiyah University laboratories"
-icon: "award"
 ---
 
 ## Laboratory Safety
