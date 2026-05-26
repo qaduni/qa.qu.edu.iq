@@ -5,8 +5,9 @@ backend:
   repo: qaduni/qa.qu.edu.iq
   branch: main
 
-media_folder: "static/images"
-public_folder: "/images"
+# media_folder: "static/images"
+# public_folder: "/images"
+public_folder: "https://s3.garage.qu.edu.iq/qa-qu-cms/cms-uploads"
 
 i18n:
   structure: multiple_files
@@ -19,7 +20,6 @@ media_libraries:
     bucket: "qa-qu-cms"
     account_id: "s3.garage.qu.edu.iq/?"
     prefix: "cms-uploads/"
-    public_url: "https://s3.garage.qu.edu.iq/qa-qu-cms"
   
   all:
     transformations:
