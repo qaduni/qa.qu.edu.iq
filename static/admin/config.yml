@@ -5,9 +5,8 @@ backend:
   repo: qaduni/qa.qu.edu.iq
   branch: main
 
-# media_folder: "static/images"
-# public_folder: "/images"
-public_folder: "/cms-uploads"
+media_folder: "static/images"
+public_folder: "/images"
 
 i18n:
   structure: multiple_files
@@ -15,13 +14,6 @@ i18n:
   default_locale: ar
 
 media_libraries:
-  cloudflare_r2:
-    access_key_id: "GK57271827720b4796312d2735"
-    bucket: "qa-qu-cms"
-    account_id: "s3.garage.qu.edu.iq/?"
-    prefix: "cms-uploads/"
-    public_url: "https://s3.garage.qu.edu.iq/qa-qu-cms/"
-  
   all:
     transformations:
       raster_image:
