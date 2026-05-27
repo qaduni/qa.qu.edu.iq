@@ -1,6 +1,7 @@
 ---
 title: "News & Announcements"
 description: "Latest news from the Quality Assurance and University Performance Department"
+layout: "list"
 ---
 
 ## Latest News

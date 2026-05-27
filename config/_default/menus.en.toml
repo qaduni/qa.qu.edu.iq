@@ -280,28 +280,28 @@
   weight = 10
   url    = "/en/performance-evaluation/"
   [homepage_services.params]
-    icon = "document"
+    image = "images/labs.webp"
     description = "Annual forms for evaluating colleges, centres and administrative departments"
 [[homepage_services]]
   name   = "Accreditation"
   weight = 20
   url    = "/en/accreditations/"
   [homepage_services.params]
-    icon = "award"
+    image = "images/labs.webp"
     description = "Supporting colleges in preparing national and international accreditation files"
 [[homepage_services]]
   name   = "Rankings"
   weight = 30
   url    = "/en/classifications/"
   [homepage_services.params]
-    icon = "globe"
+    image = "images/labs.webp"
     description = "Tracking the university's position in international and Arab rankings"
 [[homepage_services]]
   name   = "Laboratory Accreditation"
   weight = 40
   url    = "/en/lab-accreditation/"
   [homepage_services.params]
-    icon = "research"
+    image = "images/labs.webp"
     description = "Pursuing ISO/IEC 17025 laboratory accreditation and disseminating safety standards"
 
 # -----------------------------------------------------------------------------

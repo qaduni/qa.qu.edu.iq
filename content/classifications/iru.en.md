@@ -1,11 +1,13 @@
 ---
-title: "Iraqi Ranking of Universities (IRU)"
-description: "Al-Qadisiyah University's position in the Iraqi University Ranking"
+title: Iraqi Ranking of Universities (IRU)
+description: Al-Qadisiyah University's position in the Iraqi University Ranking
 ---
 
 ## Iraqi Ranking of Universities (IRU)
 
 The Iraqi Ranking of Universities (IRU) is a national ranking produced by the Ministry of Higher Education and Scientific Research in cooperation with the Research and Development Directorate. It evaluates Iraqi universities against a unified set of indicators covering teaching quality, research, and community service.
+
+- [2025 Ranking](https://iru.mohesr.gov.iq/result)
 
 ## Ranking Pillars
 
@@ -16,6 +18,6 @@ The Iraqi Ranking of Universities (IRU) is a national ranking produced by the Mi
 - **Resources and Administration:** administrative efficiency, human and financial resources
 - **Governance and Transparency:** policies, procedures, reporting
 
----
+***
 
 > **Note:** The ranking is released periodically. The Performance Evaluation Division in the department collects and submits the required data to the national ranking committee.
