@@ -34,6 +34,10 @@ visitorCounterEndpoint = ""
   twitter   = "https://twitter.com/qu_edu_iq"
   youtube   = "https://youtube.com/qu_edu_iq"
   instagram = "https://instagram.com/qu_edu_iq"
+  linkedin  = "https://www.linkedin.com/school/qu-edu-iq/"
+  telegram  = ""
+  whatsapp  = ""
+  tiktok    = ""
 
 [externalServices]
   universityMain    = "https://qu.edu.iq"

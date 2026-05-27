@@ -305,7 +305,7 @@
 [[homepage_services]]
   name   = "التصنيفات"
   weight = 30
-  url    = "/classifications/"
+  url    = "/classifications/international/"
   [homepage_services.params]
     image = "images/labs.webp"
     description = "متابعة موقع الجامعة في التصنيفات العالمية والعربية"

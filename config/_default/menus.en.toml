@@ -285,7 +285,7 @@
 [[homepage_services]]
   name   = "Accreditation"
   weight = 20
-  url    = "/en/accreditations/"
+  url    = "/en/accreditations/international/"
   [homepage_services.params]
     image = "images/labs.webp"
     description = "Supporting colleges in preparing national and international accreditation files"
