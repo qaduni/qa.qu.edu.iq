@@ -161,9 +161,19 @@
   weight = 81
   url    = "/media/news/"
 [[main]]
-  name   = "تواصلوا معنا"
+  name   = "الإعلانات"
   parent = "news_announcements"
   weight = 82
+  url    = "/media/announcements/"
+[[main]]
+  name   = "البودكاست"
+  parent = "news_announcements"
+  weight = 83
+  url    = "/media/podcast/"
+[[main]]
+  name   = "تواصلوا معنا"
+  parent = "news_announcements"
+  weight = 84
   url    = "/media/contact/"
 
 # -----------------------------------------------------------------------------

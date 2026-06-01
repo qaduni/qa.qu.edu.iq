@@ -1,0 +1,15 @@
+{{ define "main" }}
+      {{ partial "sections/hero.html" . }}
+      {{ partial "sections/services.html" . }}
+      {{ partial "sections/quick-links.html" . }}
+      {{ partial "sections/news-grid.html" . }}
+      {{ partial "sections/announcements.html" . }}
+      {{ partial "sections/contact.html" . }}
+      {{ partial "sections/podcast.html" . }}
+      {{ with .Site.Params.visitorCounterEndpoint }}
+      {{ partial "sections/visitor-counter.html" $ }}
+      {{ end }}
+
+      {{ $jsHome := resources.Get "js/home.js" | minify | fingerprint }}
+      <script src="{{ $jsHome.RelPermalink }}" defer></script>
+  {{ end }}

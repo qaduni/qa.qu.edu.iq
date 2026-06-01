@@ -26,8 +26,15 @@ COPY . .
 RUN git submodule update --init --recursive || true
 
 # 6. Build and index
+# News and announcements are indexed into SEPARATE Pagefind bundles so each
+# list page can show a search box scoped to only its own content.
 RUN hugo --minify
-RUN npx --yes pagefind --site public
+RUN npx --yes pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news
+# Announcements may legitimately have no articles yet; pagefind exits non-zero
+# on an empty index, so tolerate that one case without failing the build. The
+# list page only renders its search box when the section has articles.
+RUN npx --yes pagefind --site public --glob "**/media/announcements/**/*.html" --output-subdir pagefind-announcements \
+    || echo "No announcements to index yet — skipping the announcements search bundle."
 
 # Stage 2: Serve the site using Nginx
 FROM nginx:alpine

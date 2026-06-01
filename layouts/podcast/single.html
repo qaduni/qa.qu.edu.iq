@@ -1,0 +1,241 @@
+{{/* Resolve external URL + thumbnail once, reuse in head + body. */}}
+{{ $url := .Params.youtube | default .Params.externalUrl }}
+{{ $thumb := .Params.thumbnail | default .Params.image }}
+{{ $ytid := "" }}
+{{ with $url }}
+    {{ $m := findRESubmatch `(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([\w-]+)` . }}
+    {{ with $m }}
+        {{ $ytid = index (index . 0) 1 }}
+    {{ end }}
+{{ end }}
+{{ if and (not $thumb) $ytid }}
+    {{ $thumb = printf "https://img.youtube.com/vi/%s/maxresdefault.jpg" $ytid }}
+{{ end }}
+
+{{ define "head" }}
+    {{ $url := .Params.youtube | default .Params.externalUrl }}
+    {{ $thumb := .Params.thumbnail | default .Params.image }}
+    {{ $ytid := "" }}
+    {{ with $url }}
+        {{ $m := findRESubmatch `(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([\w-]+)` . }}
+        {{ with $m }}{{ $ytid = index (index . 0) 1 }}{{ end }}
+    {{ end }}
+    {{ if and (not $thumb) $ytid }}
+        {{ $thumb = printf "https://img.youtube.com/vi/%s/maxresdefault.jpg" $ytid }}
+    {{ end }}
+
+    <meta property="og:type" content="video.episode">
+    {{ with $thumb }}
+    <meta property="og:image" content="{{ . | absURL }}">
+    <meta property="og:image:secure_url" content="{{ . | absURL }}">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta name="twitter:image" content="{{ . | absURL }}">
+    {{ end }}
+    {{ with $ytid }}
+    <meta property="og:video" content="https://www.youtube.com/embed/{{ . }}">
+    <meta property="og:video:secure_url" content="https://www.youtube.com/embed/{{ . }}">
+    <meta property="og:video:type" content="text/html">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:player" content="https://www.youtube.com/embed/{{ . }}">
+    <meta name="twitter:player:width" content="1280">
+    <meta name="twitter:player:height" content="720">
+    {{ end }}
+    {{ with .Date }}
+    <meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+    {{ end }}
+
+    {{ $ld := dict
+        "@context" "https://schema.org"
+        "@type"    "PodcastEpisode"
+        "name"     .Title
+        "url"      .Permalink
+        "datePublished" (.Date.Format "2006-01-02")
+        "inLanguage" .Language.Lang
+    }}
+    {{ with .Description }}{{ $ld = merge $ld (dict "description" .) }}{{ end }}
+    {{ with $thumb }}{{ $ld = merge $ld (dict "image" (. | absURL)) }}{{ end }}
+    {{ with .Params.duration }}{{ $ld = merge $ld (dict "duration" .) }}{{ end }}
+    {{ with .Params.episodeNumber }}{{ $ld = merge $ld (dict "episodeNumber" .) }}{{ end }}
+    {{ with $url }}{{ $ld = merge $ld (dict "associatedMedia" (dict "@type" "VideoObject" "contentUrl" .)) }}{{ end }}
+    <script type="application/ld+json">{{ $ld | jsonify (dict "indent" "  ") | safeJS }}</script>
+{{ end }}
+
+{{ define "main" }}
+{{ $url := .Params.youtube | default .Params.externalUrl }}
+{{ $thumb := .Params.thumbnail | default .Params.image }}
+{{ $ytid := "" }}
+{{ with $url }}
+    {{ $m := findRESubmatch `(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([\w-]+)` . }}
+    {{ with $m }}{{ $ytid = index (index . 0) 1 }}{{ end }}
+{{ end }}
+
+<section class="page-header">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="{{ .Site.Home.RelPermalink }}">{{ i18n "home" }}</a></li>
+                {{ with .CurrentSection }}
+                {{ if ne .Title $.Title }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+                {{ end }}
+                <li>{{ .Title }}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<div class="content-wrapper">
+    <div class="container episode-container">
+        <header class="episode-meta">
+            {{ with .Params.episodeNumber }}
+            <span class="podcast-card-eyebrow">{{ i18n "podcast_episode" }} {{ . }}</span>
+            {{ end }}
+            <div class="episode-meta-row">
+                {{ with .Date }}
+                <time datetime="{{ .Format "2006-01-02" }}">
+                    <svg width="14" height="14"><use href="#icon-calendar"></use></svg>
+                    {{ . | time.Format ":date_long" }}
+                </time>
+                {{ end }}
+                {{ with .Params.duration }}
+                <span class="episode-duration">{{ . }}</span>
+                {{ end }}
+            </div>
+            {{ with .Description }}<p class="episode-description">{{ . }}</p>{{ end }}
+        </header>
+
+        {{ if $ytid }}
+        <div class="episode-player">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/{{ $ytid }}"
+                title="{{ .Title }}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+        {{ end }}
+
+        {{ with $url }}
+        <a class="btn btn-primary btn-lg episode-cta" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18"><use href="#icon-youtube"></use></svg>
+            {{ i18n "podcast_watch" }}
+        </a>
+        {{ end }}
+
+        {{ with .Content }}
+        <article class="article-content episode-notes">{{ . }}</article>
+        {{ end }}
+
+        <div class="episode-share">
+            <span class="episode-share-label">{{ i18n "share" }}</span>
+            <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}"
+               target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <svg width="18" height="18"><use href="#icon-twitter"></use></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+               target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg width="18" height="18"><use href="#icon-facebook"></use></svg>
+            </a>
+            <a href="https://t.me/share/url?url={{ .Permalink }}&text={{ .Title }}"
+               target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <svg width="18" height="18"><use href="#icon-telegram"></use></svg>
+            </a>
+            <a href="https://wa.me/?text={{ .Title }}%20{{ .Permalink }}"
+               target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg width="18" height="18"><use href="#icon-whatsapp"></use></svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.episode-container { max-width: 880px; }
+.episode-meta { margin-bottom: var(--spacing-xl, 2rem); }
+.episode-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md, 1rem);
+    align-items: center;
+    color: var(--color-text-muted, #555);
+    font-size: .9rem;
+    margin: var(--spacing-sm, .5rem) 0;
+}
+.episode-meta-row time {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+}
+.episode-duration {
+    background: var(--color-surface-alt, #f3f4f6);
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+.episode-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text, #222);
+    margin: var(--spacing-md, 1rem) 0 0;
+}
+.episode-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    background: #000;
+    box-shadow: var(--shadow-lg, 0 12px 28px rgba(0,0,0,.12));
+    margin-bottom: var(--spacing-xl, 2rem);
+}
+.episode-player iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.episode-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: var(--spacing-xl, 2rem);
+}
+.episode-notes { margin-top: var(--spacing-xl, 2rem); }
+.episode-share {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm, .75rem);
+    margin-top: var(--spacing-2xl, 3rem);
+    padding-top: var(--spacing-lg, 1.5rem);
+    border-top: 1px solid var(--color-border, #e5e7eb);
+}
+.episode-share-label {
+    font-weight: 600;
+    color: var(--color-text-muted, #555);
+    margin-inline-end: var(--spacing-xs, .25rem);
+}
+.episode-share a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-surface-alt, #f3f4f6);
+    color: var(--color-text, #222);
+    transition: background .2s ease, color .2s ease;
+}
+.episode-share a:hover,
+.episode-share a:focus-visible {
+    background: var(--color-primary, #0f4c81);
+    color: #fff;
+}
+</style>
+{{ end }}

@@ -62,6 +62,7 @@ visitorCounterEndpoint = ""
   news          = "/media/news"
   announcements = "/media/announcements"
   contact       = "/media/contact"
+  podcast       = "/media/podcast"
 
 # Brand theme colours. Override any one to re-skin the theme.
 [theme]

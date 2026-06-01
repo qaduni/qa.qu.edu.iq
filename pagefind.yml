@@ -1,11 +1,21 @@
 # Pagefind Configuration
-# Only index news and announcements content
+#
+# News and announcements are indexed into SEPARATE bundles so each list page
+# can show a search box scoped to only its own content (news search vs
+# announcements search). The two index runs live in package.json ("index")
+# and the Dockerfile, each supplying its own --glob and --output-subdir:
+#
+#   pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news
+#   pagefind --site public --glob "**/media/announcements/**/*.html" --output-subdir pagefind-announcements
+#
+# `glob` is intentionally NOT set here — each run passes its own via --glob.
+# The settings below apply to both runs.
 
-glob: "**/media/{news,announcements}/**/*.html"
 exclude_selectors:
   - "nav"
   - "header"
   - "footer"
+  - ".top-bar"        # contact strip + top menu — would otherwise be indexed on list pages
   - ".pagination"
   - ".sr-only"
   - "[aria-hidden=true]"

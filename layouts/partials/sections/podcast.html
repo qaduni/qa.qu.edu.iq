@@ -1,0 +1,177 @@
+{{ $podcastSectionPath := .Site.Params.contentSections.podcast | default "/media/podcast" }}
+{{ $podcastSection := .Site.GetPage $podcastSectionPath }}
+{{ with $podcastSection }}
+{{ $episodes := first 6 .Pages.ByDate.Reverse }}
+{{ if $episodes }}
+<section class="section podcast-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2>{{ i18n "podcast" }}</h2>
+            <p>{{ i18n "podcast_subtitle" }}</p>
+        </div>
+
+        <div class="podcast-grid">
+            {{ range $i, $e := $episodes }}
+            {{ $url := .Params.youtube | default .Params.externalUrl }}
+            {{ $thumb := .Params.thumbnail | default .Params.image }}
+            {{ if and (not $thumb) $url }}
+                {{ $m := findRESubmatch `(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([\w-]+)` $url }}
+                {{ with $m }}
+                    {{ $thumb = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" (index (index . 0) 1) }}
+                {{ end }}
+            {{ end }}
+            <a class="podcast-card reveal"
+               href="{{ .RelPermalink }}"
+               style="--reveal-delay: {{ mul $i 90 }}ms;"
+               aria-label="{{ .Title }}">
+                <div class="podcast-card-thumb">
+                    {{ if $thumb }}
+                    <img src="{{ $thumb }}" alt="" loading="lazy" decoding="async">
+                    {{ end }}
+                    <span class="podcast-card-play" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </span>
+                    {{ with .Params.duration }}
+                    <span class="podcast-card-duration">{{ . }}</span>
+                    {{ end }}
+                </div>
+                <div class="podcast-card-content">
+                    {{ with .Params.episodeNumber }}
+                    <span class="podcast-card-eyebrow">{{ i18n "podcast_episode" }} {{ . }}</span>
+                    {{ end }}
+                    <h3>{{ .Title }}</h3>
+                    {{ with .Description }}<p>{{ . | truncate 110 }}</p>{{ end }}
+                    <span class="podcast-card-cta">
+                        {{ i18n "podcast_watch" }}
+                        <svg width="14" height="14" aria-hidden="true">
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+
+        <div class="text-center mt-xl">
+            <a href="{{ $podcastSectionPath | relLangURL }}" class="btn btn-outline btn-lg">
+                {{ i18n "all_episodes" }}
+                <svg width="16" height="16">
+                    <use href="#icon-arrow-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
+
+<style>
+.podcast-section { background: var(--color-surface, #fff); }
+.podcast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+.podcast-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg, #fff);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,.08));
+    color: inherit;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.podcast-card:hover,
+.podcast-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg, 0 12px 28px rgba(0,0,0,.12));
+}
+.podcast-card-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+}
+.podcast-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+.podcast-card:hover .podcast-card-thumb img { transform: scale(1.04); }
+.podcast-card-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: rgba(0,0,0,.25);
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+.podcast-card-play::before {
+    content: "";
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, .85);
+    box-shadow: 0 4px 16px rgba(0,0,0,.35);
+}
+.podcast-card-play svg { position: relative; }
+.podcast-card:hover .podcast-card-play,
+.podcast-card:focus-visible .podcast-card-play { opacity: 1; }
+.podcast-card-duration {
+    position: absolute;
+    bottom: 8px;
+    inset-inline-end: 8px;
+    background: rgba(0,0,0,.78);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.podcast-card-content {
+    padding: var(--spacing-lg, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm, .5rem);
+    flex: 1;
+}
+.podcast-card-eyebrow {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--color-primary, #0f4c81);
+}
+.podcast-card-content h3 {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin: 0;
+}
+.podcast-card-content p {
+    font-size: .9rem;
+    line-height: 1.55;
+    color: var(--color-text-muted, #555);
+    margin: 0;
+}
+.podcast-card-cta {
+    margin-top: auto;
+    padding-top: var(--spacing-sm, .5rem);
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-weight: 600;
+    font-size: .85rem;
+    color: var(--color-primary, #0f4c81);
+}
+[dir="rtl"] .podcast-card-cta svg { transform: scaleX(-1); }
+</style>

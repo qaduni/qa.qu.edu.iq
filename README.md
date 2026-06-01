@@ -159,17 +159,29 @@ Sveltia CMS is served at `/admin/`. Config: `static/admin/config.yml`.
 
 ## Search (Pagefind)
 
-Pagefind only indexes news + announcements (the `glob` line in
-`pagefind.yml`). It runs **after** Hugo against the built site:
+News and announcements are indexed into **two separate Pagefind bundles** so
+each list page has its own search box: the News page searches only news, the
+Announcements page searches only announcements. Indexing runs **after** Hugo,
+once per section (see `npm run index`, `package.json` and the `Dockerfile`):
 
 ```bash
 hugo --gc --minify
-npx pagefind --site public
+npx pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news
+npx pagefind --site public --glob "**/media/announcements/**/*.html" --output-subdir pagefind-announcements
+# (or just: npm run build)
 ```
 
-The on-page UI is the Pagefind 1.5 Component UI, loaded by
-`themes/qu.theme/layouts/media/news/list.html`. RTL and translations
-are handled automatically from `<html lang>` and `<html dir>`.
+The on-page UI is the stock **Pagefind Default UI** (`pagefind-ui.js` +
+`pagefind-ui.css`, no custom site CSS), instantiated per section in the
+site-level override `layouts/_default/list.html` with the matching
+`bundlePath`. RTL and translations are handled automatically from
+`<html lang>` and `<html dir>`.
+
+Shared indexing settings (excluded chrome selectors) live in `pagefind.yml`;
+each run supplies its own `--glob`/`--output-subdir`. A section with no
+articles yet (e.g. announcements before the first post) produces no bundle —
+`pagefind` exits non-zero on an empty index, so that one run is tolerated in
+the build, and the list page only renders its search box once it has articles.
 
 If you add fields that should be filterable or searchable, see the
 "Pagefind conventions" section in the theme README.

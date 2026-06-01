@@ -1,5 +1,5 @@
 ---
-title: "News & Announcements"
+title: "News"
 description: "Latest news from the Quality Assurance and University Performance Department"
 layout: "list"
 ---

@@ -32,8 +32,8 @@ display_url: https://qa.qu.edu.iq
 
 collections:
   - name: "news"
-    label: "News / الأخبار"
-    label_singular: "News Item / خبر"
+    label: "الأخبار"
+    label_singular: "/ خبر"
     description: "الاخبار تظهر في الصفحة الرئيسية ومركز الاخبار وتحتوي على غلاف."
     i18n: true
     folder: "content/media/news"
@@ -49,8 +49,8 @@ collections:
       - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
 
   - name: "announcements"
-    label: "Announcements / الإعلانات"
-    label_singular: "Announcement / إعلان"
+    label: "الإعلانات"
+    label_singular: "إعلان"
     description: "الإعلانات تظهر في الصفحة الرئيسية ومركز الاخبار ولا تحتوي على غلاف."
     i18n: true
     folder: "content/media/announcements"
@@ -74,8 +74,28 @@ collections:
       - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
       - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
 
+  - name: "podcast"
+    label: "البودكاست"
+    label_singular: "حلقة"
+    description: "حلقات البودكاست تظهر في الصفحة الرئيسية وصفحة البودكاست. كل بطاقة تفتح رابط الحلقة على المنصة المستضيفة (يوتيوب)."
+    i18n: true
+    folder: "content/media/podcast"
+    create: true
+    identifier_field: "title"
+    slug: "{{slug}}"
+    sortable_fields: ["episodeNumber", "date", "title"]
+    fields:
+      - { label: "Title / العنوان", name: "title", widget: "string", required: true, i18n: true }
+      - { label: "Episode Number / رقم الحلقة", name: "episodeNumber", widget: "number", value_type: "int", min: 1, required: false, i18n: duplicate }
+      - { label: "Date / التاريخ", name: "date", widget: "datetime", required: true, i18n: duplicate }
+      - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
+      - { label: "YouTube URL / رابط يوتيوب", name: "youtube", widget: "string", required: true, i18n: duplicate, hint: "Full episode URL — e.g. https://www.youtube.com/watch?v=..." }
+      - { label: "Duration / المدة", name: "duration", widget: "string", required: false, i18n: true, hint: "e.g. 28 min / 28 دقيقة" }
+      - { label: "Custom Thumbnail / الصورة المصغرة (اختياري)", name: "thumbnail", widget: "image", required: false, i18n: duplicate, hint: "Leave empty to auto-derive from the YouTube URL" }
+      - { label: "Show Notes / محتوى الحلقة", name: "body", widget: "markdown", required: false, i18n: true }
+
   - name: "about_pages"
-    label: "About / حول"
+    label: "حول"
     folder: "content/about"
     create: false
     i18n: true
@@ -94,7 +114,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
   - name: "about_policies"
-    label: "Policies / السياسات"
+    label: "السياسات"
     folder: "content/about/policies"
     create: false
     i18n: true
@@ -113,7 +133,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
   - name: "accreditations"
-    label: "Accreditations / الاعتمادات"
+    label: "الاعتمادات"
     folder: "content/accreditations"
     create: false
     i18n: true
@@ -132,7 +152,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
   - name: "classifications"
-    label: "Classifications / التصنيفات"
+    label: "التصنيفات"
     folder: "content/classifications"
     create: false
     i18n: true
@@ -151,7 +171,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
   - name: "lab_accreditation"
-    label: "Lab Accreditation / اعتماد المختبرات"
+    label: "اعتماد المختبرات"
     folder: "content/lab-accreditation"
     create: false
     i18n: true
@@ -170,7 +190,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
   - name: "performance_evaluation"
-    label: "Performance Evaluation / تقييم الأداء"
+    label: "تقييم الأداء"
     folder: "content/performance-evaluation"
     create: false
     i18n: true

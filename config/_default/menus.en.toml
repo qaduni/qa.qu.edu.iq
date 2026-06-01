@@ -148,9 +148,19 @@
   weight = 81
   url    = "/en/media/news/"
 [[main]]
-  name   = "Contact"
+  name   = "Announcements"
   parent = "news_announcements"
   weight = 82
+  url    = "/en/media/announcements/"
+[[main]]
+  name   = "Podcast"
+  parent = "news_announcements"
+  weight = 83
+  url    = "/en/media/podcast/"
+[[main]]
+  name   = "Contact"
+  parent = "news_announcements"
+  weight = 84
   url    = "/en/media/contact/"
 
 # -----------------------------------------------------------------------------
