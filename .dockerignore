@@ -1,0 +1,53 @@
+# Build artifacts — Hugo regenerates these inside the container
+public/
+resources/
+.hugo_build.lock
+
+# Node — npm ci runs inside the container from package-lock.json
+node_modules/
+npm-debug.log*
+.npm/
+
+# Git — the Dockerfile needs .git/ for `git submodule update`,
+# so we keep the repo but drop the heavy/irrelevant bits.
+.git/hooks/
+.git/logs/
+.git/lfs/
+.git/objects/pack/tmp_pack_*
+.gitattributes
+
+# Editor / OS / tooling
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.claude/
+.devcontainer/
+.editorconfig
+
+# CI / project meta — not needed in the image build
+.github/
+.gitlab-ci.yml
+.circleci/
+
+# Docker meta — never copy these into themselves
+Dockerfile
+Dockerfile.*
+.dockerignore
+docker-compose*.yml
+compose*.yml
+
+# Docs and local-only files
+README.md
+LICENSE
+CHANGELOG.md
+*.md.bak
+.env
+.env.*
+!.env.example
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
