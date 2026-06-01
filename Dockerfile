@@ -32,7 +32,15 @@ COPY . .
 
 # 5. Initialize Git submodules
 # This must run after 'COPY . .' because it requires the .git and .gitmodules files.
-RUN git submodule update --init --recursive || true
+# Fail the build loudly if submodules don't populate — silent failure here is
+# what produced "site is stale after push" symptoms previously.
+RUN git config --global --add safe.directory '*' \
+ && git submodule sync --recursive \
+ && git submodule update --init --recursive --depth 1 \
+ && test -f themes/qu.theme/theme.toml \
+ || (echo "FATAL: theme submodule did not populate; check Dokploy clone settings" \
+     && ls -la themes/qu.theme/ \
+     && exit 1)
 
 # 6. Build and index
 # News and announcements are indexed into SEPARATE Pagefind bundles so each
