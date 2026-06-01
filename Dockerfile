@@ -49,9 +49,18 @@ RUN git config --global --add safe.directory '*' \
 # drops); pagefind exits non-zero on an empty index, so tolerate that for
 # both bundles rather than failing the whole image build. The list page's
 # search UI just won't find anything until content is added — which is the
-# correct behaviour for an empty section.f
+# correct behaviour for an empty section.
+#
+# CACHEBUST forces this layer to re-run every deploy regardless of layer-cache
+# state. All tool layers above (apk, hugo binary, npm ci) sit above this ARG
+# and keep caching across deploys; everything from here down (submodules → hugo
+# → pagefind → output) is forced fresh. Wire `CACHEBUST` in Dokploy's Build
+# Time Arguments to the commit SHA or a per-deploy timestamp — a static value
+# defeats the purpose.
+ARG CACHEBUST=unset
 RUN --mount=type=cache,target=/root/.npm,sharing=locked \
-    hugo --minify \
+    echo "Build cachebust token: $CACHEBUST" \
+ && hugo --minify \
  && ( npx --yes pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news \
       || echo "No news to index yet — skipping the news search bundle." ) \
  && ( npx --yes pagefind --site public --glob "**/media/announcements/**/*.html" --output-subdir pagefind-announcements \
@@ -65,5 +74,11 @@ COPY --from=builder /app/public /usr/share/nginx/html
 
 EXPOSE 80
 
+# Use 127.0.0.1 explicitly. On alpine, `localhost` resolves to ::1 first via
+# musl/getent ordering, but nginx listens on IPv4 only (see deploy/nginx.conf).
+# A `localhost` healthcheck would always fail with "Connection refused", marking
+# the container unhealthy in Swarm and causing Traefik to return Bad Gateway —
+# even though the site itself serves correctly. See debug session
+# .planning/debug/resolved/dokploy-stale-site-and-bad-gateway.md.
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-    CMD wget -qO- http://localhost/ >/dev/null 2>&1 || exit 1
+    CMD wget -qO- http://127.0.0.1/ >/dev/null 2>&1 || exit 1
