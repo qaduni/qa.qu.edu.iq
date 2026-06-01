@@ -1,4 +1,4 @@
 ---
 title: "Policies & Regulations"
-layout: redirect
+description: "Official policies, regulations, and guides for the Quality Assurance Department."
 ---

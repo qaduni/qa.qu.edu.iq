@@ -41,7 +41,7 @@ RUN git submodule update --init --recursive || true
 # drops); pagefind exits non-zero on an empty index, so tolerate that for
 # both bundles rather than failing the whole image build. The list page's
 # search UI just won't find anything until content is added — which is the
-# correct behaviour for an empty section.
+# correct behaviour for an empty section.f
 RUN --mount=type=cache,target=/root/.npm,sharing=locked \
     hugo --minify \
  && ( npx --yes pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news \

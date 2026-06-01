@@ -1,4 +1,4 @@
 ---
 title: "Accreditations & Memberships"
-layout: redirect
+description: "Accreditations and memberships of the Quality Assurance Department in local and international bodies."
 ---

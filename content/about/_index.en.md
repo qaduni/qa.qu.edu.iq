@@ -1,4 +1,4 @@
 ---
 title: "About"
-layout: redirect
+description: "About the Quality Assurance Department — vision, mission, and organisational structure."
 ---

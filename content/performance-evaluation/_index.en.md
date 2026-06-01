@@ -1,4 +1,4 @@
 ---
 title: "Performance Evaluation"
-layout: redirect
+description: "Reports and criteria for performance evaluation across departments and colleges."
 ---

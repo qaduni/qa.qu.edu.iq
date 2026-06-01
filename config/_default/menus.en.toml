@@ -325,7 +325,7 @@
     icon = "building"
     style = "accent"
 [[hero_buttons]]
-  name   = "Learn More"
+  name   = "Our Vision & Mission"
   weight = 20
   url    = "/en/about/vision-mission/"
   [hero_buttons.params]

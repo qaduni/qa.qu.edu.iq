@@ -1,4 +1,4 @@
 ---
 title: "Media & Contact"
-layout: redirect
+description: "Department news, announcements, media, and contact information."
 ---

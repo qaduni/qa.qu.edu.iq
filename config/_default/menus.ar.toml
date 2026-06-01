@@ -338,7 +338,7 @@
     icon = "building"
     style = "accent"
 [[hero_buttons]]
-  name   = "اقرأ المزيد"
+  name   = "رؤيتنا ورسالتنا"
   weight = 20
   url    = "/about/vision-mission/"
   [hero_buttons.params]
