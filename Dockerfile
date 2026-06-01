@@ -37,11 +37,15 @@ RUN git submodule update --init --recursive || true
 # 6. Build and index
 # News and announcements are indexed into SEPARATE Pagefind bundles so each
 # list page can show a search box scoped to only its own content.
-# Announcements may legitimately have no articles yet; pagefind exits non-zero
-# on an empty index, so tolerate that one case without failing the build.
+# Either section may legitimately have no articles yet (e.g. between content
+# drops); pagefind exits non-zero on an empty index, so tolerate that for
+# both bundles rather than failing the whole image build. The list page's
+# search UI just won't find anything until content is added — which is the
+# correct behaviour for an empty section.
 RUN --mount=type=cache,target=/root/.npm,sharing=locked \
     hugo --minify \
- && npx --yes pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news \
+ && ( npx --yes pagefind --site public --glob "**/media/news/**/*.html"          --output-subdir pagefind-news \
+      || echo "No news to index yet — skipping the news search bundle." ) \
  && ( npx --yes pagefind --site public --glob "**/media/announcements/**/*.html" --output-subdir pagefind-announcements \
       || echo "No announcements to index yet — skipping the announcements search bundle." )
 
