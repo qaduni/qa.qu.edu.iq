@@ -1,6 +1,6 @@
 ---
-title: "Documents & Records"
-description: "Documents and records related to laboratory accreditation"
+title: Documents & Records
+description: Documents and records related to laboratory accreditation
 ---
 
 ## Documents and Records
