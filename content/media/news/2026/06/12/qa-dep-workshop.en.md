@@ -2,7 +2,7 @@
 title_en: QA Dep workshop
 title: 'The Quality Assurance and University Performance Department at Al-Qadisiyah University held a workshop on the requirements of the first standard for national institutional accreditation: institutional strategy and development mechanisms.'
 description: 'The Quality Assurance and University Performance Department at Al-Qadisiyah University held a workshop on the requirements of the first standard for national institutional accreditation: institutional strategy and development mechanisms.'
-image: whatsapp-image-2026-06-12-at-8.20.27-pm.webp
+image: qa-dep-workshop/whatsapp-image-2026-06-12-at-8.20.27-pm.webp
 ---
 
 The Quality Assurance and University Performance Department at Al-Qadisiyah University held a workshop on the requirements of the first standard for national institutional accreditation: institutional strategy and development mechanisms.
