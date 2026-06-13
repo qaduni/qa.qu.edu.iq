@@ -4,16 +4,12 @@
 # =============================================================================
 search_news_placeholder: "Search news..."
 search_announcements_placeholder: "Search announcements..."
-close: "Close"
 
 # =============================================================================
 # Hero
 # =============================================================================
 welcome_message: "QA & University Performance Department"
 site_description: "We work to embed a culture of quality at Al-Qadisiyah University, apply local, regional and international standards across teaching and research, and manage institutional and programmatic accreditation as well as performance evaluation."
-explore_about: "About the Department"
-learn_more: "Learn More"
-parent_site: "Back to the university site"
 internationally_accredited: "Quality Assurance & Accreditation"
 
 # =============================================================================
@@ -21,11 +17,6 @@ internationally_accredited: "Quality Assurance & Accreditation"
 # =============================================================================
 quick_links: "Quick Links"
 quick_links_subtitle: "Quick access to the most requested services and documents"
-ql_forms: "Evaluation forms"
-ql_guide: "Guidance manual"
-ql_surveys: "Surveys"
-ql_safety: "Laboratory safety"
-ql_standards: "Guides & standards"
 
 # News
 latest_news: "Latest News"
@@ -52,14 +43,6 @@ share: "Share"
 # Services section
 services_title: "Departmental Services"
 services_subtitle: "Services the Quality Assurance Department provides to the university's colleges and centres"
-service_one: "Performance Evaluation"
-service_one_desc: "Annual forms for evaluating colleges, centres and administrative departments"
-service_two: "Accreditation"
-service_two_desc: "Supporting colleges in preparing national and international accreditation files"
-service_three: "Rankings"
-service_three_desc: "Tracking the university's position in international and Arab rankings"
-service_four: "Laboratory Accreditation"
-service_four_desc: "Pursuing ISO/IEC 17025 laboratory accreditation and disseminating safety standards"
 view_details: "Details"
 
 # Contact
@@ -69,42 +52,6 @@ contact_us: "Contact"
 today_visitors: "Today's Visitors"
 total_visitors: "Total Visitors"
 online_now: "Online Now"
-
-# =============================================================================
-# Navigation — short labels (the long ones push the language switcher off-screen)
-# =============================================================================
-home: "Home"
-about: "About"
-department_structure: "Department Structure"
-department_vision: "Vision"
-department_tasks: "Tasks"
-
-classifications: "Rankings"
-international_rankings: "International"
-arab_rankings: "Arab"
-iru_ranking: "Iraqi (IRU)"
-
-accreditations: "Accreditation"
-institutional_accreditation: "Institutional"
-programmatic_accreditation: "Programmatic"
-iso_accreditation: "ISO"
-memberships: "Memberships"
-
-sustainability_site: "Sustainability"
-
-performance_evaluation: "Evaluation"
-forms_2024_2025: "Forms 2024-2025"
-forms_2023_2024: "Forms 2023-2024"
-guidance_manual: "Guidance Manual"
-surveys: "Surveys"
-
-lab_accreditation: "Labs"
-lab_inventory: "Inventory"
-lab_documents: "Documents"
-lab_reality: "Lab Landscape"
-lab_safety: "Safety"
-
-news_announcements: "News"
 
 # =============================================================================
 # Footer
@@ -128,11 +75,6 @@ form_email: "Email Address"
 form_phone: "Phone Number"
 form_subject: "Subject"
 form_subject_choose: "Select Subject"
-form_subject_admission: "Question about accreditation"
-form_subject_academic: "Question about performance evaluation"
-form_subject_research: "Question about rankings"
-form_subject_technical: "Technical Support"
-form_subject_other: "Other"
 form_message: "Message"
 form_submit_contact: "Send Message"
 form_section_personal: "Personal Information"
@@ -140,19 +82,11 @@ form_section_affiliation: "Academic Information"
 form_section_employment: "Current Employment Status"
 form_section_feedback: "Feedback"
 form_year: "Graduation Year"
-form_year_choose: "Select Year"
-form_year_older: "Before 2021"
 form_organization: "College"
 form_organization_choose: "Select College"
-form_organization_other: "Other"
 form_unit: "Department"
 form_employment_status: "Employment Status"
 form_status_choose: "Select Status"
-form_status_employed: "Employed"
-form_status_self_employed: "Self-Employed"
-form_status_unemployed: "Job Seeking"
-form_status_student: "Postgraduate Student"
-
 form_employer: "Employer (if applicable)"
 form_job_title: "Job Title"
 form_feedback_label: "Your feedback on the academic program"

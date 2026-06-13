@@ -299,33 +299,26 @@
 # Homepage — Services cards section (4 large feature cards)
 # -----------------------------------------------------------------------------
 [[homepage_services]]
-  name   = "تقويم الأداء"
+  name   = "شعبة تقويم الأداء"
   weight = 10
   url    = "/performance-evaluation/"
   [homepage_services.params]
     image = "images/labs.webp"
-    description = "استمارات سنوية لتقويم أداء الكليات والمراكز والأقسام الإدارية"
+    description = "تُعنى بإعداد استمارات تقويم الأداء المؤسسي السنوية، ومتابعة تطبيقها في الكليات والمراكز، وتحليل النتائج وإصدار التقارير"
 [[homepage_services]]
-  name   = "الاعتماد"
+  name   = "شعبة الضمان"
   weight = 20
-  url    = "/accreditations/"
-  [homepage_services.params]
-    image = "images/labs.webp"
-    description = "دعم الكليات في إعداد ملفات الاعتماد الوطني والدولي"
-[[homepage_services]]
-  name   = "التصنيفات"
-  weight = 30
   url    = "/classifications/international/"
   [homepage_services.params]
-    image = "images/labs.webp"
-    description = "متابعة موقع الجامعة في التصنيفات العالمية والعربية"
+    image = "images/tour.webp"
+    description = "مسؤولة عن متابعة تطبيق معايير ضمان الجودة، وإعداد الخطط التحسينية، وتفعيل ثقافة الجودة بين الكوادر التدريسية والإدارية"
 [[homepage_services]]
-  name   = "اعتماد المختبرات"
-  weight = 40
-  url    = "/lab-accreditation/"
+  name   = "شعبة الاعتماد"
+  weight = 30
+  url    = "/accreditations/"
   [homepage_services.params]
-    image = "images/labs.webp"
-    description = "متابعة اعتماد المختبرات وفق ISO/IEC 17025 ونشر معايير السلامة"
+    image = "images/people.webp"
+    description = "تتولى ملفات الاعتماد المؤسسي والبرامجي والمختبري، والتنسيق مع جهات الاعتماد المحلية والدولية، ومتابعة شهادات الـ ISO."
 
 # -----------------------------------------------------------------------------
 # Hero CTAs (2 buttons)

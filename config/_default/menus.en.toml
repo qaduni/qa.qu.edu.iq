@@ -291,28 +291,21 @@
   url    = "/en/performance-evaluation/"
   [homepage_services.params]
     image = "images/labs.webp"
-    description = "Annual forms for evaluating colleges, centres and administrative departments"
-[[homepage_services]]
-  name   = "Accreditation"
-  weight = 20
-  url    = "/en/accreditations/international/"
-  [homepage_services.params]
-    image = "images/labs.webp"
-    description = "Supporting colleges in preparing national and international accreditation files"
+    description = "It deals with preparing annual institutional performance evaluation forms, monitoring their implementation in colleges and centers, analyzing results and issuing reports"
 [[homepage_services]]
   name   = "Rankings"
-  weight = 30
+  weight = 20
   url    = "/en/classifications/"
   [homepage_services.params]
-    image = "images/labs.webp"
-    description = "Tracking the university's position in international and Arab rankings"
+    image = "images/tour.webp"
+    description = "Responsible for monitoring the application of quality assurance standards, preparing improvement plans, and activating a culture of quality among teaching and administrative staff"
 [[homepage_services]]
-  name   = "Laboratory Accreditation"
-  weight = 40
-  url    = "/en/lab-accreditation/"
+  name   = "Accreditation"
+  weight = 30
+  url    = "/en/accreditations/international/"
   [homepage_services.params]
-    image = "images/labs.webp"
-    description = "Pursuing ISO/IEC 17025 laboratory accreditation and disseminating safety standards"
+    image = "images/people.webp"
+    description = "It handles institutional, program and laboratory accreditation files, coordinates with local and international accreditation bodies, and follows up on ISO certifications"
 
 # -----------------------------------------------------------------------------
 # Hero CTAs
