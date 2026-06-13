@@ -1,7 +1,7 @@
 ---
 title_en: QA Dep workshop
-title: The Quality Assurance and University Performance.
-description: The Quality Assurance and University Performance Department held a workshop on the requirements of the first standard for national institutional accreditation.
+title: Workshop on First Standard Requirements for Institutional Accreditation
+description: 'University Quality Assurance Department Holds Workshop on Standard 1: Institutional Strategy and Development.'
 image: /media/whatsapp-image-2026-06-12-at-8.20.27-pm.webp
 date: 2026-06-13
 ---
