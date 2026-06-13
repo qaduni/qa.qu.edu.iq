@@ -20,6 +20,26 @@ jobs:
           submodules: recursive # Crucial because the theme is a submodule
           fetch-depth: 0
 
+      # 1. Cache Hugo modules and build cache
+      - name: Hugo Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hugo_cache
+            public
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml', '**/config.toml', 'content/**') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      # 2. Cache Pagefind binary to avoid downloading it every time via npx
+      - name: Pagefind Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm/_npx
+          key: ${{ runner.os }}-pagefind-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-pagefind-
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
@@ -29,8 +49,9 @@ jobs:
       - name: Build Static Site
         run: hugo --gc --minify
 
+      # 3. Use npx with caching optimized
       - name: Generate Pagefind Search Index
-        run: npx -y pagefind --site public
+        run: npx --prefer-offline -y pagefind --site public
 
       - name: Deploy Compiled Files to Branch
         uses: peaceiris/actions-gh-pages@v4
