@@ -1,18 +1,5 @@
 # =============================================================================
 # Arabic menus — qa.qu.edu.iq
-#
-# Hugo loads this automatically as `[languages.ar.menus]` because of the
-# `menus.<LANG>.toml` filename convention.
-#
-# Per-item params:
-#   weight       — sort order (lower = earlier)
-#   identifier   — referenced by child items via `parent =`
-#   pageRef      — preferred when linking to a page in this site
-#   url          — for external links or special paths
-#   parent       — identifier of the parent menu item (nested dropdown)
-#   pre          — appended to the rendered link's `data-icon` via the template
-#   params.icon  — icon name (matches an <symbol id="icon-…"> in icons.html)
-#   params.external = true — opens in new tab
 # =============================================================================
 
 # -----------------------------------------------------------------------------
@@ -151,7 +138,7 @@
   url    = "/lab-accreditation/safety/"
 
 [[main]]
-  name       = "الأخبار"
+  name       = "الإعلام والتواصل"
   identifier = "news_announcements"
   weight     = 80
 

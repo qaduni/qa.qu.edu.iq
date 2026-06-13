@@ -1,9 +1,0 @@
-# Pagefind Configuration
-exclude_selectors:
-  - "nav"
-  - "header"
-  - "footer"
-  - ".top-bar"
-  - ".pagination"
-  - ".sr-only"
-  - "[aria-hidden=true]"

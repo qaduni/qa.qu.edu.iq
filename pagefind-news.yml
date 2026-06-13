@@ -1,0 +1,3 @@
+site: "public"
+output-subdir: "pagefind-news"
+glob: "news/**/*.html"

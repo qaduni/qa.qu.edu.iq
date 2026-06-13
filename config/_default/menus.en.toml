@@ -138,7 +138,7 @@
   url    = "/en/lab-accreditation/safety/"
 
 [[main]]
-  name       = "News"
+  name       = "Media and Communication"
   identifier = "news_announcements"
   weight     = 80
 

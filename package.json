@@ -2,6 +2,12 @@
   "name": "qa.qu.edu.iq",
   "version": "1.0.0",
   "description": "Al-Qadisiyah University QA Department website.",
+  "scripts": {
+    "build:hugo": "hugo --gc --minify",
+    "build:search-news": "pagefind --site public --output-subdir pagefind-news --glob \"news/**/*.html\"",
+    "build:search-ann": "pagefind --site public --output-subdir pagefind-announcements --glob \"media/announcements/**/*.html\"",
+    "build": "npm run build:hugo && (npm run build:search-news & npm run build:search-ann & wait)"
+  },
   "devDependencies": {
     "pagefind": "^1.5.2"
   }
