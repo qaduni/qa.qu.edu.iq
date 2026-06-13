@@ -1,0 +1,214 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: qaduni/qa.qu.edu.iq
+  branch: main
+
+media_folder: "static/media"
+public_folder: "/media"
+
+i18n:
+  structure: multiple_files
+  locales: [ar, en]
+  default_locale: ar
+  omit_default_locale_from_file_path: true
+
+media_libraries:
+  all:
+    max_file_size: 5120000
+    slugify_filename: true
+    transformations:
+      raster_image:
+        format: webp     # Converts images (PNG, JPG, etc.) to WebP
+        quality: 85      # Optional: set WebP compression quality (default is 85)
+      svg:
+        optimize: true
+
+site_url: https://qa.qu.edu.iq
+display_url: https://qa.qu.edu.iq
+
+collections:
+  - name: "news"
+    label: "الأخبار"
+    label_singular: "خبر"
+    description: "الاخبار تظهر في الصفحة الرئيسية ومركز الاخبار وتحتوي على غلاف."
+    i18n: true
+    folder: "content/media/news"
+    path: "{{year}}/{{month}}/{{day}}/{{title_en}}"
+    create: true
+    identifier_field: "title_en"
+    sortable_fields: ["date", "title"]
+    media_folder: "/static/media"
+    public_folder: "/media"
+    fields:
+      - { label: "العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate, min: 10, max: 60 }
+      - { label: "العنوان", name: "title", widget: "string", required: true, i18n: true, min: 10, max: 60 }
+      - { label: "الوصف", name: "description", widget: "text", required: true, i18n: true,
+          pattern: [
+            "^.{30,160}$", 
+            "يجب أن يكون الوصف بين 30 و 160 حرفًا."
+          ]
+        }
+      - { label: "الصورة", name: "image", widget: "image", required: false, i18n: duplicate }
+      - { label: "المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "التاريخ", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, default: "{{date}}", required: true, i18n: duplicate }
+
+  - name: "announcements"
+    label: "الإعلانات"
+    label_singular: "إعلان"
+    description: "الإعلانات تظهر في الصفحة الرئيسية ومركز الاخبار ولا تحتوي على غلاف."
+    i18n: true
+    folder: "content/media/announcements"
+    path: "{{year}}/{{month}}/{{day}}/{{title_en}}"
+    create: true
+    identifier_field: "title_en"
+    sortable_fields: ["date", "title"]
+    media_folder: "/static/media"
+    public_folder: "/media"
+    fields:
+      - { label: "العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate, min: 10, max: 60 }
+      - { label: "العنوان", name: "title", widget: "string", required: true, i18n: true, min: 10, max: 60 }
+      - { label: "هل الاعلان مهم؟", name: "important", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "الوصف", name: "description", widget: "text", required: true, i18n: true,
+          pattern: [
+            "^.{30,160}$", 
+            "يجب أن يكون الوصف بين 30 و 160 حرفًا."
+          ]
+        }
+      - { label: "المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "التاريخ", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, default: "{{date}}", required: true, i18n: duplicate }
+
+  - name: "podcast"
+    label: "البودكاست"
+    label_singular: "حلقة"
+    description: "حلقات البودكاست تظهر في الصفحة الرئيسية وصفحة البودكاست. كل بطاقة تفتح رابط الحلقة على المنصة المستضيفة (يوتيوب)."
+    i18n: true
+    folder: "content/media/podcast"
+    create: true
+    identifier_field: "title"
+    slug: "{{slug}}"
+    sortable_fields: ["episodeNumber", "date", "title"]
+    fields:
+      - { label: "Title / العنوان", name: "title", widget: "string", required: true, i18n: true }
+      - { label: "Episode Number / رقم الحلقة", name: "episodeNumber", widget: "number", value_type: "int", min: 1, required: false, i18n: duplicate }
+      - { label: "Date / التاريخ", name: "date", widget: "datetime", required: true, i18n: duplicate }
+      - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
+      - { label: "YouTube URL / رابط يوتيوب", name: "youtube", widget: "string", required: true, i18n: duplicate, hint: "Full episode URL — e.g. https://www.youtube.com/watch?v=..." }
+      - { label: "Duration / المدة", name: "duration", widget: "string", required: false, i18n: true, hint: "e.g. 28 min / 28 دقيقة" }
+      - { label: "Custom Thumbnail / الصورة المصغرة (اختياري)", name: "thumbnail", widget: "image", required: false, i18n: duplicate, hint: "Leave empty to auto-derive from the YouTube URL" }
+      - { label: "Show Notes / محتوى الحلقة", name: "body", widget: "markdown", required: false, i18n: true }
+
+  - name: "about_pages"
+    label: "حول"
+    folder: "content/about"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - name: "about_policies"
+    label: "السياسات"
+    folder: "content/about/policies"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - name: "accreditations"
+    label: "الاعتمادات"
+    folder: "content/accreditations"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - name: "classifications"
+    label: "التصنيفات"
+    folder: "content/classifications"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - name: "lab_accreditation"
+    label: "اعتماد المختبرات"
+    folder: "content/lab-accreditation"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+
+  - name: "performance_evaluation"
+    label: "تقييم الأداء"
+    folder: "content/performance-evaluation"
+    create: false
+    i18n: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+
+    filter:
+      exclude:
+        - "_index.md"
+        - "_index.en.md"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description",  name: "description", widget: "string", required: true, i18n: true }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
