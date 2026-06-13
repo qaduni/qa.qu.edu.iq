@@ -1,20 +1,20 @@
 ---
 title_en: QA Dep workshop
-title: 'The Quality Assurance and University Performance Department at Al-Qadisiyah University held a workshop on the requirements of the first standard for national institutional accreditation: institutional strategy and development mechanisms.'
-description: 'The Quality Assurance and University Performance Department at Al-Qadisiyah University held a workshop on the requirements of the first standard for national institutional accreditation: institutional strategy and development mechanisms.'
-image: qa-dep-workshop/whatsapp-image-2026-06-12-at-8.20.27-pm.webp
+title: The Quality Assurance and University Performance.
+description: The Quality Assurance and University Performance Department held a workshop on the requirements of the first standard for national institutional accreditation.
+image: /media/whatsapp-image-2026-06-12-at-8.20.27-pm.webp
+date: 2026-06-13
 ---
 
 The Quality Assurance and University Performance Department at Al-Qadisiyah University held a workshop on the requirements of the first standard for national institutional accreditation: institutional strategy and development mechanisms.
 
-![Audience Image](whatsapp-image-2026-06-12-at-8.20.27-pm-1.webp "Audience Image")
+![Audience Image](qa-dep-workshop/whatsapp-image-2026-06-12-at-8.20.27-pm-1.webp "Audience Image")
 
 Under the patronage of the President of Al-Qadisiyah University, Professor Dr. Rahi Kalaf Mahdi Al-Yasiri, and the supervision of the Director of the Quality Assurance and University Performance Department, Professor Dr. Abbas Sabbar Dakhel, the department, in coordination with the Center for Developing University Teaching Methods and Training, held a workshop entitled:
 
 “Requirements of the First Standard for National Institutional Accreditation: Institutional Strategy and Development Mechanisms.” The workshop was presented by:
 
 - Professor Dr. Ziad Mutab Fajja
-
 - Assistant Lecturer Wissam Saleh Mahdi
 
 The workshop aimed to introduce the requirements of the first standard of the conformity report with the national institutional accreditation standards. The workshop was also attended by assistant deans of colleges, heads of academic departments, and quality assurance officers from all colleges. The presenters provided a detailed explanation of the elements and sections of the first standard of the conformity report, contributing to strengthening the culture of quality and standardizing the procedures adopted at the university. Several important matters related to the ongoing preparations to meet and complete the institutional accreditation requirements for Al-Qadisiyah University were also discussed.

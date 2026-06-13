@@ -22,8 +22,6 @@ media_libraries:
       raster_image:
         format: webp     # Converts images (PNG, JPG, etc.) to WebP
         quality: 85      # Optional: set WebP compression quality (default is 85)
-        # width: 2048    # Optional: uncomment to set a max width 
-        # height: 2048   # Optional: uncomment to set a max height
       svg:
         optimize: true
 
@@ -33,20 +31,28 @@ display_url: https://qa.qu.edu.iq
 collections:
   - name: "news"
     label: "الأخبار"
-    label_singular: "/ خبر"
+    label_singular: "خبر"
     description: "الاخبار تظهر في الصفحة الرئيسية ومركز الاخبار وتحتوي على غلاف."
     i18n: true
     folder: "content/media/news"
-    path: "{{year}}/{{month}}/{{day}}/{{slug}}"
+    path: "{{year}}/{{month}}/{{day}}/{{title_en}}"
     create: true
     identifier_field: "title_en"
     sortable_fields: ["date", "title"]
+    media_folder: "/static/media"
+    public_folder: "/media"
     fields:
-      - { label: "English Title (Generates URL) / العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate }
-      - { label: "Title / العنوان", name: "title", widget: "string", required: true, i18n: true }
-      - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
-      - { label: "Image / الصورة", name: "image", widget: "image", required: false, i18n: duplicate }
-      - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate, min: 10, max: 60 }
+      - { label: "العنوان", name: "title", widget: "string", required: true, i18n: true, min: 10, max: 60 }
+      - { label: "الوصف", name: "description", widget: "text", required: true, i18n: true,
+          pattern: [
+            "^.{30,160}$", 
+            "يجب أن يكون الوصف بين 30 و 160 حرفًا."
+          ]
+        }
+      - { label: "الصورة", name: "image", widget: "image", required: false, i18n: duplicate }
+      - { label: "المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "التاريخ", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, default: "{{date}}", required: true, i18n: duplicate }
 
   - name: "announcements"
     label: "الإعلانات"
@@ -54,25 +60,24 @@ collections:
     description: "الإعلانات تظهر في الصفحة الرئيسية ومركز الاخبار ولا تحتوي على غلاف."
     i18n: true
     folder: "content/media/announcements"
-    path: "{{year}}/{{month}}/{{day}}/{{slug}}"
+    path: "{{year}}/{{month}}/{{day}}/{{title_en}}"
     create: true
     identifier_field: "title_en"
     sortable_fields: ["date", "title"]
+    media_folder: "/static/media"
+    public_folder: "/media"
     fields:
-      - { label: "English Title (Generates URL) / العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate }
-      - { label: "Title / العنوان", name: "title", widget: "string", required: true, i18n: true }
-      - { label: "Type / النوع", name: "type", widget: "select", i18n: duplicate,
-          options:
-            [
-              { label: "إداري / Administrative", value: "Administrative" },
-              { label: "أكاديمي / Academic", value: "Academic" },
-              { label: "طلبة / Students", value: "Students" },
-              { label: "عام / General", value: "General" },
-            ]
+      - { label: "العنوان الانجليزي للرابط", name: "title_en", widget: "string", required: true, i18n: duplicate, min: 10, max: 60 }
+      - { label: "العنوان", name: "title", widget: "string", required: true, i18n: true, min: 10, max: 60 }
+      - { label: "هل الاعلان مهم؟", name: "important", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "الوصف", name: "description", widget: "text", required: true, i18n: true,
+          pattern: [
+            "^.{30,160}$", 
+            "يجب أن يكون الوصف بين 30 و 160 حرفًا."
+          ]
         }
-      - { label: "Important / مهم", name: "important", widget: "boolean", default: false, i18n: duplicate }
-      - { label: "Description / الوصف", name: "description", widget: "text", required: true, i18n: true }
-      - { label: "Body / المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "التاريخ", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, default: "{{date}}", required: true, i18n: duplicate }
 
   - name: "podcast"
     label: "البودكاست"
