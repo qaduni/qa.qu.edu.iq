@@ -1,5 +1,5 @@
 ---
-title_en: QA Dep workshop
+title_en: Workshop on First Standard Requirements for Institutional Accreditation
 title: Workshop on First Standard Requirements for Institutional Accreditation
 description: 'University Quality Assurance Department Holds Workshop on Standard 1: Institutional Strategy and Development.'
 image: /media/whatsapp-image-2026-06-12-at-8.20.27-pm.webp
