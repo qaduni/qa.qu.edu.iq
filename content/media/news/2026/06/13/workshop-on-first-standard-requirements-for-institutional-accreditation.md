@@ -1,6 +1,6 @@
 ---
 title_en: Workshop on First Standard Requirements for Institutional Accreditation
-title: ورشة حول متطلبات المعيار الأول للاعتماد المؤسسي dgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffjgjjfffffffffffffff
+title: ورشة حول متطلبات المعيار الأول للاعتماد المؤسسي
 description: قسم ضمان الجودة والأداء الجامعي يقيم ورشة حول متطلبات المعيار الأول للاعتماد المؤسسي الوطني
 image: /media/whatsapp-image-2026-06-12-at-8.20.27-pm.webp
 date: 2026-06-10
