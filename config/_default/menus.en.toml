@@ -238,15 +238,15 @@
 [[footer_bottom]]
   name   = "Accessibility"
   weight = 20
-  url    = "/en/about/accessibility/"
+  url    = "/en/policies/accessibility/"
 [[footer_bottom]]
   name   = "Privacy Policy"
   weight = 30
-  url    = "/en/about/policies/privacy-policy/"
+  url    = "/en/policies/privacy-policy/"
 [[footer_bottom]]
   name   = "Security"
   weight = 40
-  url    = "/en/about/policies/security-policy/"
+  url    = "/en/policies/security-policy/"
 
 # -----------------------------------------------------------------------------
 # Homepage — Quick Links
