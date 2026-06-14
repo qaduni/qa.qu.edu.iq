@@ -12,7 +12,9 @@ The Quality Assurance and University Performance Department at Al-Qadisiyah Univ
 
 Under the patronage of the President of Al-Qadisiyah University, Professor Dr. Rahi Kalaf Mahdi Al-Yasiri, and the supervision of the Director of the Quality Assurance and University Performance Department, Professor Dr. Abbas Sabbar Dakhel, the department, in coordination with the Center for Developing University Teaching Methods and Training, held a workshop entitled:
 
-“Requirements of the First Standard for National Institutional Accreditation: Institutional Strategy and Development Mechanisms.” The workshop was presented by:
+“Requirements of the First Standard for National Institutional Accreditation: Institutional Strategy and Development Mechanisms.”
+
+The workshop was presented by:
 
 - Professor Dr. Ziad Mutab Fajja
 - Assistant Lecturer Wissam Saleh Mahdi
