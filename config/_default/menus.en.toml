@@ -290,21 +290,21 @@
   weight = 10
   url    = "/en/performance-evaluation/"
   [homepage_services.params]
-    image = "images/labs.webp"
+    image = "media/tour-2.webp"
     description = "It deals with preparing annual institutional performance evaluation forms, monitoring their implementation in colleges and centers, analyzing results and issuing reports"
 [[homepage_services]]
   name   = "Rankings"
   weight = 20
   url    = "/en/classifications/"
   [homepage_services.params]
-    image = "images/tour.webp"
+    image = "media/tour.webp"
     description = "Responsible for monitoring the application of quality assurance standards, preparing improvement plans, and activating a culture of quality among teaching and administrative staff"
 [[homepage_services]]
   name   = "Accreditation"
   weight = 30
   url    = "/en/accreditations/international/"
   [homepage_services.params]
-    image = "images/people.webp"
+    image = "media/people.webp"
     description = "It handles institutional, program and laboratory accreditation files, coordinates with local and international accreditation bodies, and follows up on ISO certifications"
 
 # -----------------------------------------------------------------------------

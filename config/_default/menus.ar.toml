@@ -290,21 +290,21 @@
   weight = 10
   url    = "/performance-evaluation/"
   [homepage_services.params]
-    image = "images/labs.webp"
+    image = "media/tour-2.webp"
     description = "تُعنى بإعداد استمارات تقويم الأداء المؤسسي السنوية، ومتابعة تطبيقها في الكليات والمراكز، وتحليل النتائج وإصدار التقارير"
 [[homepage_services]]
   name   = "شعبة الضمان"
   weight = 20
   url    = "/classifications/international/"
   [homepage_services.params]
-    image = "images/tour.webp"
+    image = "media/tour.webp"
     description = "مسؤولة عن متابعة تطبيق معايير ضمان الجودة، وإعداد الخطط التحسينية، وتفعيل ثقافة الجودة بين الكوادر التدريسية والإدارية"
 [[homepage_services]]
   name   = "شعبة الاعتماد"
   weight = 30
   url    = "/accreditations/"
   [homepage_services.params]
-    image = "images/people.webp"
+    image = "media/people.webp"
     description = "تتولى ملفات الاعتماد المؤسسي والبرامجي والمختبري، والتنسيق مع جهات الاعتماد المحلية والدولية، ومتابعة شهادات الـ ISO."
 
 # -----------------------------------------------------------------------------
