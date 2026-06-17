@@ -5,6 +5,15 @@ title = "قسم ضمان الجودة والأداء الجامعي - جامعة
 buildFuture = true
 theme = "qu.theme"
 
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  
+  [[module.mounts]]
+    source = "static/media"
+    target = "assets/media"
+
 [pagination]
   pagerSize = 10
 

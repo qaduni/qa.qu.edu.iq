@@ -71,6 +71,8 @@ visitorCounterEndpoint = ""
   primaryColorDark  = "#0a3459"
   accentColor       = "#ffd700"
 
+heroImages = ["images/hero.webp", "images/hero-2.webp", "images/hero-3.webp", "images/hero-4.webp"]
+
 # PWA & search feature flags
 [pwa]
   enabled = true
