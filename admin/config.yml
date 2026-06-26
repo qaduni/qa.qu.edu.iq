@@ -37,29 +37,22 @@ collections:
     description: "الاخبار تظهر في الصفحة الرئيسية ومركز الاخبار وتحتوي على غلاف."
     i18n: true
     folder: "content/media/news"
-    path: "{{year}}/{{month}}/{{day}}/{{title_en}}"
+    path: "{{year}}/{{month}}/{{day}}/{{slug}}"
+    preview_path: "media/news/{{year}}/{{month}}/{{day}}/{{slug}}"
+    slug: "{{uuid_shorter}}"
     create: true
-    identifier_field: "title_en"
     sortable_fields:
       - "date"
       - "title"
     media_folder: "/static/media"
     public_folder: "/media"
     fields:
-      - label: "العنوان الانجليزي للرابط"
-        name: "title_en"
-        widget: "string"
-        required: true
-        i18n: duplicate
-        pattern:
-          - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{10,75}$"
-          - "يجب أن يكون الوصف بين 10 و 75 حرفًا."
       - label: "العنوان"
         name: "title"
         widget: "string"
         required: true
         i18n: true
-        pattern:
+        pattern: &title_pattern
           - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{10,75}$"
           - "يجب أن يكون الوصف بين 10 و 75 حرفًا."
       - label: "الوصف"
@@ -67,7 +60,7 @@ collections:
         widget: "text"
         required: true
         i18n: true
-        pattern:
+        pattern: &description_pattern
           - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{30,120}$"
           - "يجب أن يكون الوصف بين 30 و 120 حرفًا."
       - label: "الصورة"
@@ -85,7 +78,7 @@ collections:
         format: "YYYY-MM-DD"
         date_format: "YYYY-MM-DD"
         time_format: false
-        default: "{{date}}"
+        default: "{{now}}"
         required: true
         i18n: duplicate
 
@@ -95,31 +88,21 @@ collections:
     description: "الإعلانات تظهر في الصفحة الرئيسية ومركز الاخبار ولا تحتوي على غلاف."
     i18n: true
     folder: "content/media/announcements"
-    path: "{{year}}/{{month}}/{{day}}/{{title_en}}"
+    path: "{{year}}/{{month}}/{{day}}/{{slug}}"
+    slug: "{{uuid_shorter}}"
     create: true
-    identifier_field: "title_en"
     sortable_fields:
       - "date"
       - "title"
     media_folder: "/static/media"
     public_folder: "/media"
     fields:
-      - label: "العنوان الانجليزي للرابط"
-        name: "title_en"
-        widget: "string"
-        required: true
-        i18n: duplicate
-        pattern:
-          - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{10,75}$"
-          - "يجب أن يكون الوصف بين 10 و 75 حرفًا."
       - label: "العنوان"
         name: "title"
         widget: "string"
         required: true
         i18n: true
-        pattern:
-          - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{10,75}$"
-          - "يجب أن يكون الوصف بين 10 و 75 حرفًا."
+        pattern: *title_pattern
       - label: "هل الاعلان مهم؟"
         name: "important"
         widget: "boolean"
@@ -130,9 +113,7 @@ collections:
         widget: "text"
         required: true
         i18n: true
-        pattern:
-          - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{30,120}$"
-          - "يجب أن يكون الوصف بين 30 و 120 حرفًا."
+        pattern: *description_pattern
       - label: "المحتوى"
         name: "body"
         widget: "markdown"
@@ -143,7 +124,7 @@ collections:
         format: "YYYY-MM-DD"
         date_format: "YYYY-MM-DD"
         time_format: false
-        default: "{{date}}"
+        default: "{{now}}"
         required: true
         i18n: duplicate
 
@@ -166,9 +147,7 @@ collections:
         widget: "string"
         required: true
         i18n: true
-        pattern:
-          - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{10,75}$"
-          - "يجب أن يكون الوصف بين 10 و 75 حرفًا."
+        pattern: *title_pattern
       - label: "Episode Number / رقم الحلقة"
         name: "episodeNumber"
         widget: "number"
@@ -186,9 +165,7 @@ collections:
         widget: "text"
         required: true
         i18n: true
-        pattern:
-          - "^[a-zA-Z0-9\\u0600-\\u06FF\\s-]{30,120}$"
-          - "يجب أن يكون الوصف بين 30 و 120 حرفًا."
+        pattern: *description_pattern
       - label: "YouTube URL / رابط يوتيوب"
         name: "youtube"
         widget: "string"
@@ -221,11 +198,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    filter:
-      exclude:
-        - "_index.md"
-        - "_index.en.md"
-    fields:
+    fields: &default_fields
       - label: "Title"
         name: "title"
         widget: "string"
@@ -240,32 +213,15 @@ collections:
         widget: "markdown"
         i18n: true
 
-  - name: "about_policies"
+  - name: "policies"
     label: "السياسات"
-    folder: "content/about/policies"
+    folder: "content/policies"
     create: false
     i18n: true
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    filter:
-      exclude:
-        - "_index.md"
-        - "_index.en.md"
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        required: true
-        i18n: true
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        i18n: true
+    fields: *default_fields
 
   - name: "accreditations"
     label: "الاعتمادات"
@@ -275,24 +231,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    filter:
-      exclude:
-        - "_index.md"
-        - "_index.en.md"
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        required: true
-        i18n: true
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        i18n: true
+    fields: *default_fields
 
   - name: "classifications"
     label: "التصنيفات"
@@ -302,24 +241,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    filter:
-      exclude:
-        - "_index.md"
-        - "_index.en.md"
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        required: true
-        i18n: true
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        i18n: true
+    fields: *default_fields
 
   - name: "lab_accreditation"
     label: "اعتماد المختبرات"
@@ -329,24 +251,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    filter:
-      exclude:
-        - "_index.md"
-        - "_index.en.md"
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        required: true
-        i18n: true
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        i18n: true
+    fields: *default_fields
 
   - name: "performance_evaluation"
     label: "تقييم الأداء"
@@ -356,21 +261,4 @@ collections:
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    filter:
-      exclude:
-        - "_index.md"
-        - "_index.en.md"
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        required: true
-        i18n: true
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        i18n: true
+    fields: *default_fields
