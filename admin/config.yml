@@ -4,6 +4,8 @@ backend:
   name: github
   repo: qaduni/qa.qu.edu.iq
   branch: main
+  auth_methods:
+    - token
 
 media_folder: "static/media"
 public_folder: "/media"
