@@ -1,24 +1,13 @@
-# =============================================================================
-# Pagefind search placeholders — per section, since news and announcements
-# each have their own scoped index/search box.
-# =============================================================================
 search_news_placeholder: "Search news..."
 search_announcements_placeholder: "Search announcements..."
 
-# =============================================================================
-# Hero
-# =============================================================================
 welcome_message: "QA & University Performance Department"
 site_description: "We work to embed a culture of quality at Al-Qadisiyah University, apply local, regional and international standards across teaching and research, and manage institutional and programmatic accreditation as well as performance evaluation."
 internationally_accredited: "Quality Assurance & Accreditation"
 
-# =============================================================================
-# Homepage Sections
-# =============================================================================
 quick_links: "Quick Links"
 quick_links_subtitle: "Quick access to the most requested services and documents"
 
-# News
 latest_news: "Latest News"
 news_subtitle: "Stay up to date with the department's activities, events and achievements"
 coming_soon: "Coming Soon"
@@ -31,7 +20,6 @@ no_announcements: "No announcements"
 stay_tuned_announcements: "Stay tuned for upcoming announcements"
 all_announcements: "All Announcements"
 
-# Podcast
 podcast: "Podcast"
 podcast_subtitle: "Conversations on quality, accreditation and university performance"
 podcast_episode: "Episode"
@@ -40,12 +28,10 @@ podcast_no_episodes: "No episodes yet. Stay tuned."
 all_episodes: "All Episodes"
 share: "Share"
 
-# Services section
 services_title: "Departmental Services"
 services_subtitle: "Services the Quality Assurance Department provides to the university's colleges and centres"
 view_details: "Details"
 
-# Contact
 have_question: "A question about quality or accreditation?"
 contact_subtitle: "The department team is ready to answer your questions and provide the support you need"
 contact_us: "Contact"
@@ -53,49 +39,11 @@ today_visitors: "Today's Visitors"
 total_visitors: "Total Visitors"
 online_now: "Online Now"
 
-# =============================================================================
-# Footer
-# =============================================================================
 contact_info: "Contact Info"
 all_rights_reserved: "All rights reserved"
-sitemap: "Sitemap"
-accessibility: "Accessibility"
-security: "Security"
 official_domain: "Official Domain"
 official_email: "Official Email"
 useful_links: "Useful Links"
 related_services: "Related Links"
-privacy_policy: "Privacy Policy"
 
-# =============================================================================
-# Forms (contact + graduate-survey shortcodes)
-# =============================================================================
-form_name: "Full Name"
-form_email: "Email Address"
-form_phone: "Phone Number"
-form_subject: "Subject"
-form_subject_choose: "Select Subject"
-form_message: "Message"
-form_submit_contact: "Send Message"
-form_section_personal: "Personal Information"
-form_section_affiliation: "Academic Information"
-form_section_employment: "Current Employment Status"
-form_section_feedback: "Feedback"
-form_year: "Graduation Year"
-form_organization: "College"
-form_organization_choose: "Select College"
-form_unit: "Department"
-form_employment_status: "Employment Status"
-form_status_choose: "Select Status"
-form_employer: "Employer (if applicable)"
-form_job_title: "Job Title"
-form_feedback_label: "Your feedback on the academic program"
-form_submit_survey: "Submit Survey"
-
-contact_form_unavailable: "The contact form is not currently enabled. Please email the department directly at:"
-graduate_form_unavailable: "The graduate survey is not currently enabled. To participate, please email us at:"
-
-# =============================================================================
-# Map shortcode
-# =============================================================================
 map_title: "Al-Qadisiyah University location map"

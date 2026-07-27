@@ -1,24 +1,13 @@
-# =============================================================================
-# Pagefind search placeholders — per section, since news and announcements
-# each have their own scoped index/search box.
-# =============================================================================
 search_news_placeholder: "ابحث في الأخبار..."
 search_announcements_placeholder: "ابحث في الإعلانات..."
 
-# =============================================================================
-# Hero
-# =============================================================================
 welcome_message: "قسم ضمان الجودة والأداء الجامعي"
 site_description: "نسعى إلى ترسيخ ثقافة الجودة في جامعة القادسية، وتطبيق المعايير المحلية والإقليمية والدولية في التعليم والبحث العلمي، ومتابعة الاعتماد المؤسسي والبرامجي وتقويم الأداء."
 internationally_accredited: "ضمان الجودة والاعتماد"
 
-# =============================================================================
-# Homepage Sections
-# =============================================================================
 quick_links: "روابط سريعة"
 quick_links_subtitle: "الوصول السريع لأكثر الخدمات والوثائق طلباً"
 
-# News
 latest_news: "آخر الأخبار"
 news_subtitle: "تابع آخر الأنشطة والفعاليات والإنجازات في القسم"
 coming_soon: "قريباً"
@@ -31,7 +20,6 @@ no_announcements: "لا توجد إعلانات"
 stay_tuned_announcements: "ترقبوا الإعلانات القادمة"
 all_announcements: "جميع الإعلانات"
 
-# Podcast
 podcast: "البودكاست"
 podcast_subtitle: "حوارات حول الجودة والاعتماد والأداء الجامعي"
 podcast_episode: "الحلقة"
@@ -40,12 +28,10 @@ podcast_no_episodes: "لا توجد حلقات بعد، ترقبوا الجدي�
 all_episodes: "جميع الحلقات"
 share: "شارك"
 
-# Services section
 services_title: "شُعب القسم"
 services_subtitle: "خدمات يقدمها قسم ضمان الجودة لكليات الجامعة ومراكزها"
 view_details: "التفاصيل"
 
-# Contact
 have_question: "لديكم استفسار حول الجودة والاعتماد؟"
 contact_subtitle: "فريق القسم جاهز للإجابة على استفساراتكم وتقديم الدعم اللازم"
 contact_us: "تواصلوا معنا"
@@ -53,49 +39,11 @@ today_visitors: "زوار اليوم"
 total_visitors: "إجمالي الزوار"
 online_now: "متصل الآن"
 
-# =============================================================================
-# Footer
-# =============================================================================
 contact_info: "معلومات الاتصال"
 all_rights_reserved: "جميع الحقوق محفوظة"
-sitemap: "خريطة الموقع"
-accessibility: "إمكانية الوصول"
-security: "الأمان"
 official_domain: "النطاق الرسمي"
 official_email: "البريد الرسمي"
 useful_links: "روابط مفيدة"
 related_services: "روابط ذات صلة"
-privacy_policy: "سياسة الخصوصية"
 
-# =============================================================================
-# Forms (contact + graduate-survey shortcodes)
-# =============================================================================
-form_name: "الاسم الكامل"
-form_email: "البريد الإلكتروني"
-form_phone: "رقم الهاتف"
-form_subject: "الموضوع"
-form_subject_choose: "اختر الموضوع"
-form_message: "الرسالة"
-form_submit_contact: "إرسال الرسالة"
-form_section_personal: "البيانات الشخصية"
-form_section_affiliation: "البيانات الأكاديمية"
-form_section_employment: "الوضع المهني الحالي"
-form_section_feedback: "ملاحظات"
-form_year: "سنة التخرج"
-form_organization: "الكلية"
-form_organization_choose: "اختر الكلية"
-form_unit: "القسم"
-form_employment_status: "حالة التوظيف"
-form_status_choose: "اختر الحالة"
-form_employer: "جهة العمل (إن وجدت)"
-form_job_title: "المسمى الوظيفي"
-form_feedback_label: "ملاحظاتكم حول البرنامج الأكاديمي"
-form_submit_survey: "إرسال الاستبيان"
-
-contact_form_unavailable: "نموذج الاتصال غير مفعّل حالياً. يرجى التواصل مع القسم مباشرة عبر البريد الإلكتروني:"
-graduate_form_unavailable: "استبيان الخريجين غير مفعّل حالياً. للمشاركة، يرجى التواصل عبر البريد الإلكتروني:"
-
-# =============================================================================
-# Map shortcode
-# =============================================================================
 map_title: "خريطة موقع جامعة القادسية"

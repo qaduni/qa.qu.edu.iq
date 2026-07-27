@@ -23,8 +23,6 @@ Al-Diwaniyah, Al-Qadisiyah Province, Iraq
 
 To contact the department, please fill out the form below and we will respond as soon as possible.
 
-{{< contact-form >}}
-
 ---
 
 ## Location

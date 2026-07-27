@@ -58,11 +58,6 @@ theme = "qu.theme"
       # markdown bodies.
       unsafe = false
 
-[outputs]
-  home = ["HTML", "RSS", "sitemap", "WebAppManifest"]
-  section = ["HTML", "RSS"]
-  page = ["HTML"]
-
 [sitemap]
   changefreq = "weekly"
   filename = "sitemap.xml"
