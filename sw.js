@@ -1,23 +1,15 @@
-// Bumped from v3 → v4 to invalidate every visitor's stale cache. The v3
-// build pre-dated /media/news/ and /media/announcements/ (both languages),
-// so installed clients had a cache that knew /en/ as the only English page
-// and the SW's fallback returned that home shell whenever a request to a
-// section page failed for any reason — making nav links look like they
-// redirected to the home page. v4 ships the new section shells and removes
-// the home-shell fallback (see fetch handler below).
 const CACHE_NAME = 'qu-portal-v4';
 const ASSETS_TO_CACHE = [
-  // Arabic is the default locale (served at /), English at /en/.
-  '/',
+  // Arabic is the default locale (served at /ar/), English at /en/.
+  '/ar/',
   '/en/',
-  '/manifest.webmanifest',
+  '/ar/manifest.webmanifest',
   '/en/manifest.webmanifest',
-  '/images/logo.png',
   '/images/logo.webp',
   // Section shells — pre-cached so offline navigation lands on the right
   // section page instead of bouncing to the language home.
-  '/media/news/',
-  '/media/announcements/',
+  '/ar/media/news/',
+  '/ar/media/announcements/',
   '/en/media/news/',
   '/en/media/announcements/'
 ];
