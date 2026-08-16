@@ -1,0 +1,58 @@
+footer_useful:
+  - name: "هيكلية القسم"
+    weight: 10
+    url: "/ar/about/structure/"
+
+  - name: "رؤية القسم"
+    weight: 20
+    url: "/ar/about/vision-mission/"
+
+  - name: "مهام القسم"
+    weight: 30
+    url: "/ar/about/tasks/"
+
+footer_services:
+  - name: "الاعتمادات"
+    weight: 10
+    url: "/ar/accreditations/"
+
+  - name: "التصنيفات"
+    weight: 20
+    url: "/ar/classifications/"
+
+  - name: "تقويم الأداء"
+    weight: 30
+    url: "/ar/performance-evaluation/"
+
+  - name: "اعتماد المختبرات"
+    weight: 40
+    url: "/ar/lab-accreditation/"
+
+  - name: "موقع الاستدامة"
+    weight: 50
+    url: "https://sust.qu.edu.iq"
+    params:
+      external: true
+
+  - name: "العودة إلى موقع الجامعة"
+    weight: 60
+    url: "https://qu.edu.iq"
+    params:
+      external: true
+
+footer_bottom:
+  - name: "خريطة الموقع"
+    weight: 10
+    url: "/sitemap.xml"
+
+  - name: "إمكانية الوصول"
+    weight: 20
+    url: "/ar/policies/accessibility/"
+
+  - name: "سياسة الخصوصية"
+    weight: 30
+    url: "/ar/policies/privacy-policy/"
+
+  - name: "الأمان"
+    weight: 40
+    url: "/ar/policies/security-policy/"

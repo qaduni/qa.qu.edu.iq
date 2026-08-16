@@ -1,0 +1,14 @@
+title: "قسم ضمان الجودة والأداء الجامعي"
+description: "قسم ضمان الجودة والأداء الجامعي في جامعة القادسية"
+short_title: "ضمان الجودة والأداء الجامعي"
+parent_name: "جامعة القادسية"
+
+address: "جامعة القادسية، الديوانية، محافظة القادسية، العراق"
+
+schema:
+  type: "EducationalOrganization"
+  alternate_name: "جامعة القادسية"
+  address:
+    locality: "الديوانية"
+    region: "محافظة القادسية"
+    country: "العراق"

@@ -4,9 +4,9 @@
   "description": "Al-Qadisiyah University QA Department website.",
   "scripts": {
     "build:hugo": "hugo --gc --minify",
-    "build:search-news": "pagefind --site public --output-subdir pagefind-news --glob \"**/media/news/**/*.html\" || true",
-    "build:search-ann": "pagefind --site public --output-subdir pagefind-announcements --glob \"**/media/announcements/**/*.html\" || true",
-    "build": "npm run build:hugo && (npm run build:search-news & npm run build:search-ann & wait)"
+    "build:search": "pagefind --site public",
+    "build": "npm run build:hugo && npm run build:search",
+    "dev": "npm run build && hugo server -D"
   },
   "devDependencies": {
     "pagefind": "^1.5.2"

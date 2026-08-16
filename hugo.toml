@@ -1,0 +1,74 @@
+baseURL = 'https://qa.qu.edu.iq/'
+locale = 'ar'
+defaultContentLanguage = 'ar'
+defaultContentLanguageInSubdir = true
+title = "قسم ضمان الجودة والأداء الجامعي - جامعة القادسية"
+buildFuture = true
+theme = "qu.theme"
+
+enableRobotsTXT = true
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  
+  [[module.mounts]]
+    source = "static/media"
+    target = "assets/media"
+
+[pagination]
+  pagerSize = 10
+
+# Languages Configuration
+[languages]
+  [languages.ar]
+    label = "العربية"
+    weight = 1
+    direction = "rtl"
+    locale = "ar"
+
+  [languages.en]
+    label = "English"
+    weight = 2
+    direction = "ltr"
+    locale = "en"
+
+[server]
+  [[server.redirects]]
+    from = '/ar/**'
+    to = '/ar/404.html'
+    status = 404
+
+  [[server.redirects]]
+    from = '/en/**'
+    to = '/en/404.html'
+    status = 404
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.WebManifest]
+  mediaType = "application/manifest+json"
+  baseName = "manifest"
+  isPlainText = true
+  notAlternative = true
+
+[mediaTypes."text/yaml"]
+  suffixes = ["yml"]
+
+[outputFormats.ConfigYML]
+  mediaType = "text/yaml"
+  baseName = "config"
+  isPlainText = true
+  notAlternative = true
+  path = "admin"
+  root = true
+
+[outputs]
+  home = ["HTML", "RSS", "WebManifest", "ConfigYML"]

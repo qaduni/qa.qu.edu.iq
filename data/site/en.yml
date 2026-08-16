@@ -1,0 +1,14 @@
+title: "Quality Assurance Department Department"
+description: "Quality Assurance Department Department at Al-Qadisiyah University"
+short_title: "Quality Assurance Department"
+parent_name: "Al-Qadisiyah University"
+
+address: "Al-Qadisiyah University, Al-Diwaniyah, Al-Qadisiyah Province, Iraq"
+
+schema:
+  type: "EducationalOrganization"
+  alternate_name: "Al-Qadisiyah University"
+  address:
+    locality: "Al-Diwaniyah"
+    region: "Al-Qadisiyah Province"
+    country: "Iraq"

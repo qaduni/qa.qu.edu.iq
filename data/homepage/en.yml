@@ -1,0 +1,68 @@
+hero:
+  badge: "Quality Assurance and University Performance"
+  title: "Quality Assurance & University Performance Department"
+  description: "We work to ensure educational quality and academic performance across all university departments and faculties."
+  buttons:
+    primary_name: "About the Department"
+    primary_url: "/en/about/structure/"
+    secondary_name: "Our Vision & Mission"
+    secondary_url: "/en/about/vision-mission/"
+
+services:
+  title: "Services"
+  sub_title: "Our core quality assurance and accreditation services"
+  items:
+    - name: "Performance Evaluation"
+      weight: 10
+      url: "/en/performance-evaluation/"
+      params:
+        image: "media/tour-2.webp"
+        description: "It deals with preparing annual institutional performance evaluation forms, monitoring their implementation in colleges and centers, analyzing results and issuing reports"
+
+    - name: "Rankings"
+      weight: 20
+      url: "/en/classifications/"
+      params:
+        image: "media/tour.webp"
+        description: "Responsible for monitoring the application of quality assurance standards, preparing improvement plans, and activating a culture of quality among teaching and administrative staff"
+
+    - name: "Accreditation"
+      weight: 30
+      url: "/en/accreditations/international/"
+      params:
+        image: "media/people.webp"
+        description: "It handles institutional, program and laboratory accreditation files, coordinates with local and international accreditation bodies, and follows up on ISO certifications"
+
+quick_links:
+  title: "Quick Links"
+  sub_title: "Fast access to frequently used resources and forms"
+  items:
+    - name: "Evaluation forms"
+      weight: 10
+      url: "/en/performance-evaluation/forms-2024-2025/"
+      params:
+        icon: "document"
+
+    - name: "Guidance manual"
+      weight: 20
+      url: "/en/performance-evaluation/manual/"
+      params:
+        icon: "book"
+
+    - name: "Surveys"
+      weight: 30
+      url: "/en/performance-evaluation/surveys/"
+      params:
+        icon: "users"
+
+    - name: "Laboratory safety"
+      weight: 40
+      url: "/en/lab-accreditation/safety/"
+      params:
+        icon: "award"
+
+    - name: "Guides & standards"
+      weight: 50
+      url: "/en/standards/"
+      params:
+        icon: "document"

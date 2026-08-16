@@ -1,0 +1,157 @@
+main:
+  - name: "Home"
+    weight: 10
+    url: "/en/"
+
+  - name: "About"
+    identifier: "about"
+    weight: 20
+
+  - name: "Department Structure"
+    parent: "about"
+    weight: 21
+    url: "/en/about/structure/"
+
+  - name: "Vision"
+    parent: "about"
+    weight: 22
+    url: "/en/about/vision-mission/"
+
+  - name: "Tasks"
+    parent: "about"
+    weight: 23
+    url: "/en/about/tasks/"
+
+  - name: "Rankings"
+    identifier: "classifications"
+    weight: 30
+
+  - name: "International"
+    parent: "classifications"
+    weight: 31
+    url: "/en/classifications/international/"
+
+  - name: "Arab"
+    parent: "classifications"
+    weight: 32
+    url: "/en/classifications/arabic/"
+
+  - name: "Iraqi (IRU)"
+    parent: "classifications"
+    weight: 33
+    url: "/en/classifications/iru/"
+
+  - name: "Accreditation"
+    identifier: "accreditations"
+    weight: 40
+
+  - name: "Institutional"
+    parent: "accreditations"
+    weight: 41
+    url: "/en/accreditations/institutional/"
+
+  - name: "Programmatic"
+    parent: "accreditations"
+    weight: 42
+    url: "/en/accreditations/programmatic/"
+
+  - name: "ISO"
+    parent: "accreditations"
+    weight: 43
+    url: "/en/accreditations/iso/"
+
+  - name: "Memberships"
+    parent: "accreditations"
+    weight: 44
+    url: "/en/accreditations/memberships/"
+
+  - name: "Sustainability"
+    weight: 50
+    url: "https://sust.qu.edu.iq"
+    params:
+      external: true
+
+  - name: "Evaluation"
+    identifier: "performance_evaluation"
+    weight: 60
+
+  - name: "Forms 2024-2025"
+    parent: "performance_evaluation"
+    weight: 61
+    url: "/en/performance-evaluation/forms-2024-2025/"
+
+  - name: "Forms 2023-2024"
+    parent: "performance_evaluation"
+    weight: 62
+    url: "/en/performance-evaluation/forms-2023-2024/"
+
+  - name: "Guidance Manual"
+    parent: "performance_evaluation"
+    weight: 63
+    url: "/en/performance-evaluation/manual/"
+
+  - name: "Surveys"
+    parent: "performance_evaluation"
+    weight: 64
+    url: "/en/performance-evaluation/surveys/"
+
+  - name: "Labs"
+    identifier: "lab_accreditation"
+    weight: 70
+
+  - name: "Inventory"
+    parent: "lab_accreditation"
+    weight: 71
+    url: "/en/lab-accreditation/inventory/"
+
+  - name: "Documents"
+    parent: "lab_accreditation"
+    weight: 72
+    url: "/en/lab-accreditation/documents/"
+
+  - name: "Lab Landscape"
+    parent: "lab_accreditation"
+    weight: 73
+    url: "/en/lab-accreditation/reality/"
+
+  - name: "Safety"
+    parent: "lab_accreditation"
+    weight: 74
+    url: "/en/lab-accreditation/safety/"
+
+  - name: "Media and Communication"
+    identifier: "news_announcements"
+    weight: 80
+
+  - name: "News"
+    parent: "news_announcements"
+    weight: 81
+    url: "/en/media/news/"
+
+  - name: "Announcements"
+    parent: "news_announcements"
+    weight: 82
+    url: "/en/media/announcements/"
+
+  - name: "Podcast"
+    parent: "news_announcements"
+    weight: 83
+    url: "/en/media/podcast/"
+
+  - name: "Contact"
+    parent: "news_announcements"
+    weight: 84
+    url: "/en/media/contact/"
+
+top_bar:
+  - name: "Back to the university site"
+    weight: 10
+    url: "https://qu.edu.iq"
+    params:
+      external: true
+
+  - name: "Sustainability"
+    weight: 20
+    url: "https://sust.qu.edu.iq"
+    params:
+      external: true

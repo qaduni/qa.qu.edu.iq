@@ -6,7 +6,7 @@
     {{ partial "sections/announcements.html" . }}
     {{ partial "sections/contact.html" . }}
     {{ partial "sections/podcast.html" . }}
-    {{ with .Site.Params.visitorCounterEndpoint }}
-        {{ partial "sections/visitor-counter.html" $ }}
+    {{ if hugo.Data.site.global.visitor_counter_endpoint }}
+        {{ partial "sections/visitor-counter.html" . }}
     {{ end }}
 {{ end }}

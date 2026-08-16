@@ -1,0 +1,68 @@
+hero:
+  badge: "قسم ضمان الجودة والأداء الجامعي"
+  title: "قسم ضمان الجودة والأداء الجامعي"
+  description: "نعمل على ترسيخ معايير الجودة الأكاديمية والمؤسسية وتطوير الأداء الجامعي في جميع كليات ومراكز جامعة القادسية."
+  buttons:
+    primary_name: "تعرف على القسم"
+    primary_url: "/ar/about/structure/"
+    secondary_name: "رؤيتنا ورسالتنا"
+    secondary_url: "/ar/about/vision-mission/"
+
+services:
+  title: "شعب القسم"
+  sub_title: "الشعب والوحدات الرئيسية المكونة لقسم ضمان الجودة والأداء الجامعي"
+  items:
+    - name: "شعبة تقويم الأداء"
+      weight: 10
+      url: "/ar/performance-evaluation/"
+      params:
+        image: "media/tour-2.webp"
+        description: "تُعنى بإعداد استمارات تقويم الأداء المؤسسي السنوية، ومتابعة تطبيقها في الكليات والمراكز، وتحليل النتائج وإصدار التقارير"
+
+    - name: "شعبة الضمان"
+      weight: 20
+      url: "/ar/classifications/international/"
+      params:
+        image: "media/tour.webp"
+        description: "مسؤولة عن متابعة تطبيق معايير ضمان الجودة، وإعداد الخطط التحسينية، وتفعيل ثقافة الجودة بين الكوادر التدريسية والإدارية"
+
+    - name: "شعبة الاعتماد"
+      weight: 30
+      url: "/ar/accreditations/"
+      params:
+        image: "media/people.webp"
+        description: "تتولى ملفات الاعتماد المؤسسي والبرامجي والمختبري، والتنسيق مع جهات الاعتماد المحلية والدولية، ومتابعة شهادات الـ ISO."
+
+quick_links:
+  title: "روابط سريعة"
+  sub_title: "الوصول السريع إلى الخدمات والمنصات الأكثر استخداماً"
+  items:
+    - name: "استمارات تقويم الأداء"
+      weight: 10
+      url: "/ar/performance-evaluation/forms-2024-2025/"
+      params:
+        icon: "document"
+
+    - name: "الدليل الإرشادي"
+      weight: 20
+      url: "/ar/performance-evaluation/manual/"
+      params:
+        icon: "book"
+
+    - name: "الاستبانات"
+      weight: 30
+      url: "/ar/performance-evaluation/surveys/"
+      params:
+        icon: "users"
+
+    - name: "السلامة المختبرية"
+      weight: 40
+      url: "/ar/lab-accreditation/safety/"
+      params:
+        icon: "award"
+
+    - name: "أدلة ومعايير"
+      weight: 50
+      url: "/ar/standards/"
+      params:
+        icon: "document"

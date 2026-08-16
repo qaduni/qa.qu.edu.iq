@@ -1,3 +1,0 @@
-site: "public"
-output-subdir: "pagefind-announcements"
-glob: "media/announcements/**/*.html"

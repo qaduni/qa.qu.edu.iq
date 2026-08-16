@@ -1,0 +1,157 @@
+main:
+  - name: "الرئيسية"
+    weight: 10
+    url: "/ar/"
+
+  - name: "عن القسم"
+    identifier: "about"
+    weight: 20
+
+  - name: "هيكلية القسم"
+    parent: "about"
+    weight: 21
+    url: "/ar/about/structure/"
+
+  - name: "رؤية القسم"
+    parent: "about"
+    weight: 22
+    url: "/ar/about/vision-mission/"
+
+  - name: "مهام القسم"
+    parent: "about"
+    weight: 23
+    url: "/ar/about/tasks/"
+
+  - name: "التصنيفات"
+    identifier: "classifications"
+    weight: 30
+
+  - name: "التصنيفات العالمية"
+    parent: "classifications"
+    weight: 31
+    url: "/ar/classifications/international/"
+
+  - name: "التصنيفات العربية"
+    parent: "classifications"
+    weight: 32
+    url: "/ar/classifications/arabic/"
+
+  - name: "التصنيف العراقي IRU"
+    parent: "classifications"
+    weight: 33
+    url: "/ar/classifications/iru/"
+
+  - name: "الاعتمادات"
+    identifier: "accreditations"
+    weight: 40
+
+  - name: "الاعتماد المؤسسي"
+    parent: "accreditations"
+    weight: 41
+    url: "/ar/accreditations/institutional/"
+
+  - name: "الاعتماد البرامجي"
+    parent: "accreditations"
+    weight: 42
+    url: "/ar/accreditations/programmatic/"
+
+  - name: "اعتمادات ISO"
+    parent: "accreditations"
+    weight: 43
+    url: "/ar/accreditations/iso/"
+
+  - name: "العضويات"
+    parent: "accreditations"
+    weight: 44
+    url: "/ar/accreditations/memberships/"
+
+  - name: "موقع الاستدامة"
+    weight: 50
+    url: "https://sust.qu.edu.iq"
+    params:
+      external: true
+
+  - name: "تقويم الأداء"
+    identifier: "performance_evaluation"
+    weight: 60
+
+  - name: "استمارات 2024-2025"
+    parent: "performance_evaluation"
+    weight: 61
+    url: "/ar/performance-evaluation/forms-2024-2025/"
+
+  - name: "استمارات 2023-2024"
+    parent: "performance_evaluation"
+    weight: 62
+    url: "/ar/performance-evaluation/forms-2023-2024/"
+
+  - name: "الدليل الإرشادي"
+    parent: "performance_evaluation"
+    weight: 63
+    url: "/ar/performance-evaluation/manual/"
+
+  - name: "الاستبانات"
+    parent: "performance_evaluation"
+    weight: 64
+    url: "/ar/performance-evaluation/surveys/"
+
+  - name: "اعتماد المختبرات"
+    identifier: "lab_accreditation"
+    weight: 70
+
+  - name: "جرد المختبرات"
+    parent: "lab_accreditation"
+    weight: 71
+    url: "/ar/lab-accreditation/inventory/"
+
+  - name: "وثائق ومستندات"
+    parent: "lab_accreditation"
+    weight: 72
+    url: "/ar/lab-accreditation/documents/"
+
+  - name: "واقع المختبرات"
+    parent: "lab_accreditation"
+    weight: 73
+    url: "/ar/lab-accreditation/reality/"
+
+  - name: "السلامة المختبرية"
+    parent: "lab_accreditation"
+    weight: 74
+    url: "/ar/lab-accreditation/safety/"
+
+  - name: "الإعلام والتواصل"
+    identifier: "news_announcements"
+    weight: 80
+
+  - name: "الأخبار"
+    parent: "news_announcements"
+    weight: 81
+    url: "/ar/media/news/"
+
+  - name: "الإعلانات"
+    parent: "news_announcements"
+    weight: 82
+    url: "/ar/media/announcements/"
+
+  - name: "البودكاست"
+    parent: "news_announcements"
+    weight: 83
+    url: "/ar/media/podcast/"
+
+  - name: "تواصلوا معنا"
+    parent: "news_announcements"
+    weight: 84
+    url: "/ar/media/contact/"
+
+top_bar:
+  - name: "العودة إلى موقع الجامعة"
+    weight: 10
+    url: "https://qu.edu.iq"
+    params:
+      external: true
+
+  - name: "موقع الاستدامة"
+    weight: 20
+    url: "https://sust.qu.edu.iq"
+    params:
+      external: true
