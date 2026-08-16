@@ -22,7 +22,7 @@ jobs:
 
       # 1. Cache Hugo modules and build cache
       - name: Hugo Cache
-        uses: actions/cache@v7
+        uses: actions/cache@v6
         with:
           path: |
             ~/.cache/hugo_cache
@@ -33,7 +33,7 @@ jobs:
 
       # 2. Cache Pagefind binary to avoid downloading it every time via npx
       - name: Pagefind Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.npm/_npx
           key: ${{ runner.os }}-pagefind-${{ hashFiles('package-lock.json') }}
