@@ -17,19 +17,26 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v7
         with:
-          submodules: recursive # Crucial because the theme is a submodule
-          fetch-depth: 0
+          fetch-depth: 0 # Submodules parameter removed
 
-      # 1. Cache Hugo modules and build cache
+      # 1. Setup Go (Required for Hugo Modules)
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version: '>=1.21'
+
+      # 2. Cache Hugo modules and build cache
       - name: Hugo Cache
         uses: actions/cache@v6
         with:
-          path: ~/.cache/hugo_cache
-          key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml', '**/config.toml', 'content/**') }}
+          path: |
+            ~/.cache/hugo_cache
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml', '**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-hugo-
 
-      # 2. Cache Pagefind binary to avoid downloading it every time via npx
+      # 3. Cache Pagefind binary/npx cache
       - name: Pagefind Cache
         uses: actions/cache@v6
         with:
@@ -47,7 +54,7 @@ jobs:
       - name: Build Static Site
         run: hugo --gc --minify
 
-      # 3. Use npx with caching optimized
+      # 4. Generate Pagefind Search Index
       - name: Generate Pagefind Search Index
         run: npx --prefer-offline -y pagefind --site public
 

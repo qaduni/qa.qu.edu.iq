@@ -4,25 +4,18 @@ defaultContentLanguage = 'ar'
 defaultContentLanguageInSubdir = true
 title = "قسم ضمان الجودة والأداء الجامعي - جامعة القادسية"
 buildFuture = true
-theme = "qu.theme"
 
 [Params]
   cms_repo = "qaduni/qa.qu.edu.iq"
   cms_branch = "main"
 
 [module]
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-  
-  [[module.mounts]]
-    source = "static/media"
-    target = "assets/media"
+  [[module.imports]]
+      path = "github.com/qaduni/qu.theme"
 
 [pagination]
   pagerSize = 10
 
-# Languages Configuration
 [languages]
   [languages.ar]
     label = "العربية"
@@ -51,7 +44,7 @@ theme = "qu.theme"
   notAlternative = true
 
 [mediaTypes."text/yaml"]
-  suffixes = ["yml"]
+  suffixes = ["yaml"]
 
 [outputFormats.ConfigYML]
   mediaType = "text/yaml"

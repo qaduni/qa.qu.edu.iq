@@ -3,7 +3,6 @@
 [![Hugo](https://img.shields.io/badge/Hugo-Extended-blue?logo=hugo)](https://gohugo.io/)
 [![License](https://img.shields.io/github/license/qaduni/qa.qu.edu.iq)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/qaduni/qa.qu.edu.iq)](https://github.com/qaduni/qa.qu.edu.iq/commits/main)
-[![Deploy](https://github.com/qaduni/qa.qu.edu.iq/actions/workflows/deploy.yml/badge.svg)](https://github.com/qaduni/qa.qu.edu.iq/actions/workflows/deploy.yml)
 
 Bilingual (Arabic + English) Hugo website for the Quality Assurance and University Performance Department at Al-Qadisiyah University.
 
