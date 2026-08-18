@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        (function() {
+            var path = window.location.pathname;
+            // If the broken path is under English, route to English 404
+            if (path.startsWith('/en')) {
+                window.location.replace('/en/404.html');
+            } else {
+                // Default fallback to Arabic 404
+                window.location.replace('/ar/404.html');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/ar/404.html">
+        <p>Redirecting... Please choose your language: <a href="/ar/404.html">العربية</a> | <a href="/en/404.html">English</a></p>
+    </noscript>
+</body>
+</html>

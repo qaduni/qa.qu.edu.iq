@@ -1,0 +1,19 @@
+# قسم ضمان الجودة والأداء الجامعي - جامعة القادسية
+
+## Overview & Core Pages
+
+- [Accessibility](https://qa.qu.edu.iq/en/policies/accessibility/): Accessibility statement for users with special needs
+- [Data Protection](https://qa.qu.edu.iq/en/policies/data-protection/): Personal data protection policy
+- [Department Structure](https://qa.qu.edu.iq/en/about/structure/): Organizational structure of the Quality Assurance and University Performance Department at Al-Qadisiyah University
+- [Department Tasks](https://qa.qu.edu.iq/en/about/tasks/): The principal tasks and responsibilities of the Quality Assurance and University Performance Department
+- [Privacy Policy](https://qa.qu.edu.iq/en/policies/privacy-policy/): Privacy and Data Protection Policy at Al-Qadisiyah University
+- [Security Policy](https://qa.qu.edu.iq/en/policies/security-policy/): Information Security and Data Protection Policy at Al-Qadisiyah University
+- [Vision & Mission](https://qa.qu.edu.iq/en/about/vision-mission/): Vision, mission and objectives of the Quality Assurance and University Performance Department
+
+## News
+
+
+## Important Announcements
+
+
+## General Announcements
