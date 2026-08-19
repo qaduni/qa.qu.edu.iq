@@ -8,6 +8,11 @@ hero:
     secondary_name: "رؤيتنا ورسالتنا"
     secondary_url: "/ar/about/vision-mission/"
 
+search:
+  title: "البحث الشامل"
+  sub_title: "ابحث في جميع صفحات الموقع."
+  placeholder: "اكتب للبحث..."
+
 services:
   title: "شعب القسم"
   sub_title: "الشعب والوحدات الرئيسية المكونة لقسم ضمان الجودة والأداء الجامعي"

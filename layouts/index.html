@@ -1,12 +1,13 @@
 {{ define "main" }}
     {{ partial "sections/hero.html" . }}
+    {{ partial "sections/search.html" . }}
     {{ partial "sections/services.html" . }}
     {{ partial "sections/quick-links.html" . }}
     {{ partial "sections/news-grid.html" . }}
     {{ partial "sections/announcements.html" . }}
+    {{ partial "sections/podcast.html" . }}
     {{ partial "sections/sdg.html" . }}
     {{ partial "sections/contact.html" . }}
-    {{ partial "sections/podcast.html" . }}
     {{ if hugo.Data.site.global.visitor_counter_endpoint }}
         {{ partial "sections/visitor-counter.html" . }}
     {{ end }}
