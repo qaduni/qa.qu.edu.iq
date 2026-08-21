@@ -6,3 +6,5 @@ github.com/qaduni/qu.theme v0.0.0-20260819142117-4c1b5416ad48 h1:3fR/2L0CXr2izgu
 github.com/qaduni/qu.theme v0.0.0-20260819142117-4c1b5416ad48/go.mod h1:V3jfF6L9wEifdbfbYtwKePkiFv8Rc68ngeY2y1Lq1ps=
 github.com/qaduni/qu.theme v0.0.0-20260821013552-c44c07613d57 h1:2rJuJIJYdVbj3XsslaAnh5WZs0NR8P3SFc1Tz99/Zrg=
 github.com/qaduni/qu.theme v0.0.0-20260821013552-c44c07613d57/go.mod h1:V3jfF6L9wEifdbfbYtwKePkiFv8Rc68ngeY2y1Lq1ps=
+github.com/qaduni/qu.theme v0.0.0-20260821190734-cdc5faf03206 h1:s+Jl8mYnRPNPLc/Q9O+/n70Pz2cQqBSxxPjm4SLSBAs=
+github.com/qaduni/qu.theme v0.0.0-20260821190734-cdc5faf03206/go.mod h1:V3jfF6L9wEifdbfbYtwKePkiFv8Rc68ngeY2y1Lq1ps=
