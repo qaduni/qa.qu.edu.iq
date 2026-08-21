@@ -8,7 +8,5 @@
     {{ partial "sections/podcast.html" . }}
     {{ partial "sections/sdg.html" . }}
     {{ partial "sections/contact.html" . }}
-    {{ if hugo.Data.site.global.visitor_counter_endpoint }}
-        {{ partial "sections/visitor-counter.html" . }}
-    {{ end }}
+    {{ partial "sections/visitor-counter.html" . }}
 {{ end }}
