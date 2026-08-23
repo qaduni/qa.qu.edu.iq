@@ -71,10 +71,11 @@ collections:
         widget: "image"
         required: false
         i18n: duplicate
-      - label: "المحتوى"
-        name: "body"
-        widget: "markdown"
+      - label: "وصف الصورة"
+        name: "imageAlt"
+        widget: string
         i18n: true
+        required: true
       - label: "التاريخ"
         name: "date"
         widget: "datetime"
@@ -84,6 +85,11 @@ collections:
         default: "{{now}}"
         required: true
         i18n: duplicate
+      - label: "المحتوى"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+
 
   - name: "announcements"
     label: "الإعلانات"
@@ -107,17 +113,23 @@ collections:
         required: true
         i18n: true
         pattern: *titlePattern
-      - label: "هل الاعلان مهم؟"
-        name: "important"
-        widget: "boolean"
-        default: false
-        i18n: duplicate
       - label: "الوصف"
         name: "description"
         widget: "text"
         required: true
         i18n: true
         pattern: *descriptionPattern
+      - label: "النوع"
+        name: "type"
+        widget: select
+        options: ["administrative", "academic", "students", "general"]
+        i18n: duplicate
+        required: true
+      - label: "هل الاعلان مهم؟"
+        name: "important"
+        widget: "boolean"
+        default: false
+        i18n: duplicate
       - label: "المحتوى"
         name: "body"
         widget: "markdown"
