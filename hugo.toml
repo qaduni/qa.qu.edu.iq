@@ -10,7 +10,7 @@ buildFuture = true
   cms_branch = "main"
 
 [module]
-  # replacements = "github.com/qaduni/qu.theme -> /home/sadiq/Projects/qu.theme"
+  replacements = "github.com/qaduni/qu.theme -> /home/sadiq/Projects/qu.theme"
   [[module.imports]]
       path = "github.com/qaduni/qu.theme"
 
