@@ -1,4 +1,4 @@
-const CACHE_NAME = 'qu-portal-v5';
+const CACHE_NAME = 'qu-portal-v6';
 const ASSETS_TO_CACHE = [
   '/ar/',
   '/en/',
@@ -37,12 +37,17 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // 1. Only process HTTP/HTTPS GET requests (Ignores POST, PUT, DELETE, extension schemas)
+  // 1. Only process GET requests over HTTP/HTTPS
   if (event.request.method !== 'GET' || !url.protocol.startsWith('http')) {
     return;
   }
 
-  // 2. Bypass Service Worker entirely for dynamic API endpoints (e.g., Umami stats)
+  // 2. IMPORTANT: Bypass SW for cross-origin requests (e.g. external Pagefind domains)
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
+  // 3. Bypass SW for dynamic API endpoints
   if (url.pathname.includes('/api/')) {
     return;
   }
@@ -51,7 +56,6 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          // Only cache successful responses
           if (response.ok) {
             const responseClone = response.clone();
             caches.open(CACHE_NAME).then((cache) => {
@@ -66,7 +70,7 @@ self.addEventListener('fetch', (event) => {
           if (cached) {
             return cached;
           }
-          return new Response('', { status: 504, statusText: 'Offline' });
+          return new Response('Offline', { status: 504, statusText: 'Offline' });
         })
     );
   } else {
@@ -77,16 +81,21 @@ self.addEventListener('fetch', (event) => {
           return cachedResponse;
         }
 
-        return fetch(event.request).then((networkResponse) => {
-          // Only cache valid local/same-origin GET responses (HTTP 200)
-          if (networkResponse.ok && networkResponse.type === 'basic') {
-            const responseClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseClone);
-            });
-          }
-          return networkResponse;
-        });
+        return fetch(event.request)
+          .then((networkResponse) => {
+            if (networkResponse.ok && networkResponse.type === 'basic') {
+              const responseClone = networkResponse.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, responseClone);
+              });
+            }
+            return networkResponse;
+          })
+          .catch((err) => {
+            // Catch network errors during local development or offline states
+            console.warn('SW fetch failed for:', event.request.url, err);
+            return new Response('', { status: 408, statusText: 'Request Timed Out' });
+          });
       })
     );
   }
