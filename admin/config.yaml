@@ -144,6 +144,22 @@ collections:
         required: true
         i18n: duplicate
   - divider: true
+  - name: "academic_calendar"
+    label: "التقويم الأكاديمي"
+    icon: calendar_month
+    folder: "content/academics/academic_calendar"
+    i18n: true
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{uuid_shorter}}"
+    fields:
+      - { label: "عنوان الحدث", name: "title", widget: "string", i18n: true, required: true }
+      - { label: "التصنيف", name: "category", widget: "select", i18n: true, options: ["تاريخ الفصل", "امتحان", "عطلة", "تسجيل", "المواعيد النهائية لأعضاء هيئة التدريس"], required: false }
+      - { label: "تاريخ البدء", name: "start_date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: true, i18n: duplicate }
+      - { label: "تاريخ الانتهاء", name: "end_date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: false, i18n: duplicate }
+      - { label: "طوال اليوم", name: "all_day", widget: "boolean", default: true, i18n: duplicate }
+      - { label: "الموقع", name: "location", widget: "string", required: false, i18n: true }
+      - { label: "الوصف", name: "body", widget: "markdown", required: false, i18n: true }
+  - divider: true
   # ==========================================
   # CONTENT PAGES
   # ==========================================
